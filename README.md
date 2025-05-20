@@ -247,5 +247,3 @@ Với cấu trúc Front Controller, mọi request đều đi qua file index.php,
 - Cơ chế phân quyền dựa trên trường role trong bảng account
 - Truy cập phần quản trị qua URL: index.php?module=admin
 
-## Liên hệ và hỗ trợ
-Nếu có vấn đề hoặc câu hỏi, vui lòng liên hệ qua email hoặc tạo issue trên repository. 
