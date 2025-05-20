@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => 'af4cd9e92996f7e8fc7a2c63ca61f371e5fa664a',
+        'pretty_version' => 'dev-New',
+        'version' => 'dev-New',
+        'reference' => '8de313669b7e1c03b5891439ab5b6878c4e4b1a4',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,11 +11,20 @@
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => 'af4cd9e92996f7e8fc7a2c63ca61f371e5fa664a',
+            'pretty_version' => 'dev-New',
+            'version' => 'dev-New',
+            'reference' => '8de313669b7e1c03b5891439ab5b6878c4e4b1a4',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'payos/payos' => array(
+            'pretty_version' => '1.0.6',
+            'version' => '1.0.6.0',
+            'reference' => 'dce389ac3c464f04fd67f4488b3d66275dd0e7b3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../payos/payos',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
