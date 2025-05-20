@@ -41,11 +41,11 @@ require './Config/province.php'; ?>
 
                         <div class="error-block" style="padding: 0 5% ">
 
-                            <h2>Please login to place an order!</h2>
-                            <p>If you have already had an acount. Click <a> <button class="login-modal p-0" style="font-family: inherit; width:unset" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">here</button>
-                                </a> to login
+                            <h2>Hãy đăng nhập để đặt hàng!</h2>
+                            <p>Nếu bạn đã có tài khoản. Click <a> <button class="login-modal p-0" style="font-family: inherit; width:unset" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">here</button>
+                                </a> để đăng nhập
                             </p>
-                            <p>Have not been a member yet! Register <a> <button class="login-modal p-0" style="font-family: inherit; width:unset" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">here</button>
+                            <p>Nếu chưa có tài khoản, Đăng ký thôi. <a> <button class="login-modal p-0" style="font-family: inherit; width:unset" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">here</button>
                                 </a>
                             </p>
                             <div class="img-container">
@@ -151,12 +151,8 @@ require './Config/province.php'; ?>
 
                                     <select class="form-control" id="payment" name="payment">
                                         <option value="Cash on delivery">Cash on delivery </option>
-                                        <option value="Mastercard">Mastercard </option>
-                                        <option value="Visa">Visa </option>
                                         <option value="Internet Banking">Internet Banking </option>
-
                                     </select>
-
                                 </div>
 
                                 <div class="form-group" style="border-top: 1px solid lightgray; padding-top: 1.5rem;">

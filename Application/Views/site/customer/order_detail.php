@@ -13,9 +13,14 @@
         <div class="row">
             <div class="col-md-12">
                 <h2 id="motto">Order #<?= $order['id'] ?> detail</h2>
-
+                <?php if ($order['payment'] == 'Internet Banking' && $order['payment_status'] == 0 && $order['status'] != 3): ?>
+                <div class="payment-alert">
+                    <h4>Đơn hàng này chưa được thanh toán</h4>
+                    <p>Bạn có thể thanh toán ngay bây giờ hoặc trở lại sau.</p>
+                    <a href="./?controller=customer&action=repayOrder&id=<?= $order['id'] ?>" class="btn-root">Thanh toán ngay</a>
+                </div>
+                <?php endif; ?>
             </div>
-
         </div>
     </div>
     <div class="container-fluid banner-share">
@@ -27,7 +32,6 @@
                 <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
-
     </div>
 </section>
 
