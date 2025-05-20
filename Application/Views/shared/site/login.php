@@ -13,7 +13,7 @@ if (!empty($_SESSION['user']))
 
 
 
-    <a href='?controller=verify&action=profile'> 
+    <a href='?controller=customer&action=viewProfile'> 
         <button class='login-modal' style='width:auto'><i class='fas fa-user-edit' style='font-size: 14px'></i>Profile</button>
     </a>
     <a href='?controller=customer&action=listOrders'>
@@ -54,8 +54,14 @@ if (!empty($_SESSION['user']))
                     <input type="password" placeholder="Password *" name="password" id="li-psw" onkeyup="validateNotEmpty(this, 'Password')">
                     <small id="li-psw-err"></small>
 
-                    <div class="forgot-password">
-                        <a href="?controller=verify&action=forgotPassword">Quên mật khẩu?</a>
+                    <div class="remember-forgot-row">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember">Nhớ mật khẩu</label>
+                        </div>
+                        <div class="forgot-password">
+                            <a href="?controller=verify&action=forgotPassword">Quên mật khẩu?</a>
+                        </div>
                     </div>
 
                     <button type="submit" class="login-btn">Tiếp tục</button>

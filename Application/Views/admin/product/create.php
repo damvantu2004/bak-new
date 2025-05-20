@@ -1,5 +1,5 @@
 <?php view('shared.admin.header', [
-    'title' => 'Add Product'
+    'title' => 'Thêm sản phẩm'
 ]); ?>
 <?php if (!empty($message['success-add'])) { ?>
     <div class="alert alert-success" id="success-add-product">

@@ -39,9 +39,9 @@
                 <div class="row contact-block m-0">
 
                     <ul class="contact-span m-0 hidden-xs hidden-sm">
-                        <li><i class="fas fa-map-marker-alt"></i><span>235 Hoàng Quốc Việt, Cổ Nhuế, Bắc Từ Liêm, Hà Nội, Việt Nam</span>
+                        <li><i class="fas fa-map-marker-alt"></i><span>45 P. Tuệ Tĩnh, Bùi Thị Xuân, Hai Bà Trưng, Hà Nội, Việt Nam</span>
                         </li>
-                        <li><i class="fas fa-phone-alt"></i><span>02422185607</span></li>
+                        <li><i class="fas fa-phone-alt"></i><span>0388 888 888</span></li>
                     </ul>
 
                     <div class="login-signup">

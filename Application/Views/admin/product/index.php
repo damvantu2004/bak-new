@@ -15,16 +15,23 @@
     <?= $message['success-delete'] ?? '' ?>
 </div>
 <?php } ?>
-<form action="./?module=admin&controller=product&action=searchProductFull" class="form-inline" method="post">
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <form action="./?module=admin&controller=product&action=searchProductFull" class="form-inline" method="post">
+        <div class="form-group">
+            <input class="form-control search-input" name="productSearch" placeholder="Search By Name..">
+        </div>
 
-    <div class="form-group">
-        <input class="form-control search-input" name="productSearch" placeholder="Search By Name..">
+        <button type="submit" class="btn btn-root search-btn">
+            <i class="fas fa-search"></i>
+        </button>
+    </form>
+
+    <div>
+        <a href="./?module=admin&controller=product&action=import" class="btn btn-success">
+            <i class="fas fa-file-import"></i> Import Products
+        </a>
     </div>
-
-    <button type="submit" class="btn btn-root search-btn">
-        <i class="fas fa-search"></i>
-    </button>
-</form>
+</div>
 <hr>
 <table class="table table-hover">
     <thead>

@@ -13,9 +13,9 @@
 
 <footer class="main-footer">
     <div class="d-none d-sm-block" style="float: right">
-        <b>D15CNPM2</b>
+        <b>K25CNTTA</b>
     </div>
-    Đinh Tùng Dương ,Phạm Hồng Định, Trần Tuấn Kiệt
+    Đàm Văn Tú, Nguyễn Đức Mạnh, Phạm Ngọc Tiến, Đào Việt Anh, Phàn Văn Dài.
 </footer>
 
 <!-- Control Sidebar -->

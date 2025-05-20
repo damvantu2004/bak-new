@@ -44,6 +44,7 @@ class CustomerController extends BaseController
         $message = [];
         $input = $_REQUEST;
         $user = $this->userModel->findUserById(['*'], $_SESSION['user']['id']);
+        
         // validate form input
         if (empty($input['fname'])) {
             $message['all-error']    = "Please enter first name";
@@ -80,17 +81,10 @@ class CustomerController extends BaseController
             goto getBackToHome;
         }
 
-        // todo: add hash helper function
-        // check if submitted password is same as current user password
-        if (md5($input['current_password']) != $_SESSION['user']['password']) {
-            $message['all-error'] = "Wrong password";
-            goto getBackToHome;
-        }
-
-        // round 2: 
-        // check if submitted password is same as current user password in db
-        if ($user = $this->userModel->getUserByEmailAndPwd($_SESSION['user']['email'], $input['current_password'])) {
-            if ($user['email'] != $_SESSION['user']['email']) {
+        // Kiểm tra mật khẩu
+        $temp_user = $this->userModel->getUserByEmailAndPwd($_SESSION['user']['email'], $input['current_password']);
+        if ($temp_user) {
+            if ($temp_user['email'] != $_SESSION['user']['email']) {
                 $message['all-error'] = "Invalid password";
                 goto getBackToHome;
             }
@@ -141,11 +135,12 @@ class CustomerController extends BaseController
                 $message['all-error'] = "Cannot get up-to-date user info";
             }
         } else {
-            $message['all-error'] = "Submitted email and password does not match any user";
+            $message['all-error'] = "Wrong password";
+            goto getBackToHome;
         }
 
         getBackToHome:
-
+        // Không cập nhật $user = $temp_user, giữ nguyên $user ban đầu
         return view('site.customer.profile', [
             'banners' => $this->banners,
             'message' => $message,
@@ -189,13 +184,11 @@ class CustomerController extends BaseController
             goto getBackToHome;
         }
 
-        // todo: add hash helper function
-
-        // check if submitted current password is same as current user password
-        if (md5($input['current_password']) != $_SESSION['user']['password']) {
-            $message['all-error'] = "Wrong password";
-            goto getBackToHome;
-        }
+        // Xóa dòng này
+        // if (md5($input['current_password']) != $_SESSION['user']['password']) {
+        //     $message['all-error'] = "Wrong password";
+        //     goto getBackToHome;
+        // }
 
         // round 2: 
         // check if submitted password is same as current user password in db
@@ -205,10 +198,10 @@ class CustomerController extends BaseController
                 goto getBackToHome;
             }
 
-            // new user data 
+            // new user data - sử dụng bcrypt thay vì md5
             $data =
                 [
-                    'password'         => md5($input['new_password']),
+                    'password' => password_hash($input['new_password'], PASSWORD_BCRYPT),
                 ];
 
             // update user data in db

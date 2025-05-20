@@ -198,3 +198,32 @@ require './Config/province.php'; ?>
 </section>
 
 <?php view('shared.site.footer'); ?>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Kiểm tra xem có thông báo thành công không
+    let successMessage = document.getElementById('success-update-profile');
+    
+    if (successMessage) {
+        // Lấy nội dung thông báo
+        let messageText = successMessage.textContent.trim();
+        
+        // Xác định vị trí cuộn dựa trên loại form đã submit
+        let profileForm = document.querySelector('form[action*="updateProfile"]');
+        let passwordForm = document.querySelector('form[action*="updatePassword"]');
+        
+        // Lấy vị trí của form để cuộn đến
+        if (messageText.includes('Update profile successfully') && profileForm) {
+            // Cuộn đến form profile
+            setTimeout(function() {
+                profileForm.scrollIntoView({behavior: 'smooth'});
+            }, 100);
+        } else if (messageText.includes('Update password successfully') && passwordForm) {
+            // Cuộn đến form password
+            setTimeout(function() {
+                passwordForm.scrollIntoView({behavior: 'smooth'});
+            }, 100);
+        }
+    }
+});
+</script>

@@ -10,6 +10,7 @@
                 <div class="bill-form-block">
                     <h2>
                         Order details
+                        <a href="./?module=admin&controller=order&action=printInvoice&id=<?= $_GET['id'] ?>" class="btn btn-info float-right">In hóa đơn</a>
                     </h2>
                     <div class="form-group row">
                         <div class="col-md-6">

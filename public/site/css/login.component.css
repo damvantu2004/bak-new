@@ -237,4 +237,3214 @@
     }
   }
 
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+    color: var(--primary-color-hover);
+    text-decoration: underline;
+  }
+
+  .remember-forgot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .remember-me label {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    text-align: right;
+  }
+
+  .forgot-password a {
+    font-size: 14px;
  

@@ -174,4 +174,130 @@ class ProductController extends BaseController
             'pagination' => $products->createLinks($links, 'pagination')
         ]);
     }
+
+    // thêm nhiều sản phẩm từ file csv hoặc excel
+    public function import()
+    {
+        // Hiển thị form import
+        return $this->view('admin.product.import');
+    }
+
+    public function processImport()
+    {
+        $message = [];
+        
+        // Kiểm tra file upload
+        if (!isset($_FILES['import_file']) || $_FILES['import_file']['error'] != 0) {
+            $message['error'] = 'Please select a valid file to import';
+            return $this->view('admin.product.import', ['message' => $message]);
+        }
+        
+        $file = $_FILES['import_file'];
+        $fileName = $file['name'];
+        $fileTmpName = $file['tmp_name'];
+        $fileSize = $file['size'];
+        $fileType = $file['type'];
+        
+        // Kiểm tra kích thước file (2MB max)
+        if ($fileSize > 2 * 1024 * 1024) {
+            $message['error'] = 'File size exceeds the limit (2MB)';
+            return $this->view('admin.product.import', ['message' => $message]);
+        }
+        
+        // Kiểm tra định dạng file
+        $validTypes = [ // cho phép các định dạng file csv, excel, xlsx
+            'text/csv',
+            'application/vnd.ms-excel',
+            'application/csv', 
+            'application/excel',
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        ];
+        
+        if (!in_array($fileType, $validTypes) && !preg_match('/\.csv$/i', $fileName)) {
+            $message['error'] = 'Invalid file format. Please upload a CSV or Excel file.';
+            return $this->view('admin.product.import', ['message' => $message]);
+        }
+        
+        // Xử lý file CSV
+        $hasHeader = isset($_POST['header_row']) ? true : false;
+        $products = [];
+        $errors = [];
+        
+        if (($handle = fopen($fileTmpName, 'r')) !== false) {
+            // Bỏ qua dòng header nếu có
+            if ($hasHeader) {
+                fgetcsv($handle, 1000, ',');
+            }
+            
+            $lineNumber = $hasHeader ? 2 : 1; // Để theo dõi dòng lỗi
+            $successCount = 0;
+            
+            while (($data = fgetcsv($handle, 1000, ',')) !== false) {
+                // Kiểm tra số lượng cột
+                if (count($data) < 7) {
+                    $errors[] = "Line $lineNumber: Not enough columns";
+                    $lineNumber++;
+                    continue;
+                }
+                
+                // Xử lý dữ liệu
+                $product = [
+                    'name' => trim($data[0]),
+                    'price' => floatval(trim($data[1])),
+                    'sale_price' => floatval(trim($data[2])),
+                    'description' => trim($data[3]),
+                    'origin' => trim($data[4]),
+                    'quantity' => intval(trim($data[5])),
+                    'category_id' => intval(trim($data[6])),
+                    'status' => isset($data[7]) ? intval(trim($data[7])) : 1,
+                    'image' => isset($data[8]) ? trim($data[8]) : 'no-image.jpg' // Mặc định nếu không có ảnh
+                ];
+                
+                // Kiểm tra dữ liệu
+                if (empty($product['name'])) {
+                    $errors[] = "Line $lineNumber: Product name is required";
+                    $lineNumber++;
+                    continue;
+                }
+                
+                if ($product['price'] <= 0) {
+                    $errors[] = "Line $lineNumber: Price must be greater than 0";
+                    $lineNumber++;
+                    continue;
+                }
+                
+                // Thêm sản phẩm vào danh sách
+                try {
+                    // Kiểm tra sản phẩm tồn tại
+                    if (sizeof($this->productModel->findProductByName($product['name'])) > 0) {
+                        $errors[] = "Line $lineNumber: Product '{$product['name']}' already exists";
+                        $lineNumber++;
+                        continue;
+                    }
+                    
+                    // Thêm sản phẩm vào database
+                    $this->productModel->createData($product);
+                    $successCount++;
+                } catch (Exception $e) {
+                    $errors[] = "Line $lineNumber: Error adding product - " . $e->getMessage();
+                }
+                
+                $lineNumber++;
+            }
+            fclose($handle);
+            
+            // Thông báo kết quả
+            if ($successCount > 0) {
+                $message['success'] = "Successfully imported $successCount products";
+            }
+            
+            if (!empty($errors)) {
+                $message['error'] = "Encountered the following errors:<br>" . implode("<br>", $errors);
+            }
+        } else {
+            $message['error'] = 'Could not open the file for reading';
+        }
+        
+        return $this->view('admin.product.import', ['message' => $message]);
+    }
 }

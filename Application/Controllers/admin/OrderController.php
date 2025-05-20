@@ -85,4 +85,16 @@ class OrderController extends BaseController
             'pagination' => $orders->createLinks($links, 'pagination')
         ]);
     }
+    
+    public function printInvoice()
+    {
+        $id = $_GET['id'] ?? null;
+        $order = $this->orderModel->getOrderDetailById($id);
+        $products_in_order = $this->orderModel->getAllProductsInOrderById($id);
+        
+        return $this->view('admin.order.invoice', [
+            'order' => $order,
+            'products_in_order' => $products_in_order
+        ]);
+    }
 }
