@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1500" height="1650" preserveAspectRatio="xMinYMin meet">
+  <!-- Định nghĩa các đầu mũi tên -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="black"/>
+    </marker>
+    <marker id="dashedarrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="black"/>
+    </marker>
+  </defs>
+  
+  <!-- Tiêu đề biểu đồ -->
+  <text x="750" y="50" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">Biểu đồ tuần tự: Thống kê Admin Dashboard</text>
+  
+  <!-- Admin -->
+  <circle cx="160" cy="100" r="30" fill="#A9CCE3" stroke="black" stroke-width="2"/>
+  <text x="160" y="150" font-family="Arial" font-size="16" text-anchor="middle">Admin</text>
+  <line x1="160" y1="130" x2="160" y2="1600" stroke="black" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Các đối tượng (lifeline) -->
+  <!-- frmDashboard -->
+  <circle cx="400" cy="100" r="30" fill="#AED6F1" stroke="black" stroke-width="2"/>
+  <text x="400" y="150" font-family="Arial" font-size="16" text-anchor="middle">Giao diện Dashboard</text>
+  <line x1="400" y1="130" x2="400" y2="1600" stroke="black" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- CodeDashboard -->
+  <circle cx="640" cy="100" r="30" fill="#AED6F1" stroke="black" stroke-width="2"/>
+  <text x="640" y="150" font-family="Arial" font-size="16" text-anchor="middle">CodeDashboard</text>
+  <line x1="640" y1="130" x2="640" y2="1600" stroke="black" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- tblOrder -->
+  <circle cx="880" cy="100" r="30" fill="#AED6F1" stroke="black" stroke-width="2"/>
+  <text x="880" y="150" font-family="Arial" font-size="16" text-anchor="middle">tblOrder</text>
+  <line x1="880" y1="130" x2="880" y2="1600" stroke="black" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- tblUser -->
+  <circle cx="1120" cy="100" r="30" fill="#AED6F1" stroke="black" stroke-width="2"/>
+  <text x="1120" y="150" font-family="Arial" font-size="16" text-anchor="middle">tblUser</text>
+  <line x1="1120" y1="130" x2="1120" y2="1600" stroke="black" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- tblProduct -->
+  <circle cx="1360" cy="100" r="30" fill="#AED6F1" stroke="black" stroke-width="2"/>
+  <text x="1360" y="150" font-family="Arial" font-size="16" text-anchor="middle">tblProduct</text>
+  <line x1="1360" y1="130" x2="1360" y2="1600" stroke="black" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Thanh hoạt động cho Admin -->
+  <rect x="155" y="200" width="10" height="1350" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 1. Truy cập trang dashboard -->
+  <line x1="165" y1="230" x2="395" y2="230" stroke="black" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="280" y="220" font-family="Arial" font-size="16">Yêu cầu xem thống kê</text>
+  
+  <!-- Thanh hoạt động frmDashboard -->
+  <rect x="395" y="230" width="10" height="90" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 2. Hiển thị giao diện và gọi CodeDashboard -->
+  <line x1="405" y1="270" x2="635" y2="270" stroke="black" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="520" y="260" font-family="Arial" font-size="16">Yêu cầu lấy dữ liệu thống kê</text>
+  
+  <!-- Thanh hoạt động CodeDashboard -->
+  <rect x="635" y="270" width="10" height="1000" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 3. CodeDashboard truy vấn tổng đơn hàng từ tblOrder -->
+  <line x1="645" y1="310" x2="875" y2="310" stroke="black" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="760" y="300" font-family="Arial" font-size="16">Lấy tổng số đơn hàng từ CSDL</text>
+  
+  <!-- Thanh hoạt động tblOrder -->
+  <rect x="875" y="310" width="10" height="80" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 4. tblOrder trả về kết quả -->
+  <line x1="875" y1="390" x2="645" y2="390" stroke="black" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#dashedarrow)"/>
+  <text x="760" y="380" font-family="Arial" font-size="16">Trả về tổng số đơn hàng</text>
+  
+  <!-- 5. CodeDashboard truy vấn tổng khách hàng từ tblUser -->
+  <line x1="645" y1="430" x2="1115" y2="430" stroke="black" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="880" y="420" font-family="Arial" font-size="16">Lấy tổng số khách hàng từ CSDL</text>
+  
+  <!-- Thanh hoạt động tblUser -->
+  <rect x="1115" y="430" width="10" height="80" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 6. tblUser trả về kết quả -->
+  <line x1="1115" y1="510" x2="645" y2="510" stroke="black" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#dashedarrow)"/>
+  <text x="880" y="500" font-family="Arial" font-size="16">Trả về tổng số khách hàng</text>
+  
+  <!-- 7. CodeDashboard truy vấn tổng sản phẩm từ tblProduct -->
+  <line x1="645" y1="550" x2="1355" y2="550" stroke="black" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="1000" y="540" font-family="Arial" font-size="16">Lấy tổng số sản phẩm từ CSDL</text>
+  
+  <!-- Thanh hoạt động tblProduct -->
+  <rect x="1355" y="550" width="10" height="80" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 8. tblProduct trả về kết quả -->
+  <line x1="1355" y1="630" x2="645" y2="630" stroke="black" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#dashedarrow)"/>
+  <text x="1000" y="620" font-family="Arial" font-size="16">Trả về tổng số sản phẩm</text>
+  
+  <!-- 9. CodeDashboard truy vấn sản phẩm bán chạy từ tblOrder và tblProduct -->
+  <line x1="645" y1="670" x2="875" y2="670" stroke="black" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="760" y="660" font-family="Arial" font-size="16">Lấy dữ liệu đơn hàng chi tiết</text>
+  
+  <!-- Thanh hoạt động tblOrder -->
+  <rect x="875" y="670" width="10" height="80" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 10. tblOrder trả về kết quả -->
+  <line x1="875" y1="750" x2="645" y2="750" stroke="black" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#dashedarrow)"/>
+  <text x="760" y="740" font-family="Arial" font-size="16">Trả về dữ liệu đơn hàng chi tiết</text>
+  
+  <!-- 11. CodeDashboard truy vấn thông tin sản phẩm từ tblProduct -->
+  <line x1="645" y1="790" x2="1355" y2="790" stroke="black" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="1000" y="780" font-family="Arial" font-size="16">Lấy thông tin sản phẩm bán chạy</text>
+  
+  <!-- Thanh hoạt động tblProduct -->
+  <rect x="1355" y="790" width="10" height="80" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 12. tblProduct trả về kết quả -->
+  <line x1="1355" y1="870" x2="645" y2="870" stroke="black" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#dashedarrow)"/>
+  <text x="1000" y="860" font-family="Arial" font-size="16">Trả về thông tin sản phẩm bán chạy</text>
+  
+  <!-- 13. CodeDashboard truy vấn khách hàng tiềm năng từ tblUser và tblOrder -->
+  <line x1="645" y1="910" x2="1115" y2="910" stroke="black" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="880" y="900" font-family="Arial" font-size="16">Lấy thông tin khách hàng tiềm năng</text>
+  
+  <!-- Thanh hoạt động tblUser -->
+  <rect x="1115" y="910" width="10" height="80" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 14. tblUser trả về kết quả -->
+  <line x1="1115" y1="990" x2="645" y2="990" stroke="black" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#dashedarrow)"/>
+  <text x="880" y="980" font-family="Arial" font-size="16">Trả về thông tin khách hàng tiềm năng</text>
+  
+  <!-- 15. CodeDashboard truy vấn doanh thu từ tblOrder -->
+  <line x1="645" y1="1030" x2="875" y2="1030" stroke="black" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="760" y="1020" font-family="Arial" font-size="16">Lấy dữ liệu doanh thu theo thời gian</text>
+  
+  <!-- Thanh hoạt động tblOrder -->
+  <rect x="875" y="1030" width="10" height="80" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 16. tblOrder trả về kết quả -->
+  <line x1="875" y1="1110" x2="645" y2="1110" stroke="black" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#dashedarrow)"/>
+  <text x="760" y="1100" font-family="Arial" font-size="16">Trả về dữ liệu doanh thu theo thời gian</text>
+  
+  <!-- 17. CodeDashboard xử lý và tổng hợp dữ liệu -->
+  <rect x="635" y="1110" width="10" height="60" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  <text x="700" y="1140" font-family="Arial" font-size="16" text-anchor="middle">Xử lý và tổng hợp dữ liệu</text>
+  
+  <!-- 18. CodeDashboard trả về kết quả cho form -->
+  <line x1="635" y1="1200" x2="405" y2="1200" stroke="black" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#dashedarrow)"/>
+  <text x="520" y="1190" font-family="Arial" font-size="16">Trả về dữ liệu thống kê đã xử lý</text>
+  
+  <!-- Thanh hoạt động frmDashboard -->
+  <rect x="395" y="1200" width="10" height="200" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 19. Form hiển thị thống kê cho admin -->
+  <line x1="395" y1="1250" x2="165" y2="1250" stroke="black" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#dashedarrow)"/>
+  <text x="280" y="1240" font-family="Arial" font-size="16">Hiển thị thống kê tổng quan</text>
+  
+  <!-- 20. Form tạo biểu đồ thống kê -->
+  <rect x="395" y="1250" width="10" height="60" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  <text x="460" y="1280" font-family="Arial" font-size="16" text-anchor="middle">Tạo biểu đồ thống kê</text>
+  
+  <!-- 21. Form hiển thị biểu đồ cho admin -->
+  <line x1="395" y1="1350" x2="165" y2="1350" stroke="black" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#dashedarrow)"/>
+  <text x="280" y="1340" font-family="Arial" font-size="16">Hiển thị biểu đồ thống kê</text>
+  
+  <!-- 22. Admin tương tác với biểu đồ -->
+  <line x1="165" y1="1400" x2="395" y2="1400" stroke="black" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="280" y="1390" font-family="Arial" font-size="16">Admin tương tác với biểu đồ</text>
+</svg>
+

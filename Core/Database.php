@@ -13,7 +13,7 @@ class Database
 
     // const DB_NAME = 'BCVZPDJiJg';
 
-    const HOST = '127.0.0.1:3308';
+    const HOST = '127.0.0.1:3306';
 
     const USERNAME = 'root';
 
