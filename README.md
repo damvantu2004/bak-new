@@ -86,6 +86,7 @@ Cơ sở dữ liệu Bakya gồm 11 bảng được phân tích chi tiết như 
   - `status`: Trạng thái đơn hàng (1-đang xử lý, 0-đã giao, 2-đang giao, 3-đã hủy)
   - `account_id`: Liên kết với tài khoản người dùng
   - `coupon`: Giá trị mã giảm giá đã áp dụng
+  - `payment_status` : trạng thái thanh toán ( 0 - chưa thanh toán, 1 - đã thanh toán)
 - **Quan hệ với bảng khác**:
   - Liên kết n-1 với `account` (nhiều đơn hàng thuộc về một tài khoản)
   - Liên kết 1-n với `order_detail` (một đơn hàng có thể có nhiều chi tiết đơn hàng)
