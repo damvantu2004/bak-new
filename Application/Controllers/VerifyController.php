@@ -42,6 +42,18 @@ class VerifyController extends BaseController
             $message['all-error'] = "Please enter password";
             goto getBackToHome;
         }
+        
+        // Kiểm tra CAPTCHA
+        if (empty($input['captcha'])) {
+            $message['all-error'] = "Vui lòng nhập mã bảo vệ";
+            goto getBackToHome;
+        }
+        
+        require_once './Helper/CaptchaGenerator.php';
+        if (!CaptchaGenerator::validateCaptcha($input['captcha'])) {
+            $message['all-error'] = "Mã bảo vệ không chính xác";
+            goto getBackToHome;
+        }
 
         if ($user = $this->userModel->getUserByEmailAndPwd($input['email'], $input['password'])) {
             // Kiểm tra xem email đã được xác thực chưa

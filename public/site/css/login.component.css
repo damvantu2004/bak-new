@@ -280,7 +280,11 @@
     align-items: center;
     margin-top: 10px;
   }
-
+  .captcha-image {
+    max-width: 100%;
+    height: auto;
+    display: inline-block !important;
+}
   .remember-me {
     display: flex;
     align-items: center;

@@ -54,6 +54,15 @@ if (!empty($_SESSION['user']))
                     <input type="password" placeholder="Password *" name="password" id="li-psw" onkeyup="validateNotEmpty(this, 'Password')">
                     <small id="li-psw-err"></small>
 
+                    <div class="form-group">
+                        <label>Nhập mã bảo vệ:</label>
+                        <div>
+                            <img src="captcha.php" alt="CAPTCHA" class="captcha-image">
+                            <a href="#" onclick="document.querySelector('.captcha-image').src='captcha.php?'+Math.random(); return false;">Làm mới</a>
+                        </div>
+                        <input type="text" name="captcha" class="form-control" required>
+                    </div>
+
                     <div class="remember-forgot-row">
                         <div class="remember-me">
                             <input type="checkbox" id="remember" name="remember">

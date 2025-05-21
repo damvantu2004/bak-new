@@ -156,7 +156,7 @@ require './Config/province.php'; ?>
                                 $total += 2; // Phí vận chuyển $2
 
                                 ?>
-                                <input type="text" name="total" value="<?= number_format($total, 2, '.', '') ?>">
+                                <input type="hidden" name="total" value="<?= number_format($total, 2, '.', '') ?>">
                                 <div class="form-group" style="border-top: 1px solid lightgray; padding-top: 1.5rem;">
                                     <button type="submit" class="btn-root border-root place-order-btn">Place order</button>
                                 </div>
