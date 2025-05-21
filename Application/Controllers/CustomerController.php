@@ -273,8 +273,15 @@ class CustomerController extends BaseController
             3 // Trạng thái hủy đơn hàng
         );
 
-        // hủy link thanh toán
-        $this->payos->cancelPayment($id);
+        // Chỉ hủy link thanh toán nếu không phải thanh toán tiền mặt
+        if ($order['payment_method'] != 'COD' && $order['payment_method'] != 'cash') {
+            try {
+                $this->payos->cancelPayment($id);
+            } catch (Exception $e) {
+                error_log("Không thể hủy thanh toán: " . $e->getMessage());
+            }
+        }
+        
         header("location: ./?controller=customer&action=orderDetail&id=$id");
     }
 }

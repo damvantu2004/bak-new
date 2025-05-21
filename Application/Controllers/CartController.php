@@ -227,4 +227,23 @@ class CartController extends BaseController
             'banners' => $this->banners
         ]);
     }
+
+    public function buyNow()
+    {
+        $id = $_GET['id'] ?? null;
+        $pro = $this->productModel->findProductById(['*'], $id);
+        
+        // Lưu sản phẩm mua ngay vào một session riêng biệt (không động đến giỏ hàng)
+        $_SESSION['buy_now_product'] = [
+            'id' => $pro['id'],
+            'name' => $pro['name'],
+            'image' => $pro['image'],
+            'quantity' => 1,
+            'price' => $pro['sale_price'] > 0 ? $pro['sale_price'] : $pro['price'],
+            'price_sum' => $pro['sale_price'] > 0 ? $pro['sale_price'] : $pro['price']
+        ];
+        
+        // Chuyển hướng đến trang thanh toán "Mua ngay"
+        header('location: ./?controller=checkout&action=buyNowCheckout');
+    }
 }

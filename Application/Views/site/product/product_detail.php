@@ -1,5 +1,5 @@
 <?php view('shared.site.header', [
-    'title' => 'Product Detail'
+    'title' => 'Chi tiết sản phẩm'
 ]);
 // select * from product where id = num
 // thi nhung gia tri ben duoi se dc gan product-detail.php?id=1 // ? means GET truyen tham so id xuong
@@ -8,13 +8,28 @@
 .product-detail-banner {
     background-image: url("./public/uploads/<?= $banners[0]['image'] ?>");
 }
+
+.btn-buy-now {
+    background-color: #ff6a00;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.btn-buy-now:hover {
+    background-color: #ff5500;
+}
 </style>
 <section class="banner product-detail-banner">
     <div class="container-fluid banner-title">
         <div class="row">
             <div class="col-md-12">
-                <h2 id="motto">Product detail</h2>
-                <span>Home</span> &nbsp;<span>\\</span> &nbsp;<span>Product</span>
+                <h2 id="motto">Chi tiết sản phẩm</h2>
+                <span>Trang chủ</span> &nbsp;<span>\\</span> &nbsp;<span>Sản phẩm</span>
             </div>
 
         </div>
@@ -22,7 +37,7 @@
 
     <div class="container-fluid banner-share">
         <div class="row">
-            <span>Share this page:</span>
+            <span>Chia sẻ trang này:</span>
             <div class="banner-social">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-google-plus-g"></i></a>
@@ -162,9 +177,9 @@
                 <div class="product__details__text">
                     <h2 style="margin-bottom: 1rem"><?= $pro["name"] ?></h2>
                     <div class="rating">
-                        <span>Average rating:</span><span style="color: #ffc107">
+                        <span>Đánh giá trung bình:</span><span style="color: #ffc107">
                             <?= round($avg['rating'], 1) ?>/5</span>
-                        <span id="customer-review-no"> <?= sizeof($reviews) ?> reviews</span>
+                        <span id="customer-review-no"> <?= sizeof($reviews) ?> đánh giá</span>
 
 
                         <?php if ($pro['sale_price'] < $pro['price'] && $pro['sale_price'] > 0) : ?>
@@ -188,11 +203,12 @@
 
 
                     <ul class="pro-info-list">
-                        <li><span>Origin: </span><?= strtoupper($pro["origin"]) ?></li>
-                        <li><span>Status: </span>In stock</li>
-                        <li><span>Product code: </span> BK<?= $pro["id"] ?>
+                        <li><span>Xuất xứ: </span><?= strtoupper($pro["origin"]) ?></li>
+                        <li><span>Tình trạng: </span><?= $pro["quantity"] > 0 ? "Còn hàng" : "Hết hàng" ?></li>
+                        <li><span>Số lượng còn lại: </span><?= $pro["quantity"] ?></li>
+                        <li><span>Mã sản phẩm: </span> BK<?= $pro["id"] ?>
                         </li>
-                        <li><span>Brand: </span>Bakya</li>
+                        <li><span>Thương hiệu: </span>Bakya</li>
                     </ul>
                     <div class="product__details__button">
                         <form action="./?controller=cart&action=addQuantity&id=<?= $pro['id'] ?>" method="POST"
@@ -200,27 +216,28 @@
                             <div class="pro-qty">
                                 <div class="dec qtybtn" onclick="decrease(<?= $pro['id'] ?>)"><i
                                         class="ti ti-minus"></i></div>
-                                <input type="number" value="1" id="<?= $pro['id'] ?>quantity" name="more" min="1">
+                                <input type="number" value="1" id="<?= $pro['id'] ?>quantity" name="more" min="1" max="<?= $pro["quantity"] ?>">
                                 <div class="inc qtybtn" onclick="increase(<?= $pro['id'] ?>)"><i class="ti ti-plus"></i>
                                 </div>
                             </div>
 
                             <a class="add-to-cart-pro-detail"><button type="submit"><i class="fas fa-shopping-basket"
-                                        style="font-size:13px"></i><span>Add to
-                                        cart</span></button></a>
+                                        style="font-size:13px"></i><span>Thêm vào giỏ</span></button></a>
+                            <a href="./?controller=cart&action=buyNow&id=<?= $pro['id'] ?>" class="buy-now-btn"><button type="button" class="btn-buy-now"><i class="fas fa-bolt"
+                                    style="font-size:13px"></i><span>Mua ngay</span></button></a>
                         </form>
                     </div>
 
                     <div class="product__details__more">
-                        <div class="tag"> <span class="more-title">Tag: </span>
+                        <div class="tag"> <span class="more-title">Thẻ: </span>
                             <ul>
-                                <li><a href="#">Lemon</a><span> ,</span></li>
-                                <li><a href="#">bakery</a><span> ,</span></li>
-                                <li><a href="#">cake</a><span> ,</span></li>
-                                <li><a href="#">america</a></li>
+                                <li><a href="#">Chanh</a><span> ,</span></li>
+                                <li><a href="#">bánh mì</a><span> ,</span></li>
+                                <li><a href="#">bánh ngọt</a><span> ,</span></li>
+                                <li><a href="#">Mỹ</a></li>
                             </ul>
                         </div>
-                        <div class="category"> <span class="more-title">Category: </span>
+                        <div class="category"> <span class="more-title">Danh mục: </span>
                             <ul>
                                 <li><a href="#"><?= $cat['name'] ?></a></li>
 
@@ -238,13 +255,13 @@
                         <li class="nav-item">
                             <a class="nav-link  active desc-tab" id="desc-tab" data-toggle="tab" href="#tabs-1"
                                 role="tab"
-                                onclick="document.getElementById('rev-tab').classList.remove('active');this.classList.add('active') ;document.getElementById('tabs-1').classList.add('active');document.getElementById('tabs-2').classList.remove('active')">Description</a>
+                                onclick="document.getElementById('rev-tab').classList.remove('active');this.classList.add('active') ;document.getElementById('tabs-1').classList.add('active');document.getElementById('tabs-2').classList.remove('active')">Mô tả</a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link rev-tab" id="rev-tab" data-toggle="tab" href="#tabs-2" role="tab"
                                 onclick="document.getElementById('desc-tab').classList.remove('active');this.classList.add('active');document.getElementById('tabs-1').classList.remove('active');document.getElementById('tabs-2').classList.add('active')">
-                                Reviews (<?= sizeof($reviews) ?>)</a>
+                                Đánh giá (<?= sizeof($reviews) ?>)</a>
                         </li>
                     </ul>
                     <div class="tab-content">
@@ -278,9 +295,9 @@
                                                 <p class="rev-date"><?= $review['created_at'] ?></p>
                                                 <?php if (!empty($_SESSION['user'])) : ?>
                                                 <?php if ($_SESSION['user']['id'] == $review['account_id']) : ?>
-                                                <a class="rev-delete" title="Remove review"
+                                                <a class="rev-delete" title="Xóa đánh giá"
                                                     href="./?controller=product&action=removeReview&id=<?= $review['id'] ?>&productId=<?= $review['product_id'] ?>"
-                                                    onclick="return confirm('Are you sure to delete this review ?')">Delete</a>
+                                                    onclick="return confirm('Bạn có chắc muốn xóa đánh giá này?')">Xóa</a>
                                                 <?php endif; ?>
                                                 <?php endif; ?>
                                                 <span class="rev-rating">
@@ -307,17 +324,17 @@
                             <?php if (empty($_SESSION['user']) || $user['status'] == 0) : ?>
                             <div class="error-block" style="padding: 0 5% ">
 
-                                <h2>Please login to leave a review!</h2>
-                                <p>If you have already had an acount. Click <a> <button class="login-modal p-0"
+                                <h2>Vui lòng đăng nhập để đánh giá!</h2>
+                                <p>Nếu bạn đã có tài khoản, nhấp vào <a> <button class="login-modal p-0"
                                             style="font-family: inherit; width:unset"
                                             onclick="document.getElementById('id01').style.display='block'"
-                                            style="width:auto;">here</button>
-                                    </a> to login
+                                            style="width:auto;">đây</button>
+                                    </a> để đăng nhập
                                 </p>
-                                <p>Have not been a member yet! Register <a> <button class="login-modal p-0"
+                                <p>Chưa là thành viên? Đăng ký <a> <button class="login-modal p-0"
                                             style="font-family: inherit; width:unset"
                                             onclick="document.getElementById('id02').style.display='block'"
-                                            style="width:auto;">here</button>
+                                            style="width:auto;">tại đây</button>
                                     </a>
                                 </p>
                                 <div class="img-container">
@@ -328,9 +345,9 @@
                             </div>
                             <?php else : ?>
                             <div class="rev-form">
-                                <h4>Add a review</h4>
+                                <h4>Thêm đánh giá</h4>
                                 <p id="notice">
-                                    Your email address will not be published. Required fields are marked <span
+                                    Email của bạn sẽ không được công khai. Các trường bắt buộc được đánh dấu <span
                                         class="asterisk">*</span>
                                 </p>
 
@@ -339,7 +356,7 @@
                                     name="reviewProductForm" onsubmit="return validateReviewProductForm();">
 
                                     <label for="stars" style="width: 13%;padding-right: 20px;">
-                                        Your rating <span class="asterisk">*</span>
+                                        Đánh giá của bạn <span class="asterisk">*</span>
                                     </label>
                                     <div class="rating">
                                         <label class="rate-label">
@@ -376,9 +393,9 @@
                                     <small id="rating-err"></small>
 
                                     <div class="form-group">
-                                        <label for="content">Your review <span class="asterisk">*</span></label>
+                                        <label for="content">Nội dung đánh giá <span class="asterisk">*</span></label>
                                         <textarea class="form-control" name="content" id="content" rows="4"
-                                            onkeyup="validateLength(this, 'Your review', 500)"></textarea>
+                                            onkeyup="validateLength(this, 'Nội dung đánh giá', 500)"></textarea>
                                     </div>
                                     <div class="form-group" style="margin:0">
                                         <label for=""></label>
@@ -386,7 +403,7 @@
                                     </div>
 
                                     <div class=" form-group">
-                                        <label for="">Your name <span class="asterisk">*</span></label>
+                                        <label for="">Tên của bạn <span class="asterisk">*</span></label>
                                         <input
                                             value="<?= $_SESSION['user']['fname'] . ' ' . $_SESSION['user']['lname'] ?>"
                                             type="text" class="form-control" disabled placeholder=""
@@ -399,7 +416,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="">Your email <span class="asterisk">*</span></label>
+                                        <label for="">Email của bạn <span class="asterisk">*</span></label>
                                         <input value="<?= $_SESSION['user']['email'] ?>" type="text"
                                             class="form-control" disabled placeholder="" aria-describedby="helpId">
                                         <div>
@@ -410,7 +427,7 @@
 
                                     <div class="form-group">
                                         <label for=""></label>
-                                        <button type="submit" class="rev-btn">Submit</button>
+                                        <button type="submit" class="rev-btn">Gửi</button>
                                     </div>
 
                                 </form>
@@ -428,7 +445,7 @@
         <div class="row">
             <div class="col-lg-12  ">
                 <div class="related__title text-center">
-                    <h4>Related products</h4>
+                    <h4>Sản phẩm liên quan</h4>
                 </div>
                 <div class="content-block">
                     <ul id='pro-list'>
@@ -459,8 +476,30 @@
 </section>
 
 <script>
+// Thêm hàm kiểm tra số lượng khi tăng giảm số lượng sản phẩm
+function increase(id) {
+    var quantityInput = document.getElementById(id + "quantity");
+    var currentVal = parseInt(quantityInput.value);
+    var maxVal = parseInt(quantityInput.getAttribute('max'));
+    
+    if (currentVal < maxVal) {
+        quantityInput.value = currentVal + 1;
+    } else {
+        alert("Không thể thêm quá số lượng sản phẩm hiện có (" + maxVal + ")");
+    }
+}
+
+function decrease(id) {
+    var quantityInput = document.getElementById(id + "quantity");
+    var currentVal = parseInt(quantityInput.value);
+    
+    if (currentVal > 1) {
+        quantityInput.value = currentVal - 1;
+    }
+}
+
 $(':radio').change(function() {
-    console.log('New star rating: ' + this.value);
+    console.log('Đánh giá mới: ' + this.value);
 });
 </script>
 

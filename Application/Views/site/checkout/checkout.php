@@ -60,7 +60,7 @@ require './Config/province.php'; ?>
                                 Billing details
                             </h2>
 
-                            <form method="POST" action="./?controller=checkout&action=process" name="checkoutForm" onsubmit="return validateCheckoutForm();">
+                            <form method="POST" action="<?= isset($is_buy_now) ? './?controller=checkout&action=processBuyNow' : './?controller=checkout&action=process' ?>" name="checkoutForm" onsubmit="return validateCheckoutForm();">
 
                                 <div class="form-group row">
                                     <div class="col-md-6">
@@ -158,6 +158,9 @@ require './Config/province.php'; ?>
                                 ?>
                                 <input type="hidden" name="total" value="<?= number_format($total, 2, '.', '') ?>">
                                 <div class="form-group" style="border-top: 1px solid lightgray; padding-top: 1.5rem;">
+                                    <?php if (isset($is_buy_now) && $is_buy_now): ?>
+                                    <a href="./?controller=checkout&action=cancelBuyNow&product_id=<?= $product_id ?>" class="btn btn-secondary" style="margin-right: 10px;">Quay lại</a>
+                                    <?php endif; ?>
                                     <button type="submit" class="btn-root border-root place-order-btn">Place order</button>
                                 </div>
                             </form>
