@@ -13,17 +13,20 @@ require_once 'Helper/CaptchaGenerator.php';
 $code = CaptchaGenerator::createCaptchaSession();
 
 // Tạo hình ảnh
-$width = 150;
-$height = 50;
+$width = 220;
+$height = 60;
 $image = imagecreatetruecolor($width, $height);
 
 // Màu nền và chữ
 $background = imagecolorallocate($image, 240, 240, 255);
-$textColor = imagecolorallocate($image, 0, 0, 255);
-$noiseColor = imagecolorallocate($image, 100, 120, 180);
+$textColor = imagecolorallocate($image, 0, 0, 185);
+$noiseColor = imagecolorallocate($image, 0, 0, 0);
+
+
+
 
 // Vẽ nền
-imagefilledrectangle($image, 0, 0, $width, $height, $background);
+imagefilledrectangle($image, 0, 0, $width-1, $height-1, $background);
 
 // Thêm nhiễu
 for ($i = 0; $i < 100; $i++) {
@@ -39,12 +42,12 @@ for ($i = 0; $i < 5; $i++) {
 }
 
 // Vẽ chữ CAPTCHA
-$font = 5; // Sử dụng font gốc của PHP
-$x = 25;
+$font = 55; // Sử dụng font gốc của PHP kích thước
+$x = 25; // Vị trí x của chữ
 for ($i = 0; $i < strlen($code); $i++) {
-    $y = rand(15, 25);
+    $y = rand(15, 25); // Vị trí y của chữ
     imagechar($image, $font, $x, $y, $code[$i], $textColor);
-    $x += 15;
+    $x += 25; // Khoảng cách giữa các chữ
 }
 
 // Output hình ảnh
