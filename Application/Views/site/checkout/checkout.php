@@ -74,11 +74,7 @@ require './Config/province.php'; ?>
                                         <label for="lname">Last name <span class="asterisk">*</span></label>
                                         <input type="text" value="<?= $_SESSION['user']['lname']  ?>" name="lname" id="co-lname" class="form-control" aria-describedby="helpId" onkeyup="validateName(this, 'Last name');">
                                         <small id="co-lname-err"></small>
-
-
                                     </div>
-
-
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-6">
@@ -93,16 +89,10 @@ require './Config/province.php'; ?>
                                         <input type="text" value="<?= $_SESSION['user']['phone']  ?>" name="phone" id="co-phone" class="form-control" aria-describedby="helpId" onkeyup="validatePhone(this);">
                                         <small id="co-phone-err"></small>
                                         <div>
-
                                         </div>
-
                                     </div>
 
                                 </div>
-
-
-
-
                                 <div class="form-group">
                                     <label for="province">Province/City <span class="asterisk">*</span></label>
                                     <select class="form-control" id="province" name="province">
@@ -110,7 +100,6 @@ require './Config/province.php'; ?>
                                             <option value="<?= $province['value'] ?>" <?php $_SESSION['user']['province'] == $province['value'] ? 'selected' : ''
                                                                                         ?>><?= $province['province'] ?></option>
                                         <?php endforeach; ?>
-
                                     </select>
                                 </div>
 
@@ -150,11 +139,24 @@ require './Config/province.php'; ?>
                                     <label for="payment">Payment method</label>
 
                                     <select class="form-control" id="payment" name="payment">
-                                        <option value="Cash on delivery">Cash on delivery </option>
-                                        <option value="Internet Banking">Internet Banking </option>
+                                        <option value="Cash">Cash on delivery </option>
+                                        <option value="Banking">Internet Banking </option>
                                     </select>
                                 </div>
+                                <?php
+                                // Tính tổng giá trị đơn hàng
+                                $total = $cart->total_price;
 
+                                // Áp dụng mã giảm giá nếu có
+                                if (isset($_SESSION["coupon"]) && $_SESSION["coupon"] != 0) {
+                                    $total = $total * (1 - $_SESSION["coupon"]);
+                                }
+
+                                // Thêm phí vận chuyển
+                                $total += 2; // Phí vận chuyển $2
+
+                                ?>
+                                <input type="text" name="total" value="<?= number_format($total, 2, '.', '') ?>">
                                 <div class="form-group" style="border-top: 1px solid lightgray; padding-top: 1.5rem;">
                                     <button type="submit" class="btn-root border-root place-order-btn">Place order</button>
                                 </div>

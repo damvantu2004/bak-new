@@ -5,7 +5,7 @@ class CustomerController extends BaseController
     protected $userModel;
     protected $bannerModel;
     protected $orderModel;
-
+    protected $payos;
     public function __construct()
     {
         $this->loadModel('UserModel');
@@ -16,6 +16,9 @@ class CustomerController extends BaseController
         $this->bannersHistory = $this->bannerModel->findBannerBySite('Cart');
         $this->loadModel('OrderModel');
         $this->orderModel = new OrderModel;
+
+        $this->loadHelper('PayosHelper');
+        $this->payos = new PayosHelper();
     }
 
     public function viewProfile()
@@ -44,7 +47,7 @@ class CustomerController extends BaseController
         $message = [];
         $input = $_REQUEST;
         $user = $this->userModel->findUserById(['*'], $_SESSION['user']['id']);
-        
+
         // validate form input
         if (empty($input['fname'])) {
             $message['all-error']    = "Please enter first name";
@@ -253,23 +256,25 @@ class CustomerController extends BaseController
             'status' => 3,
             'updated_at' => date("Y-m-d", time())
         ];
-        
+
         $this->orderModel->updateData($id, $data);
-        
+
         // Gửi email thông báo hủy đơn hàng
         $order = $this->orderModel->getOrderDetailById($id);
-        
+
         // Gửi email thông báo
         require_once './Helper/MailService.php';
         $mailService = new MailService();
-        
+
         $mailService->sendOrderStatusEmail(
             $order['email'],
             $order['fname'] . ' ' . $order['lname'],
             $id,
             3 // Trạng thái hủy đơn hàng
         );
-        
+
+        // hủy link thanh toán
+        $this->payos->cancelPayment($id);
         header("location: ./?controller=customer&action=orderDetail&id=$id");
     }
 }

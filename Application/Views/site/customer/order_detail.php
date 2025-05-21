@@ -14,11 +14,11 @@
             <div class="col-md-12">
                 <h2 id="motto">Order #<?= $order['id'] ?> detail</h2>
                 <?php if ($order['payment'] == 'Internet Banking' && $order['payment_status'] == 0 && $order['status'] != 3): ?>
-                <div class="payment-alert">
-                    <h4>Đơn hàng này chưa được thanh toán</h4>
-                    <p>Bạn có thể thanh toán ngay bây giờ hoặc trở lại sau.</p>
-                    <a href="./?controller=customer&action=repayOrder&id=<?= $order['id'] ?>" class="btn-root">Thanh toán ngay</a>
-                </div>
+                    <div class="payment-alert">
+                        <h4>Đơn hàng này chưa được thanh toán</h4>
+                        <p>Bạn có thể thanh toán ngay bây giờ hoặc trở lại sau.</p>
+                        <a href="./?controller=customer&action=repayOrder&id=<?= $order['id'] ?>" class="btn-root">Thanh toán ngay</a>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>
@@ -229,10 +229,19 @@
                                         </option>
                                     </select>
                                 </div>
-
+                                <div class="form-group">
+                                    <label for="status">Trạng thái thanh toán</label>
+                                    <input class="form-control"
+                                        value="<?= $order['payment_status'] == 1 ? "Đã thanh toán" : "Chưa thanh toán" ?>" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <?php if ($order['payment_status'] != 1) : ?>
+                                        <a class="btn btn-secondary" id="pay-link" href="<?= $order['payment_link'] ?>">Thanh toán</a>
+                                    <?php endif; ?>
+                                </div>
                             </td>
                         </tr>
-                        <?php if ($order['status'] == 1) : ?>
+                        <?php if ($order['status'] == 1 && $order['payment_status'] != 1) : ?>
                             <tr>
 
                                 <td colspan="2" style="border: none; padding-top: 20px">
@@ -257,11 +266,9 @@
                         </tr>
                     </tfoot>
                 </table>
-
             </div>
-
-
         </div>
     </div>
 </section>
+
 <?php view('shared.site.footer'); ?>

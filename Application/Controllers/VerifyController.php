@@ -24,9 +24,7 @@ class VerifyController extends BaseController
     }
 
 
-    public function index()
-    {
-    }
+    public function index() {}
 
     // verify user info
     public function login()
@@ -63,7 +61,7 @@ class VerifyController extends BaseController
                 // update to account db
                 $data =
                     [
-                        'remember_token'           => $token,
+                        'remember_token' => $token,
                     ];
                 $this->userModel->updateData($user['id'], $data);
 
@@ -225,7 +223,7 @@ class VerifyController extends BaseController
             // Gửi email xác thực
             require_once './Helper/MailService.php';
             $mailService = new MailService();
-            
+
             // Tạo đường dẫn xác thực
             $baseUrl = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://";
             $baseUrl .= $_SERVER['HTTP_HOST'];
@@ -237,9 +235,9 @@ class VerifyController extends BaseController
             }
             $verificationLink = $baseUrl . "?controller=verify&action=verifyEmail&token=$verificationToken";
             $fullName = $input['fname'] . ' ' . $input['lname'];
-            
+
             $mailService->sendVerificationEmail($input['email'], $fullName, $verificationLink);
-            
+
             $message['success-register'] = 'Đăng ký thành công! Vui lòng kiểm tra email để xác thực tài khoản.';
         } else {
             $message['all-error'] = 'Signup failed';
@@ -284,37 +282,37 @@ class VerifyController extends BaseController
         $_SESSION['total_quantity'] = 0;
         header('location:index.php');
     }
-    
+
     // Xác thực email
-    public function verifyEmail() 
+    public function verifyEmail()
     {
         $token = $_GET['token'] ?? '';
         $message = [];
-        
+
         if (empty($token)) {
             $message['all-error'] = 'Token không hợp lệ';
             goto showHomepage;
         }
-        
+
         // Lấy thông tin user từ token
         $user = $this->userModel->getUserByVerificationToken($token);
-        
+
         if (!$user) {
             $message['all-error'] = 'Token không hợp lệ hoặc đã được sử dụng';
             goto showHomepage;
         }
-        
+
         // Cập nhật thời gian xác thực
         $this->userModel->verifyEmail($token);
-        
+
         $message['success-verify'] = 'Xác thực email thành công! Bạn có thể đăng nhập ngay bây giờ.';
-        
+
         showHomepage:
         $latest_products8 = $this->productModel->getProducts(8);
         $latest_products4 = $this->productModel->getProducts(4);
         $categories = $this->categoryModel->getAll();
         $offer_pro = $this->productModel->getProductHighestSalePercent();
-        
+
         $this->view('site.home.index', [
             'banners' => $this->banners,
             'message' => $message,
@@ -324,94 +322,94 @@ class VerifyController extends BaseController
             'offer_pro' => $offer_pro
         ]);
     }
-    
+
     // Quên mật khẩu
     public function forgotPassword()
     {
         $this->view('site.account.forgot_password');
     }
-    
+
     public function sendResetLink()
     {
         $email = $_POST['email'] ?? '';
         $message = [];
-        
+
         if (empty($email)) {
             $message['error'] = 'Vui lòng nhập email';
             goto showForm;
         }
-        
+
         // Kiểm tra email tồn tại
         $user = $this->userModel->findUserByEmail(['*'], $email);
-        
+
         if (!$user) {
             $message['error'] = 'Email không tồn tại trong hệ thống';
             goto showForm;
         }
-        
+
         // Tạo token reset mật khẩu
         $token = bin2hex(random_bytes(32));
         $expires = date('Y-m-d H:i:s', strtotime('+24 hours'));
-        
+
         // Lưu token vào database
         $this->userModel->saveResetToken($user['id'], $token, $expires);
-        
+
         // Gửi email với link reset
         require_once './Helper/MailService.php';
         $mailService = new MailService();
-        
+
         // Tạo đường dẫn xác thực - FIX URL CREATION
         $baseUrl = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://";
         $baseUrl .= $_SERVER['HTTP_HOST'];
-        
+
         // Sửa lại cách tạo baseUrl để tránh các ký tự escape
         $scriptPath = str_replace('\\', '/', dirname($_SERVER['PHP_SELF']));
         $baseUrl .= $scriptPath;
         if (substr($baseUrl, -1) !== '/') {
             $baseUrl .= '/';
         }
-        
+
         $resetLink = $baseUrl . "?controller=verify&action=resetPassword&token=$token";
-        
+
         if ($mailService->sendPasswordResetEmail($email, $resetLink)) {
             $message['message'] = 'Chúng tôi đã gửi một email với hướng dẫn đặt lại mật khẩu. Vui lòng kiểm tra hộp thư của bạn.';
         } else {
             $message['error'] = 'Có lỗi xảy ra khi gửi email. Vui lòng thử lại sau.';
         }
-        
+
         showForm:
         $this->view('site.account.forgot_password', $message);
     }
-    
+
     public function resetPassword()
     {
         $token = $_GET['token'] ?? '';
-        
+
         if (empty($token)) {
             return $this->view('site.account.forgot_password', [
                 'error' => 'Token không hợp lệ'
             ]);
         }
-        
+
         // Kiểm tra token hợp lệ
         if (!$this->userModel->validateResetToken($token)) {
             return $this->view('site.account.forgot_password', [
                 'error' => 'Liên kết đã hết hạn hoặc không hợp lệ'
             ]);
         }
-        
+
         // Hiển thị form đặt lại mật khẩu
         return $this->view('site.account.reset_password', [
             'token' => $token
         ]);
     }
-    
+
     public function updatePassword()
     {
         $token = $_POST['token'] ?? '';
         $password = $_POST['password'] ?? '';
         $confirmPassword = $_POST['confirm_password'] ?? '';
-        
+
         // Kiểm tra dữ liệu đầu vào
         if (empty($token) || empty($password) || empty($confirmPassword)) {
             return $this->view('site.account.reset_password', [
@@ -419,7 +417,7 @@ class VerifyController extends BaseController
                 'error' => 'Vui lòng điền đầy đủ thông tin'
             ]);
         }
-        
+
         // Kiểm tra mật khẩu trùng khớp
         if ($password !== $confirmPassword) {
             return $this->view('site.account.reset_password', [
@@ -427,34 +425,34 @@ class VerifyController extends BaseController
                 'error' => 'Mật khẩu xác nhận không khớp'
             ]);
         }
-        
+
         // Lấy thông tin user từ token
         $user = $this->userModel->getUserByResetToken($token);
-        
+
         if (!$user) {
             return $this->view('site.account.forgot_password', [
                 'error' => 'Token không hợp lệ'
             ]);
         }
-        
+
         // Cập nhật mật khẩu
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
         $this->userModel->updatePassword($user['id'], $hashedPassword);
         $this->userModel->clearResetToken($user['id']);
-        
+
         // Gửi email thông báo
         require_once './Helper/MailService.php';
         $mailService = new MailService();
         $mailService->sendPasswordResetEmail($user['email'], 'Mật khẩu của bạn đã được đặt lại thành công!');
-        
+
         $message = [];
         $message['success-login'] = 'Đặt lại mật khẩu thành công! Bạn có thể đăng nhập ngay bây giờ.';
-        
+
         $latest_products8 = $this->productModel->getProducts(8);
         $latest_products4 = $this->productModel->getProducts(4);
         $categories = $this->categoryModel->getAll();
         $offer_pro = $this->productModel->getProductHighestSalePercent();
-        
+
         $this->view('site.home.index', [
             'banners' => $this->banners,
             'message' => $message,

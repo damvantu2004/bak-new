@@ -22,7 +22,7 @@
             <th>Province</th>
             <th>Created at</th>
             <th>Status</th>
-            <th class="text-center">Quantity</th>
+            <th class="text-center">Thanh toán</th>
             <th>Total</th>
             <th class="text-center"> Detail</th>
         </tr>
@@ -67,7 +67,7 @@
                     <?php endif; ?>
                 </td>
                 <td class="text-center">
-                    <?= $order['quantity'] ?>
+                    <?= $order['payment_status'] == 1 ? "Đã thanh toán" : "Chưa thanh toán" ?>
                 </td>
                 <td>
                     $<?= number_format($order['total'], 2, '.', '') ?>
@@ -81,8 +81,6 @@
             </tr>
         <?php endforeach; ?>
     </tbody>
-
-
 </table>
 
 <hr>

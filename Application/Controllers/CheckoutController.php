@@ -11,6 +11,7 @@ class CheckoutController extends BaseController
     protected $couponModel;
     protected $userModel;
     protected $coupon;
+    protected $payos;
 
     public function __construct()
     {
@@ -29,6 +30,9 @@ class CheckoutController extends BaseController
         $this->couponModel = new CouponModel;
         $this->loadModel('UserModel');
         $this->userModel = new UserModel;
+
+        $this->loadHelper('PayosHelper');
+        $this->payos = new PayosHelper();
     }
 
     public function index()
@@ -55,24 +59,35 @@ class CheckoutController extends BaseController
             "delivery" => $_POST["delivery"],
             "payment" => $_POST["payment"],
             "account_id" => $_SESSION["user"]["id"],
-            "coupon" => $_SESSION["coupon"]
+            "coupon" => $_SESSION["coupon"],
+
+            // tinh total từ frontend
+            "total" => $_POST["total"]
         ];
 
         // store order
+        $order = null;
         if (!empty($this->cart)) {
             $order = $this->orderModel->store($data);
             // 2. Luu gio hang vao order detail
+            $order["items"] = [];
             foreach ($this->cart->items as $item) {
-                $this->orderDetail->store([
+                print_r($item);
+                $detail = [
                     'order_id' => $order["id"],
                     'product_id' => $item['id'],
                     'quantity' => $item['quantity'],
                     'price' => $item['price_sum']
+                ];
+                array_push($order["items"], [
+                    'name' => $item['name'],
+                    'quantity' => (int) $item['quantity'],
+                    'price' => (int)($item['price_sum']  * 26000)
                 ]);
+                $this->orderDetail->store($detail);
             }
         }
 
-        // update coupon
         $coupon = $this->couponModel->getCouponDetailById($_SESSION["coupon_id"]);
         $status = ($coupon["used_times"] == 1) ? 0 : 1;
         $used_times = $coupon["used_times"] - 1;
@@ -89,16 +104,44 @@ class CheckoutController extends BaseController
         $_SESSION["coupon"] = 0;
         $_SESSION["coupon_id"] = "";
 
-        // return view
-        // return view('site.checkout.success_order', [
-        //     'order'=>$this->orderModel->getOrderDetailById($order['id']),
-        //     'order_detail'=>$this->orderModel->getAllProductsInOrderById($order['id'])
-        // ]);
-        header('location: ./?controller=customer&action=orderDetail&id=' . $order["id"]);
+        // thanh toán
+        if ($data["payment"] == "Banking") {
+            $url = $this->createPaymentUrl($order);
+
+            $payment['payment_link'] = $url;
+            $this->orderModel->updateData($order['id'], $payment);
+
+            header("HTTP/1.1 303 See Other");
+            header("Location: " . $url);
+        } else {
+            header('location: ./?controller=customer&action=orderDetail&id=' . $order["id"]);
+        }
     }
 
     public function validate($data)
     {
         $isValid = false;
+    }
+
+
+    public function success()
+    {
+        $id = $_GET['orderCode'];
+        $order["payment_status"] = 1;
+        $this->orderModel->updateData($id, $order);
+        return $this->view('site.checkout.success');
+    }
+
+    public function cancel()
+    {
+        $id = $_GET['orderCode'];
+        $order["status"] = 3;
+        $this->orderModel->updateData($id, $order);
+        return $this->view('site.checkout.cancel');
+    }
+
+    public function createPaymentUrl($data)
+    {
+        return $this->payos->createPaymentLink($data);
     }
 }

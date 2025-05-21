@@ -29,6 +29,7 @@ class OrderModel extends BaseModel
 
     public function findOrderById($select = ['*'], $id)
     {
+        echo "22";
         return $this->find(self::TABLE, $select, $id);
     }
 

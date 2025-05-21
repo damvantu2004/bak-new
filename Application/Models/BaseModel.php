@@ -42,7 +42,6 @@ class BaseModel extends Database
         $column =  implode(',', $select);
 
         $sql = "SELECT ${column} FROM $table WHERE id = ${id}";
-
         $query = $this->_query($sql);
 
         return mysqli_fetch_assoc($query);
@@ -93,11 +92,12 @@ class BaseModel extends Database
         $dataSets = [];
 
         foreach ($data as $key => $value) {
-if ($value === null) { // nếu value là null thì trả về NULL(dùng để update null đối với email_verified_at)  
+            if ($value === null) { // nếu value là null thì trả về NULL(dùng để update null đối với email_verified_at)  
                 array_push($dataSets, "${key} = NULL");
             } else {
                 array_push($dataSets, "${key} = '${value}'");
-            }        }
+            }
+        }
 
         $dataSetString = implode(',', $dataSets);
 
@@ -116,6 +116,7 @@ if ($value === null) { // nếu value là null thì trả về NULL(dùng để 
 
     public function _query($sql)
     {
+
         return mysqli_query($this->connect, $sql);
     }
     //pagination

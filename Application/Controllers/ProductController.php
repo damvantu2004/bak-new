@@ -93,12 +93,14 @@ class ProductController extends BaseController
         $_SESSION['categoryId'] = $categoryId;
         $currentCategoryId =  $_SESSION['categoryId'];
         $products = $this->productModel->searchProduct($productName);
+        $top_products = $this->productModel->getTopProducts();
         return view('site.product.product', [
             'banners' => $this->banners["product"],
             'products' => $products->getData(6)->data,
             'categories'  => $categories,
             'currentCategoryId' => $currentCategoryId,
-            'pagination' => $products->createLinks(2, 'pagination')
+            'pagination' => $products->createLinks(2, 'pagination'),
+            'top_products' => $top_products
         ]);
     }
 

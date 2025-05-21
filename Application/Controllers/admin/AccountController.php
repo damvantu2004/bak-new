@@ -180,7 +180,7 @@ class AccountController extends BaseController
     public function searchAccountFull()
     {
         $searchData = (isset($_REQUEST['accountSearch'])) ? $_REQUEST['accountSearch'] : "";
-        $accounts   = $this->userModel->searchAccountFull($searchData);
+        $accounts   = $this->userModel->searchUserFull($searchData);
         $page       = (isset($_GET['page'])) ? $_GET['page'] : 1;
         // $links      = (isset($_GET['links'])) ? $_GET['links'] : 2;
         // links: so page dc hien thi truoc hoac sau dau ...
