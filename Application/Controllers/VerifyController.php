@@ -87,6 +87,11 @@ class VerifyController extends BaseController
             } else {
                 $message['success-login'] = 'Login successfully';
             }
+
+            // Đồng bộ giỏ hàng từ database
+            require_once './Helper/CartHelper.php';
+            $cart = new CartHelper();
+            $cart->syncFromDatabase();
         } else {
             $message['all-error'] = 'Invalid email or password';
         }
@@ -131,6 +136,11 @@ class VerifyController extends BaseController
             } else {
                 $message['success-login'] = 'Login successfully';
             }
+
+            // Đồng bộ giỏ hàng từ database
+            require_once './Helper/CartHelper.php';
+            $cart = new CartHelper();
+            $cart->syncFromDatabase();
         }
 
         showHomepage: // điều hướng về trang chủ khi có lỗi. Nếu không có lỗi thì không cần điều hướng
@@ -275,11 +285,15 @@ class VerifyController extends BaseController
     public function logout()
     {
         if (!empty($_SESSION['user'])) {
+            // Đồng bộ giỏ hàng lên database trước khi đăng xuất
+            require_once './Helper/CartHelper.php';
+            $cart = new CartHelper();
+            $cart->syncToDatabase();
+            
             // if user chose "remember me" -> delete session key in browser & db
-            $data =
-                [
-                    'remember_token'           => "",
-                ];
+            $data = [
+                'remember_token' => "",
+            ];
             $this->userModel->updateData($_SESSION['user']['id'], $data);
 
             // remove session
