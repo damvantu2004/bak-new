@@ -227,7 +227,7 @@ Cơ sở dữ liệu Bakya gồm 11 bảng được phân tích chi tiết như 
 6. **Khởi chạy ứng dụng**
    - Truy cập http://localhost/bakya (hoặc URL tương ứng)
    - Đăng nhập với tài khoản admin mặc định:
-     - Email: admin@example.com
+     - Email: admin2@example.com
      - Password: 12345678
 
 ## Kiến trúc phần mềm

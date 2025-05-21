@@ -186,9 +186,58 @@ class ProductController extends BaseController
     {
         $message = [];
         
-        // Kiểm tra file upload
+        // 1. Xử lý upload ảnh
+        $uploadPath = './public/uploads/';
+        $uploadedImages = [];
+        
+        // Tạo thư mục nếu chưa tồn tại
+        if (!file_exists($uploadPath)) {
+            mkdir($uploadPath, 0777, true);
+        }
+        
+        // Xử lý upload ảnh
+        if(isset($_FILES['product_images']) && $_FILES['product_images']['name'][0] != '') {
+            $fileCount = count($_FILES['product_images']['name']);
+            $successImageCount = 0;
+            
+            error_log("Bắt đầu upload $fileCount ảnh");
+            
+            // Tạo thư mục nếu chưa tồn tại
+            if (!file_exists($uploadPath . 'products/')) {
+                mkdir($uploadPath . 'products/', 0777, true);
+                error_log("Đã tạo thư mục: " . $uploadPath . 'products/');
+            }
+            
+            for($i = 0; $i < $fileCount; $i++) {
+                $fileName = $_FILES['product_images']['name'][$i];
+                $tmpName = $_FILES['product_images']['tmp_name'][$i];
+                $fileError = $_FILES['product_images']['error'][$i];
+                $fileSize = $_FILES['product_images']['size'][$i];
+                
+                error_log("Upload ảnh: $fileName (size: $fileSize, error: $fileError)");
+                
+                // Kiểm tra lỗi
+                if($fileError === 0) {
+                    // Lưu file
+                    $targetPath = $uploadPath . 'products/' . $fileName;
+                    if(move_uploaded_file($tmpName, $targetPath)) {
+                        $successImageCount++;
+                        $uploadedImages[] = $fileName;
+                        error_log("✓ Upload thành công: $fileName -> $targetPath");
+                    } else {
+                        error_log("✗ Lỗi khi lưu file: $fileName, PHP error: " . error_get_last()['message']);
+                    }
+                } else {
+                    error_log("✗ Lỗi upload: $fileName, error code: $fileError");
+                }
+            }
+            
+            $message['image_info'] = "Đã upload thành công $successImageCount ảnh.";
+        }
+        
+        // 2. Xử lý import Excel
         if (!isset($_FILES['import_file']) || $_FILES['import_file']['error'] != 0) {
-            $message['error'] = 'Please select a valid file to import';
+            $message['error'] = 'Vui lòng chọn file Excel/CSV để import';
             return $this->view('admin.product.import', ['message' => $message]);
         }
         
@@ -224,6 +273,12 @@ class ProductController extends BaseController
         $errors = [];
         
         if (($handle = fopen($fileTmpName, 'r')) !== false) {
+            // Đọc BOM UTF-8 nếu có
+            $bom = fread($handle, 3);
+            if ($bom !== "\xEF\xBB\xBF") {
+                rewind($handle);
+            }
+            
             // Bỏ qua dòng header nếu có
             if ($hasHeader) {
                 fgetcsv($handle, 1000, ',');
@@ -250,7 +305,7 @@ class ProductController extends BaseController
                     'quantity' => intval(trim($data[5])),
                     'category_id' => intval(trim($data[6])),
                     'status' => isset($data[7]) ? intval(trim($data[7])) : 1,
-                    'image' => isset($data[8]) ? trim($data[8]) : 'no-image.jpg' // Mặc định nếu không có ảnh
+                    'image' => 'no-image.jpg' // Mặc định nếu không tìm thấy ảnh
                 ];
                 
                 // Kiểm tra dữ liệu
@@ -273,6 +328,19 @@ class ProductController extends BaseController
                         $errors[] = "Line $lineNumber: Product '{$product['name']}' already exists";
                         $lineNumber++;
                         continue;
+                    }
+                    
+                    // Tìm ảnh phù hợp cho sản phẩm
+                    $productName = $product['name'];
+                    $imagePath = $this->findImageForProduct($productName, $uploadPath);
+                    
+                    if ($imagePath) {
+                        $product['image'] = $imagePath;
+                        // Thông báo ghép thành công
+                        $message['image_matches'][] = "Ghép thành công: Sản phẩm '{$product['name']}' với ảnh '$imagePath'";
+                    } else {
+                        // Thông báo không tìm thấy ảnh tương ứng
+                        $message['image_missing'][] = "Không tìm thấy ảnh cho sản phẩm '{$product['name']}'";
                     }
                     
                     // Thêm sản phẩm vào database
@@ -299,5 +367,51 @@ class ProductController extends BaseController
         }
         
         return $this->view('admin.product.import', ['message' => $message]);
+    }
+
+    // Tìm ảnh phù hợp cho sản phẩm dựa theo tên
+    private function findImageForProduct($productName, $uploadPath)
+    {
+        $files = scandir($uploadPath . 'products/');
+        
+        // Chuẩn hóa tên sản phẩm - bỏ dấu cách
+        $productNameNoSpace = str_replace(' ', '', $productName);
+        
+        foreach ($files as $file) {
+            if ($file == '.' || $file == '..') continue;
+            
+            // Lấy tên file không có phần mở rộng
+            $fileName = pathinfo($file, PATHINFO_FILENAME);
+            $fileNameNoSpace = str_replace(' ', '', $fileName);
+            
+            // 1. So sánh chính xác bỏ dấu cách
+            if ($fileNameNoSpace === $productNameNoSpace) {
+                return 'products/' . $file;
+            }
+            
+            // 2. So sánh không phân biệt hoa thường, bỏ dấu cách
+            if (strtolower($fileNameNoSpace) === strtolower($productNameNoSpace)) {
+                return 'products/' . $file;
+            }
+            
+            // 3. So sánh bỏ dấu tiếng Việt + không phân biệt hoa thường + bỏ dấu cách
+            if (strtolower($this->removeAccents($fileNameNoSpace)) === strtolower($this->removeAccents($productNameNoSpace))) {
+                return 'products/' . $file;
+            }
+        }
+        
+        return null;
+    }
+
+    // Hàm bỏ dấu tiếng Việt (không thay đổi)
+    private function removeAccents($str) {
+        $str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
+        $str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
+        $str = preg_replace("/(ì|í|ị|ỉ|ĩ)/", 'i', $str);
+        $str = preg_replace("/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/", 'o', $str);
+        $str = preg_replace("/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/", 'u', $str);
+        $str = preg_replace("/(ỳ|ý|ỵ|ỷ|ỹ)/", 'y', $str);
+        $str = preg_replace("/(đ)/", 'd', $str);
+        return $str;
     }
 }

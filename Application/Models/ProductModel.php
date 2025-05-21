@@ -144,4 +144,10 @@ class ProductModel extends BaseModel
         $sql = "DELETE FROM product WHERE user_id = ${id} ";
         $this->_query($sql);
     }
+
+    public function updateProductImage($productId, $imagePath)
+    {
+        $sql = "UPDATE products SET image = ? WHERE id = ?";
+        $this->_query($sql, [$imagePath, $productId]);
+    }
 }
