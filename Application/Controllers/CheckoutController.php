@@ -138,18 +138,25 @@ class CheckoutController extends BaseController
     public function success()
     {
         // Xử lý đơn hàng thành công
-        
+
         // Khôi phục giỏ hàng cũ nếu có
         if (!empty($_SESSION['temp_cart'])) {
             $_SESSION['cart'] = $_SESSION['temp_cart'];
             unset($_SESSION['temp_cart']);
         }
-        
+
         // Chuyển đến trang thông báo thành công
         $id = $_GET['orderCode'];
         $order["payment_status"] = 1;
         $this->orderModel->updateData($id, $order);
         return $this->view('site.checkout.success');
+    }
+    public function cancelPayment()
+    {
+        $id = $_GET['orderCode'];
+        $order["status"] = 3;
+        $this->orderModel->updateData($id, $order);
+        return $this->view('site.checkout.cancel');
     }
 
     public function cancel()
@@ -159,7 +166,7 @@ class CheckoutController extends BaseController
             $_SESSION['cart'] = $_SESSION['temp_cart'];
             unset($_SESSION['temp_cart']);
         }
-        
+
         // Nếu có ID sản phẩm trước đó, chuyển về trang chi tiết sản phẩm đó
         if (!empty($_SESSION['previous_product_id'])) {
             $product_id = $_SESSION['previous_product_id'];
@@ -167,7 +174,7 @@ class CheckoutController extends BaseController
             header('location: ./?controller=product&action=productDetail&id=' . $product_id);
             return;
         }
-        
+
         // Nếu không có thông tin sản phẩm trước đó, chuyển về trang giỏ hàng
         header('location: ./?controller=cart');
     }
@@ -184,15 +191,15 @@ class CheckoutController extends BaseController
             header('location: ./');
             return;
         }
-        
+
         $user = !empty($_SESSION['user']) ? $this->userModel->findUserById(['*'], $_SESSION['user']['id']) : null;
-        
+
         // Tạo đối tượng giả cho cart để sử dụng chung view
         $buy_now_cart = new \stdClass();
         $buy_now_cart->items = [$_SESSION['buy_now_product']];
         $buy_now_cart->total_quantity = 1;
         $buy_now_cart->total_price = $_SESSION['buy_now_product']['price'];
-        
+
         return $this->view('site.checkout.checkout', [
             'cart' => $buy_now_cart,
             'banners' => $this->banners,
@@ -209,9 +216,9 @@ class CheckoutController extends BaseController
             header('location: ./');
             return;
         }
-        
+
         $buy_now_product = $_SESSION['buy_now_product'];
-        
+
         $data = [
             "fname" => $_POST["fname"],
             "lname" => $_POST["lname"],
@@ -226,10 +233,10 @@ class CheckoutController extends BaseController
             "coupon" => 0, // Không áp dụng mã giảm giá cho mua ngay
             "total" => $buy_now_product['price'] + 2 // Giá sản phẩm + phí vận chuyển
         ];
-        
+
         // Lưu đơn hàng
         $order = $this->orderModel->store($data);
-        
+
         // Lưu chi tiết đơn hàng
         $order["items"] = [];
         $detail = [
@@ -238,24 +245,24 @@ class CheckoutController extends BaseController
             'quantity' => 1,
             'price' => $buy_now_product['price']
         ];
-        
+
         array_push($order["items"], [
             'name' => $buy_now_product['name'],
             'quantity' => 1,
             'price' => (int)($buy_now_product['price'] * 26000)
         ]);
-        
+
         $this->orderDetail->store($detail);
-        
+
         // Xóa session mua ngay
         unset($_SESSION['buy_now_product']);
-        
+
         // Xử lý thanh toán như bình thường
         if ($data["payment"] == "Banking") {
             $url = $this->createPaymentUrl($order);
             $payment['payment_link'] = $url;
             $this->orderModel->updateData($order['id'], $payment);
-            
+
             header("HTTP/1.1 303 See Other");
             header("Location: " . $url);
         } else {
@@ -267,7 +274,7 @@ class CheckoutController extends BaseController
     {
         // Xóa session mua ngay
         unset($_SESSION['buy_now_product']);
-        
+
         // Chuyển về trang sản phẩm nếu có id sản phẩm
         if (!empty($_GET['product_id'])) {
             header('location: ./?controller=product&action=productDetail&id=' . $_GET['product_id']);

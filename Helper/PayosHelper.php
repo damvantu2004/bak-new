@@ -33,7 +33,7 @@ class PayosHelper
             "buyerPhone" => "1111111111",
             "expiredAt" => time() + 30 * 60,
             "returnUrl" => "http://localhost:3000/?controller=checkout&action=success",
-            "cancelUrl" => "http://localhost:3000/?controller=checkout&action=cancel",
+            "cancelUrl" => "http://localhost:3000/?controller=checkout&action=cancelPayment",
         ];
         $response = $this->payos->createPaymentLink($data);
 

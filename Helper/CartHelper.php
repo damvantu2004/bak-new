@@ -35,22 +35,22 @@ class CartHelper // dung de tach phan add ben controller sang helper
 
         require_once './Application/Models/ProductModel.php';
         $productModel = new ProductModel();
-        
+
         $userCart = $this->userCartModel->getUserCart($this->userId);
-        
+
         // Giữ lại giỏ hàng session hiện tại
         $sessionCart = $this->items;
-        
+
         foreach ($userCart as $item) {
             $product = $productModel->findProductById(['*'], $item['product_id']);
-            
+
             // Bỏ qua nếu sản phẩm không tồn tại
             if (empty($product)) continue;
-            
+
             // Cập nhật nếu sản phẩm đã có trong session
             if (isset($sessionCart[$item['product_id']])) {
                 $sessionCart[$item['product_id']]['quantity'] += $item['quantity'];
-                $sessionCart[$item['product_id']]['price_sum'] = $sessionCart[$item['product_id']]['price'] 
+                $sessionCart[$item['product_id']]['price_sum'] = $sessionCart[$item['product_id']]['price']
                     * $sessionCart[$item['product_id']]['quantity'];
             } else {
                 // Thêm sản phẩm mới vào session
@@ -65,22 +65,22 @@ class CartHelper // dung de tach phan add ben controller sang helper
                 $sessionCart[$product['id']] = $cartItem;
             }
         }
-        
+
         // Cập nhật lại giỏ hàng session
         $this->items = $sessionCart;
         $_SESSION['cart'] = $this->items;
         $this->get_total_quantity();
         $this->total_price = $this->get_total_price();
     }
-    
+
     // Đồng bộ giỏ hàng lên database khi đăng xuất
     public function syncToDatabase()
     {
         if (!$this->isLoggedIn) return;
-        
+
         // Xóa giỏ hàng cũ trong database
         $this->userCartModel->deleteUserCart($this->userId);
-        
+
         // Lưu giỏ hàng hiện tại vào database
         foreach ($this->items as $item) {
             $this->userCartModel->addToCart($this->userId, $item['id'], $item['quantity']);
@@ -89,6 +89,8 @@ class CartHelper // dung de tach phan add ben controller sang helper
 
     public function add($product, $quantity = 1)
     {
+        $quantity = isset($_GET['quantity']) ? (int) $_GET['quantity'] : 1;
+
         if (isset($this->items[$product['id']])) {
             $this->items[$product['id']]['quantity'] += $quantity; // them 1 san pham vao so luong san co trong cart
             $this->items[$product['id']]['price_sum'] = $this->items[$product['id']]['price'] * $this->items[$product['id']]['quantity'];
@@ -103,12 +105,11 @@ class CartHelper // dung de tach phan add ben controller sang helper
                 'price_sum' => ($product['sale_price'] >  0 ? $product['sale_price'] : $product['price']) * $quantity
             ];
             $this->items[$product['id']] = $item;  // product id lam key
-
         }
         $_SESSION['cart'] = $this->items; // luu session key cart luu toan bo item, de khi add item khac thi item add trc do van con trong cart
         $this->get_total_quantity();
         $this->total_price = $this->get_total_price();
-        
+
         // Đồng bộ lên database nếu đã đăng nhập
         if ($this->isLoggedIn) {
             $this->userCartModel->addToCart($this->userId, $product['id'], $quantity);
@@ -122,7 +123,7 @@ class CartHelper // dung de tach phan add ben controller sang helper
             $_SESSION['cart'] = $this->items;
             $this->get_total_quantity();
             $this->total_price = $this->get_total_price();
-            
+
             // Đồng bộ lên database nếu đã đăng nhập
             if ($this->isLoggedIn) {
                 $this->userCartModel->deleteCartItem($this->userId, $id);
@@ -134,7 +135,7 @@ class CartHelper // dung de tach phan add ben controller sang helper
     {
         $_SESSION['cart'] = [];
         $_SESSION['total_quantity'] = 0;
-        
+
         // Đồng bộ lên database nếu đã đăng nhập
         if ($this->isLoggedIn) {
             $this->userCartModel->deleteUserCart($this->userId);
@@ -148,7 +149,7 @@ class CartHelper // dung de tach phan add ben controller sang helper
             $this->items[$id]['price_sum'] = $this->items[$id]['price'] * $this->items[$id]['quantity'];
             $_SESSION['cart'] = $this->items;
             $this->get_total_quantity();
-            
+
             // Đồng bộ lên database nếu đã đăng nhập
             if ($this->isLoggedIn) {
                 $this->userCartModel->updateCartItemQuantity($this->userId, $id, $quantity);

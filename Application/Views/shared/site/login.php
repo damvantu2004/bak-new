@@ -1,6 +1,5 @@
 <?php
-if (!empty($_SESSION['user'])) 
-{
+if (!empty($_SESSION['user'])) {
 
     $user_session = $_SESSION['user']; ?>
     <span class='welcome'>Xin chào! <?= $user_session['fname'] ?? '' ?> <?= $user_session['lname'] ?? '' ?></span>
@@ -13,7 +12,7 @@ if (!empty($_SESSION['user']))
 
 
 
-    <a href='?controller=customer&action=viewProfile'> 
+    <a href='?controller=customer&action=viewProfile'>
         <button class='login-modal' style='width:auto'><i class='fas fa-user-edit' style='font-size: 14px'></i>Profile</button>
     </a>
     <a href='?controller=customer&action=listOrders'>

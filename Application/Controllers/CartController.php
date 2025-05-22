@@ -66,14 +66,19 @@ class CartController extends BaseController
     public function addAjax()
     {
         $message = "";
+        $quantity = 1;
         if (!isset($_GET['id'])) {
             // die("invalid id");
             $message = "invalid id";
             goto endPoint;
         }
+        if (!isset($_GET['quantity'])) {
+            $quantity = $_GET['quantity'];
+            echo $quantity;
+        }
         $id = $_GET['id'];
         $pro = $this->productModel->findProductById(['*'], $id);
-        $this->cart->add($pro);
+        $this->cart->add($pro, $quantity);
         $message = "Product '" . $pro['name'] . "' added to cart successfully";
         $ajaxRes = array();
         $ajaxRes["cartQuantity"] = $this->cart->total_quantity;
@@ -125,6 +130,7 @@ class CartController extends BaseController
 
     public function addOne()
     {
+        // chua dung
         $id = $_GET['id'] ?? null;
         $pro = $this->productModel->findProductById(['*'], $id);
 
@@ -232,7 +238,7 @@ class CartController extends BaseController
     {
         $id = $_GET['id'] ?? null;
         $pro = $this->productModel->findProductById(['*'], $id);
-        
+
         // Lưu sản phẩm mua ngay vào một session riêng biệt (không động đến giỏ hàng)
         $_SESSION['buy_now_product'] = [
             'id' => $pro['id'],
@@ -242,7 +248,7 @@ class CartController extends BaseController
             'price' => $pro['sale_price'] > 0 ? $pro['sale_price'] : $pro['price'],
             'price_sum' => $pro['sale_price'] > 0 ? $pro['sale_price'] : $pro['price']
         ];
-        
+
         // Chuyển hướng đến trang thanh toán "Mua ngay"
         header('location: ./?controller=checkout&action=buyNowCheckout');
     }

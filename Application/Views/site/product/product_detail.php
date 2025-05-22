@@ -5,24 +5,24 @@
 // thi nhung gia tri ben duoi se dc gan product-detail.php?id=1 // ? means GET truyen tham so id xuong
 ?>
 <style>
-.product-detail-banner {
-    background-image: url("./public/uploads/<?= $banners[0]['image'] ?>");
-}
+    .product-detail-banner {
+        background-image: url("./public/uploads/<?= $banners[0]['image'] ?>");
+    }
 
-.btn-buy-now {
-    background-color: #ff6a00;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    cursor: pointer;
-    margin-left: 10px;
-    border-radius: 4px;
-    font-weight: bold;
-}
+    .btn-buy-now {
+        background-color: #ff6a00;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        cursor: pointer;
+        margin-left: 10px;
+        border-radius: 4px;
+        font-weight: bold;
+    }
 
-.btn-buy-now:hover {
-    background-color: #ff5500;
-}
+    .btn-buy-now:hover {
+        background-color: #ff5500;
+    }
 </style>
 <section class="banner product-detail-banner">
     <div class="container-fluid banner-title">
@@ -52,18 +52,8 @@
 
 <section class="product-details p-50">
     <div class="container">
-        <?php if (!empty($success['add_to_cart_quantity'])) { ?>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="alert alert-warning" id="success-add-to-cart">
-                    <button onclick="document.getElementById('success-add-to-cart').style.display='none'" type="button"
-                        class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <?= $success['add_to_cart_quantity'] ?? '' ?>
-                </div>
-            </div>
-        </div>
+        <div id="add-product-to-cart-ajax" style="margin: 0 auto 20px auto; width: 90%"></div>
 
-        <?php } ?>
         <div class="row">
 
 
@@ -183,14 +173,14 @@
 
 
                         <?php if ($pro['sale_price'] < $pro['price'] && $pro['sale_price'] > 0) : ?>
-                        <h3 class="product__details__price">$<?= number_format($pro["sale_price"], 2, '.', '') ?> &nbsp;
-                            <span class="strikeout"
-                                style="font-size:1.2rem">$<?= number_format($pro["price"], 2, '.', '') ?></span>
-                            <span style="font-size: 0.8rem"
-                                class="badge badge-success">-<?= round((1 - ($pro['sale_price'] / $pro['price'])) * 100, 1) ?>%</span>
-                        </h3>
+                            <h3 class="product__details__price">$<?= number_format($pro["sale_price"], 2, '.', '') ?> &nbsp;
+                                <span class="strikeout"
+                                    style="font-size:1.2rem">$<?= number_format($pro["price"], 2, '.', '') ?></span>
+                                <span style="font-size: 0.8rem"
+                                    class="badge badge-success">-<?= round((1 - ($pro['sale_price'] / $pro['price'])) * 100, 1) ?>%</span>
+                            </h3>
                         <?php else : ?>
-                        <h3 class="product__details__price">$<?= number_format($pro["price"], 2, '.', '') ?> </h3>
+                            <h3 class="product__details__price">$<?= number_format($pro["price"], 2, '.', '') ?> </h3>
                         <?php endif; ?>
 
 
@@ -211,6 +201,7 @@
                         <li><span>Thương hiệu: </span>Bakya</li>
                     </ul>
                     <div class="product__details__button">
+
                         <form action="./?controller=cart&action=addQuantity&id=<?= $pro['id'] ?>" method="POST"
                             class="add-quantity-form">
                             <div class="pro-qty">
@@ -221,11 +212,16 @@
                                 </div>
                             </div>
 
-                            <a class="add-to-cart-pro-detail"><button type="submit"><i class="fas fa-shopping-basket"
-                                        style="font-size:13px"></i><span>Thêm vào giỏ</span></button></a>
+                            <!-- <a class="add-to-cart-pro-detail"><button><i class="fas fa-shopping-basket"
+                                        style="font-size:13px"></i><span>Thêm vào giỏ</span></button></a> -->
+
                             <a href="./?controller=cart&action=buyNow&id=<?= $pro['id'] ?>" class="buy-now-btn"><button type="button" class="btn-buy-now"><i class="fas fa-bolt"
-                                    style="font-size:13px"></i><span>Mua ngay</span></button></a>
+                                        style="font-size:13px"></i><span>Mua ngay</span></button></a>
                         </form>
+                        <a id="add-to-cart-btn<?= $pro['id'] ?>" class="swalDefaultSuccess " onclick="onAddToCartAjax(<?= $pro['id'] ?>, getQuantity(<?= $pro['id'] ?>))">
+                            <button><i class="fas fa-shopping-basket" style="font-size:13px"></i><span> ADD TO
+                                    CART</span></button>
+                        </a>
                     </div>
 
                     <div class="product__details__more">
@@ -283,155 +279,155 @@
                             <ul id="rev-list">
 
                                 <?php foreach ($reviews as $review) : ?>
-                                <li>
-                                    <div class="rev-block">
-                                        <div class="rev-img">
-                                            <img style="width: 70px; height:70px" src="./public/site/img/user.png"
-                                                alt="">
-                                        </div>
-                                        <div class="rev-content">
-                                            <div class="rev-info">
-                                                <h5><?= $review['fname'] . ' ' . $review['lname'] ?></h5>
-                                                <p class="rev-date"><?= $review['created_at'] ?></p>
-                                                <?php if (!empty($_SESSION['user'])) : ?>
-                                                <?php if ($_SESSION['user']['id'] == $review['account_id']) : ?>
-                                                <a class="rev-delete" title="Xóa đánh giá"
-                                                    href="./?controller=product&action=removeReview&id=<?= $review['id'] ?>&productId=<?= $review['product_id'] ?>"
-                                                    onclick="return confirm('Bạn có chắc muốn xóa đánh giá này?')">Xóa</a>
-                                                <?php endif; ?>
-                                                <?php endif; ?>
-                                                <span class="rev-rating">
-                                                    <?php for ($i = 0; $i < $review['rating']; $i++) {
+                                    <li>
+                                        <div class="rev-block">
+                                            <div class="rev-img">
+                                                <img style="width: 70px; height:70px" src="./public/site/img/user.png"
+                                                    alt="">
+                                            </div>
+                                            <div class="rev-content">
+                                                <div class="rev-info">
+                                                    <h5><?= $review['fname'] . ' ' . $review['lname'] ?></h5>
+                                                    <p class="rev-date"><?= $review['created_at'] ?></p>
+                                                    <?php if (!empty($_SESSION['user'])) : ?>
+                                                        <?php if ($_SESSION['user']['id'] == $review['account_id']) : ?>
+                                                            <a class="rev-delete" title="Xóa đánh giá"
+                                                                href="./?controller=product&action=removeReview&id=<?= $review['id'] ?>&productId=<?= $review['product_id'] ?>"
+                                                                onclick="return confirm('Bạn có chắc muốn xóa đánh giá này?')">Xóa</a>
+                                                        <?php endif; ?>
+                                                    <?php endif; ?>
+                                                    <span class="rev-rating">
+                                                        <?php for ($i = 0; $i < $review['rating']; $i++) {
                                                         ?>
-                                                    <i class="fa fa-star"></i>
-                                                    <?php   }
+                                                            <i class="fa fa-star"></i>
+                                                        <?php   }
                                                         ?>
 
-                                                </span>
+                                                    </span>
 
+                                                </div>
+
+                                                <p class="rev-detail">
+                                                    <?= htmlentities($review['content']) ?>
+                                                </p>
                                             </div>
 
-                                            <p class="rev-detail">
-                                                <?= htmlentities($review['content']) ?>
-                                            </p>
                                         </div>
-
-                                    </div>
-                                </li>
-                                <hr>
+                                    </li>
+                                    <hr>
                                 <?php endforeach; ?>
                             </ul>
                             <?php if (empty($_SESSION['user']) || $user['status'] == 0) : ?>
-                            <div class="error-block" style="padding: 0 5% ">
+                                <div class="error-block" style="padding: 0 5% ">
 
-                                <h2>Vui lòng đăng nhập để đánh giá!</h2>
-                                <p>Nếu bạn đã có tài khoản, nhấp vào <a> <button class="login-modal p-0"
-                                            style="font-family: inherit; width:unset"
-                                            onclick="document.getElementById('id01').style.display='block'"
-                                            style="width:auto;">đây</button>
-                                    </a> để đăng nhập
-                                </p>
-                                <p>Chưa là thành viên? Đăng ký <a> <button class="login-modal p-0"
-                                            style="font-family: inherit; width:unset"
-                                            onclick="document.getElementById('id02').style.display='block'"
-                                            style="width:auto;">tại đây</button>
-                                    </a>
-                                </p>
-                                <div class="img-container">
-                                    <img src="./public/site/img/home/images/404.png" alt="">
+                                    <h2>Vui lòng đăng nhập để đánh giá!</h2>
+                                    <p>Nếu bạn đã có tài khoản, nhấp vào <a> <button class="login-modal p-0"
+                                                style="font-family: inherit; width:unset"
+                                                onclick="document.getElementById('id01').style.display='block'"
+                                                style="width:auto;">đây</button>
+                                        </a> để đăng nhập
+                                    </p>
+                                    <p>Chưa là thành viên? Đăng ký <a> <button class="login-modal p-0"
+                                                style="font-family: inherit; width:unset"
+                                                onclick="document.getElementById('id02').style.display='block'"
+                                                style="width:auto;">tại đây</button>
+                                        </a>
+                                    </p>
+                                    <div class="img-container">
+                                        <img src="./public/site/img/home/images/404.png" alt="">
+                                    </div>
+
+
                                 </div>
-
-
-                            </div>
                             <?php else : ?>
-                            <div class="rev-form">
-                                <h4>Thêm đánh giá</h4>
-                                <p id="notice">
-                                    Email của bạn sẽ không được công khai. Các trường bắt buộc được đánh dấu <span
-                                        class="asterisk">*</span>
-                                </p>
+                                <div class="rev-form">
+                                    <h4>Thêm đánh giá</h4>
+                                    <p id="notice">
+                                        Email của bạn sẽ không được công khai. Các trường bắt buộc được đánh dấu <span
+                                            class="asterisk">*</span>
+                                    </p>
 
-                                <form method="POST" class="review-form"
-                                    action="./?controller=product&action=review&id=<?= $pro['id'] ?>"
-                                    name="reviewProductForm" onsubmit="return validateReviewProductForm();">
+                                    <form method="POST" class="review-form"
+                                        action="./?controller=product&action=review&id=<?= $pro['id'] ?>"
+                                        name="reviewProductForm" onsubmit="return validateReviewProductForm();">
 
-                                    <label for="stars" style="width: 13%;padding-right: 20px;">
-                                        Đánh giá của bạn <span class="asterisk">*</span>
-                                    </label>
-                                    <div class="rating">
-                                        <label class="rate-label">
-                                            <input type="radio" value="1" name="rating" />
-                                            <i class="fa fa-star icon"></i>
+                                        <label for="stars" style="width: 13%;padding-right: 20px;">
+                                            Đánh giá của bạn <span class="asterisk">*</span>
                                         </label>
-                                        <label class="rate-label">
-                                            <input type="radio" value="2" name="rating" />
-                                            <i class="fa fa-star icon"></i>
-                                            <i class="fa fa-star icon"></i>
-                                        </label>
-                                        <label class="rate-label">
-                                            <input type="radio" value="3" name="rating" />
-                                            <i class="fa fa-star icon"></i>
-                                            <i class="fa fa-star icon"></i>
-                                            <i class="fa fa-star icon"></i>
-                                        </label>
-                                        <label class="rate-label">
-                                            <input type="radio" value="4" name="rating" />
-                                            <i class="fa fa-star icon"></i>
-                                            <i class="fa fa-star icon"></i>
-                                            <i class="fa fa-star icon"></i>
-                                            <i class="fa fa-star icon"></i>
-                                        </label>
-                                        <label class="rate-label">
-                                            <input type="radio" value="5" name="rating" />
-                                            <i class="fa fa-star icon"></i>
-                                            <i class="fa fa-star icon"></i>
-                                            <i class="fa fa-star icon"></i>
-                                            <i class="fa fa-star icon"></i>
-                                            <i class="fa fa-star icon"></i>
-                                        </label>
-                                    </div>
-                                    <small id="rating-err"></small>
-
-                                    <div class="form-group">
-                                        <label for="content">Nội dung đánh giá <span class="asterisk">*</span></label>
-                                        <textarea class="form-control" name="content" id="content" rows="4"
-                                            onkeyup="validateLength(this, 'Nội dung đánh giá', 500)"></textarea>
-                                    </div>
-                                    <div class="form-group" style="margin:0">
-                                        <label for=""></label>
-                                        <small id="content-err"></small>
-                                    </div>
-
-                                    <div class=" form-group">
-                                        <label for="">Tên của bạn <span class="asterisk">*</span></label>
-                                        <input
-                                            value="<?= $_SESSION['user']['fname'] . ' ' . $_SESSION['user']['lname'] ?>"
-                                            type="text" class="form-control" disabled placeholder=""
-                                            aria-describedby="helpId">
-
-                                        <div>
-                                            <label for=""></label>
-
+                                        <div class="rating">
+                                            <label class="rate-label">
+                                                <input type="radio" value="1" name="rating" />
+                                                <i class="fa fa-star icon"></i>
+                                            </label>
+                                            <label class="rate-label">
+                                                <input type="radio" value="2" name="rating" />
+                                                <i class="fa fa-star icon"></i>
+                                                <i class="fa fa-star icon"></i>
+                                            </label>
+                                            <label class="rate-label">
+                                                <input type="radio" value="3" name="rating" />
+                                                <i class="fa fa-star icon"></i>
+                                                <i class="fa fa-star icon"></i>
+                                                <i class="fa fa-star icon"></i>
+                                            </label>
+                                            <label class="rate-label">
+                                                <input type="radio" value="4" name="rating" />
+                                                <i class="fa fa-star icon"></i>
+                                                <i class="fa fa-star icon"></i>
+                                                <i class="fa fa-star icon"></i>
+                                                <i class="fa fa-star icon"></i>
+                                            </label>
+                                            <label class="rate-label">
+                                                <input type="radio" value="5" name="rating" />
+                                                <i class="fa fa-star icon"></i>
+                                                <i class="fa fa-star icon"></i>
+                                                <i class="fa fa-star icon"></i>
+                                                <i class="fa fa-star icon"></i>
+                                                <i class="fa fa-star icon"></i>
+                                            </label>
                                         </div>
-                                    </div>
+                                        <small id="rating-err"></small>
 
-                                    <div class="form-group">
-                                        <label for="">Email của bạn <span class="asterisk">*</span></label>
-                                        <input value="<?= $_SESSION['user']['email'] ?>" type="text"
-                                            class="form-control" disabled placeholder="" aria-describedby="helpId">
-                                        <div>
-                                            <label for=""></label>
-
+                                        <div class="form-group">
+                                            <label for="content">Nội dung đánh giá <span class="asterisk">*</span></label>
+                                            <textarea class="form-control" name="content" id="content" rows="4"
+                                                onkeyup="validateLength(this, 'Nội dung đánh giá', 500)"></textarea>
                                         </div>
-                                    </div>
+                                        <div class="form-group" style="margin:0">
+                                            <label for=""></label>
+                                            <small id="content-err"></small>
+                                        </div>
 
-                                    <div class="form-group">
-                                        <label for=""></label>
-                                        <button type="submit" class="rev-btn">Gửi</button>
-                                    </div>
+                                        <div class=" form-group">
+                                            <label for="">Tên của bạn <span class="asterisk">*</span></label>
+                                            <input
+                                                value="<?= $_SESSION['user']['fname'] . ' ' . $_SESSION['user']['lname'] ?>"
+                                                type="text" class="form-control" disabled placeholder=""
+                                                aria-describedby="helpId">
 
-                                </form>
-                            </div>
+                                            <div>
+                                                <label for=""></label>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="">Email của bạn <span class="asterisk">*</span></label>
+                                            <input value="<?= $_SESSION['user']['email'] ?>" type="text"
+                                                class="form-control" disabled placeholder="" aria-describedby="helpId">
+                                            <div>
+                                                <label for=""></label>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for=""></label>
+                                            <button type="submit" class="rev-btn">Gửi</button>
+                                        </div>
+
+                                    </form>
+                                </div>
 
                             <?php endif; ?>
                         </div>
@@ -450,20 +446,20 @@
                 <div class="content-block">
                     <ul id='pro-list'>
                         <?php foreach ($pro_same_cat as $pro) : ?>
-                        <li>
-                            <a href="./?controller=product&action=productDetail&id=<?= $pro['id'] ?>">
-                                <div class="pro-block">
-                                    <div class="pro-img"><img src="./public/uploads/<?= $pro["image"] ?>">
+                            <li>
+                                <a href="./?controller=product&action=productDetail&id=<?= $pro['id'] ?>">
+                                    <div class="pro-block">
+                                        <div class="pro-img"><img src="./public/uploads/<?= $pro["image"] ?>">
+                                        </div>
+                                        <div class="pro-info">
+                                            <h5><?= $pro["name"] ?></h5>
+                                            <h5>$<?= number_format($pro['sale_price'] > 0 ? $pro['sale_price'] : $pro['price'], 2, '.', '') ?>
+                                            </h5>
+                                        </div>
                                     </div>
-                                    <div class="pro-info">
-                                        <h5><?= $pro["name"] ?></h5>
-                                        <h5>$<?= number_format($pro['sale_price'] > 0 ? $pro['sale_price'] : $pro['price'], 2, '.', '') ?>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </a>
+                                </a>
 
-                        </li>
+                            </li>
 
                         <?php endforeach; ?>
                     </ul>
@@ -476,31 +472,35 @@
 </section>
 
 <script>
-// Thêm hàm kiểm tra số lượng khi tăng giảm số lượng sản phẩm
-function increase(id) {
-    var quantityInput = document.getElementById(id + "quantity");
-    var currentVal = parseInt(quantityInput.value);
-    var maxVal = parseInt(quantityInput.getAttribute('max'));
-    
-    if (currentVal < maxVal) {
-        quantityInput.value = currentVal + 1;
-    } else {
-        alert("Không thể thêm quá số lượng sản phẩm hiện có (" + maxVal + ")");
-    }
-}
+    // Thêm hàm kiểm tra số lượng khi tăng giảm số lượng sản phẩm
+    function increase(id) {
+        var quantityInput = document.getElementById(id + "quantity");
+        var currentVal = parseInt(quantityInput.value);
+        var maxVal = parseInt(quantityInput.getAttribute('max'));
 
-function decrease(id) {
-    var quantityInput = document.getElementById(id + "quantity");
-    var currentVal = parseInt(quantityInput.value);
-    
-    if (currentVal > 1) {
-        quantityInput.value = currentVal - 1;
+        if (currentVal < maxVal) {
+            quantityInput.value = currentVal + 1;
+        } else {
+            alert("Không thể thêm quá số lượng sản phẩm hiện có (" + maxVal + ")");
+        }
     }
-}
 
-$(':radio').change(function() {
-    console.log('Đánh giá mới: ' + this.value);
-});
+    function decrease(id) {
+        var quantityInput = document.getElementById(id + "quantity");
+        var currentVal = parseInt(quantityInput.value);
+
+        if (currentVal > 1) {
+            quantityInput.value = currentVal - 1;
+        }
+    }
+
+    $(':radio').change(function() {
+        console.log('Đánh giá mới: ' + this.value);
+    });
+
+    function getQuantity(id) {
+        return document.getElementById(id + "quantity").value;
+    }
 </script>
 
 

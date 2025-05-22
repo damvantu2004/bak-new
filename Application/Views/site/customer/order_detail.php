@@ -235,7 +235,7 @@
                                         value="<?= $order['payment_status'] == 1 ? "Đã thanh toán" : "Chưa thanh toán" ?>" disabled>
                                 </div>
                                 <div class="form-group">
-                                    <?php if ($order['payment_status'] != 1) : ?>
+                                    <?php if ($order['payment_status'] == 0  & $order['status'] == 1) : ?>
                                         <a class="btn btn-secondary" id="pay-link" href="<?= $order['payment_link'] ?>">Thanh toán</a>
                                     <?php endif; ?>
                                 </div>
