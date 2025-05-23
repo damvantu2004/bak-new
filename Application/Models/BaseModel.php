@@ -12,7 +12,7 @@ class BaseModel extends Database
     }
 
     //lấy ra tất cả dữ liệu trong bangr
-    public function all($table, $select = ['*'], $orderBys = [], $limit = 15)
+    public function all($table, $select = ['*'], $orderBys = [], $limit = 15) // lấy ra các dòng dữ liệu trong bảng với limit là số lượng bản ghi tối đa muốn lấy
     {
 
         $column =  implode(',', $select);

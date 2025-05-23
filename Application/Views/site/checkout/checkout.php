@@ -1,7 +1,11 @@
 <?php view('shared.site.header', [
     'title' => 'Checkout'
 ]);
-require './Config/province.php'; ?>
+require './Config/province.php';
+
+// Khởi tạo giá trị mặc định cho coupon
+$coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
+?>
 <style>
     .checkout-banner {
         background-image: url("./public/uploads/<?= $banners[0]['image'] ?>");
@@ -148,8 +152,8 @@ require './Config/province.php'; ?>
                                 $total = $cart->total_price;
 
                                 // Áp dụng mã giảm giá nếu có
-                                if (isset($_SESSION["coupon"]) && $_SESSION["coupon"] != 0) {
-                                    $total = $total * (1 - $_SESSION["coupon"]);
+                                if ($coupon_discount != 0) {
+                                    $total = $total * (1 - $coupon_discount);
                                 }
 
                                 // Thêm phí vận chuyển
@@ -170,6 +174,43 @@ require './Config/province.php'; ?>
 
 
                 <div class="col-md-5">
+                    <!-- THÊM PHẦN APPLY COUPON -->
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 15px;">Mã giảm giá</h4>
+                        <div class="coupon d-flex">
+                            <input 
+                                value="<?= !empty($_SESSION['coupon_id']) ? $_SESSION['coupon_id'] : '' ?>" 
+                                type="text" 
+                                placeholder="Nhập mã giảm giá" 
+                                id="coupon_id" 
+                                name="coupon_id"
+                                class="form-control"
+                                style="margin-right: 10px;">
+                            
+                            <button 
+                                onclick="applyCouponCheckout()" 
+                                class="btn btn-primary"
+                                style="white-space: nowrap;">
+                                Áp dụng
+                            </button>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <small id="message-coupon"></small>
+                        </div>
+                        
+                        <!-- Hiển thị coupon đã áp dụng -->
+                        <div id="applied-coupon" style="margin-top: 10px;">
+                            <?php 
+                            $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
+                            if ($coupon_discount != 0) : ?>
+                                <span class="badge badge-success">
+                                    Đã áp dụng: <?= strtoupper($_SESSION['coupon_id']) ?> (-<?= number_format(100 * $coupon_discount, 0) ?>%)
+                                    <a href="javascript:void(0)" onclick="removeCoupon()" style="color: white; margin-left: 5px;">×</a>
+                                </span>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+
                     <h2>Your order</h2>
                     <table class="table checkout-table">
 
@@ -199,7 +240,7 @@ require './Config/province.php'; ?>
                                     <div class="checkout-pro-info p-0">
                                         <p>Sub total (<?= $cart->total_quantity ?> items):</p>
                                         <!-- <p>Tax:</p> -->
-                                        <?php if ($_SESSION['coupon'] != 0) : ?>
+                                        <?php if ($coupon_discount != 0) : ?>
                                             <p>Discount: </p>
                                         <?php endif; ?>
                                         <p>Shipping fee:</p>
@@ -215,9 +256,9 @@ require './Config/province.php'; ?>
                                         <!-- <p>
                                         $0.00
                                     </p> -->
-                                        <?php if ($_SESSION['coupon'] != 0) : ?>
+                                        <?php if ($coupon_discount != 0) : ?>
                                             <p>
-                                                - $<?= number_format(($cart->total_price) * $_SESSION["coupon"], 2, '.', '') ?>
+                                                - $<?= number_format(($cart->total_price) * $coupon_discount, 2, '.', '') ?>
                                             </p>
                                         <?php endif; ?>
                                         <p>
@@ -235,12 +276,12 @@ require './Config/province.php'; ?>
                                 <h2>Order total</h2>
                             </td>
 
-                            <?php if ($_SESSION['coupon'] != 0) : ?>
+                            <?php if ($coupon_discount != 0) : ?>
                                 <td>
-                                    <h2 class="price">$<?= number_format(($cart->total_price) * (1 -  $_SESSION["coupon"]) + 2, 2, '.', '') ?></h2>
+                                    <h2 class="price">$<?= number_format(($cart->total_price) * (1 - $coupon_discount) + 2, 2, '.', '') ?></h2>
                                 </td>
                             <?php endif; ?>
-                            <?php if ($_SESSION['coupon'] == 0) : ?>
+                            <?php if ($coupon_discount == 0) : ?>
                                 <td>
                                     <h2 class="price">$<?= number_format(($cart->total_price) + 2, 2, '.', '') ?></h2>
                                 </td>
@@ -284,5 +325,48 @@ require './Config/province.php'; ?>
     </div>
 </section>
 
+<script>
+function applyCouponCheckout() {
+    const couponCode = document.getElementById('coupon_id').value;
+    const messageElement = document.getElementById('message-coupon');
+    
+    if (!couponCode.trim()) {
+        messageElement.innerHTML = '<span style="color: red;">Vui lòng nhập mã giảm giá</span>';
+        return;
+    }
+    
+    // Sử dụng method applyCouponAjax có sẵn
+    const url = `./?controller=cart&action=applyCouponAjax&id=${encodeURIComponent(couponCode)}`;
+    
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        if (data.coupon_value > 0) {
+            messageElement.innerHTML = '<span style="color: green;">' + data.message + '</span>';
+            // Reload trang để cập nhật giá
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
+        } else {
+            messageElement.innerHTML = '<span style="color: red;">' + data.message + '</span>';
+        }
+    })
+    .catch(error => {
+        messageElement.innerHTML = '<span style="color: red;">Có lỗi xảy ra, vui lòng thử lại</span>';
+        console.error('Error:', error);
+    });
+}
+
+function removeCoupon() {
+    // Gọi applyCouponAjax với ID không hợp lệ để clear coupon
+    fetch('./?controller=cart&action=applyCouponAjax&id=CLEAR_COUPON')
+    .then(response => response.json())
+    .then(data => {
+        window.location.reload();
+    });
+}
+
+// Hoặc tạo method riêng để clear coupon
+</script>
 
 <?php view('shared.site.footer'); ?>
