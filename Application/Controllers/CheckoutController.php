@@ -88,6 +88,7 @@ class CheckoutController extends BaseController
             }
         }
 
+        // -1 so luong su dung coupon
         $coupon = $this->couponModel->getCouponDetailById($_SESSION["coupon_id"]);
         if (!empty($coupon)) {
             $status = ($coupon["used_times"] == 1) ? 0 : 1;

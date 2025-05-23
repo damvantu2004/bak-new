@@ -159,7 +159,7 @@ require './Config/province.php'; ?>
                                 <input type="hidden" name="total" value="<?= number_format($total, 2, '.', '') ?>">
                                 <div class="form-group" style="border-top: 1px solid lightgray; padding-top: 1.5rem;">
                                     <?php if (isset($is_buy_now) && $is_buy_now): ?>
-                                    <a href="./?controller=checkout&action=cancelBuyNow&product_id=<?= $product_id ?>" class="btn btn-secondary" style="margin-right: 10px;">Quay lại</a>
+                                        <a href="./?controller=checkout&action=cancelBuyNow&product_id=<?= $product_id ?>" class="btn btn-secondary" style="margin-right: 10px;">Quay lại</a>
                                     <?php endif; ?>
                                     <button type="submit" class="btn-root border-root place-order-btn">Place order</button>
                                 </div>

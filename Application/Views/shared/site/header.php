@@ -28,7 +28,6 @@
     <link rel="stylesheet" href="./public/site/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="./public/site/css/search.css">
     <link rel="stylesheet" href="./public/site/css/styles.css">
-
 </head>
 
 <body>

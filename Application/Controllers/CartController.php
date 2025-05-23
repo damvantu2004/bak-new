@@ -234,6 +234,29 @@ class CartController extends BaseController
         ]);
     }
 
+
+    public function applyCouponAjax()
+    {
+        $id = $_GET['id'];
+        $coupon = $this->couponModel->getCouponDetailById($id);
+        $ajaxRes = array();
+
+        // lưu thông tin coupon nếu coupon đang hoạt động và chưa hết
+        if ($coupon && $coupon['status'] == 1 && $coupon['used_times'] > 0) {
+            $_SESSION['coupon'] = $coupon['coupon_value'];
+            $_SESSION['coupon_id'] = $id;
+            $ajaxRes["message"] = "Đã áp dụng mã giảm giá";
+            $ajaxRes["coupon_value"] = $coupon["coupon_value"];
+        } else {
+            $_SESSION['coupon'] = 0;
+            $_SESSION['coupon_id'] = null;
+            $ajaxRes["message"] = "Mã đã hết hạn hoặc hết lượt sử dụng";
+            $ajaxRes["coupon_value"] = 0;
+        }
+
+
+        echo json_encode($ajaxRes);
+    }
     public function buyNow()
     {
         $id = $_GET['id'] ?? null;

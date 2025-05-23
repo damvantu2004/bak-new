@@ -102,23 +102,16 @@
             <tfoot>
                 <tr>
                     <td colspan="3">
-                        <form action="./?controller=cart&action=applyCoupon" method="POST" class="coupon">
+                        <div class="coupon">
                             <input value="<?= !empty($coupon_id) ? $coupon_id : ''  ?>" type="text" placeholder="Enter your coupon code" id="coupon_id" name="coupon_id">
 
-                            <button type="submit" class="site-btn">Apply coupon</button>
-                            <?php if (isset($coupon)) : ?>
-                                <?php if ($coupon == 0) : ?>
-                                    <div>
-                                        <small class="invalid-error">Coupon code is invalid</small>
-                                    </div>
-                                <?php endif; ?>
-                                <?php if ($coupon != 0) : ?>
-                                    <div>
-                                        <small style="color: #28a745">Coupon applied successfully</small>
-                                    </div>
-                                <?php endif; ?>
-                            <?php endif; ?>
-                        </form>
+                            <button onclick="applyCouponAjax(getCouponInput(), <?= $cart->total_price ?>)" class="site-btn">Apply coupon</button>
+                            <div>
+                                <small id="message-coupon"></small>
+                            </div>
+
+
+                        </div>
 
                     </td>
 
@@ -145,39 +138,30 @@
                         <h5>Coupon code</h5>
                     </th>
                     <td>
-                        <?php if (isset($coupon)) : ?>
-                            <?php if ($coupon != 0) : ?>
-                                <span class="discount">-(<?= number_format(100 * $coupon, 0, '.', '') ?>%)
-                                    <?= strtoupper($coupon_id) ?></span>
+                        <span id="coupon-display">
+                            <?php if (isset($coupon) && $coupon != 0) : ?>
+                                <span class="discount">-(<?= number_format(100 * $coupon, 0, '.', '') ?>%) <?= strtoupper($coupon_id) ?></span>
+                            <?php else : ?>
+                                <span>Chưa có mã nào được áp dụng</span>
                             <?php endif; ?>
-                            <?php if ($coupon == 0) : ?>
-                                <span>No coupon applied</span>
-                            <?php endif; ?>
-                        <?php else : ?>
-                            <span>No coupon applied</span>
-                        <?php endif; ?>
+                        </span>
+
                     </td>
                 </tr>
                 <tr>
                     <th>
                         <h5>Total</h5>
                     </th>
-                    <td>
-                        <?php if (isset($coupon)) : ?>
-                            <?php if ($coupon != 0) : ?>
-                                <span class="price" id="total-price">$<?= number_format($cart->total_price * (1 - $coupon), 2, '.', '') ?></span>
+                    <td>$
+                        <span class="price" id="total-price">
+                            <?= isset($coupon) && $coupon != 0
+                                ? number_format($cart->total_price * (1 - $coupon), 2, '.', '')
+                                : number_format($cart->total_price, 2, '.', '') ?>
+                        </span>
                     </td>
-                <?php endif; ?>
-                <?php if ($coupon == 0) : ?>
-                    <span class="price" id="total-price">$<?= number_format($cart->total_price, 2, '.', '') ?></span>
-
-                <?php endif; ?>
-            <?php else : ?>
-                <span class="price" id="total-price">$<?= number_format($cart->total_price, 2, '.', '') ?></span>
-            <?php endif; ?>
 
 
-            </td>
+                    </td>
                 </tr>
             </tbody>
 
@@ -200,3 +184,15 @@
 </section>
 
 <?php view('shared.site.footer'); ?>
+
+<script>
+    function getCouponInput() {
+        return document.getElementById('coupon_id').value;
+    }
+</script>
+
+<style>
+    .success-1 {
+        color: #28a745;
+    }
+</style>

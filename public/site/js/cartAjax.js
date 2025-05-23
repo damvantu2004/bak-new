@@ -157,3 +157,51 @@ function onAddToCartAjax(itemID, quantity) {
     xmlhttp.open("GET", reqTxt, true);
     xmlhttp.send();
 }
+
+function applyCouponAjax(couponId, totalPriceOrigin){
+ var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var resObj = JSON.parse(this.responseText);
+            tmp = resObj;
+            console.log(tmp)
+
+            // sửa giá giao diện
+            totalPrice = document.getElementById("total-price");
+            totalPrice.textContent =   Number(totalPriceOrigin) * (1-tmp.coupon_value)
+
+            message = document.getElementById("message-coupon");
+
+            // kiểm tra input
+            input = document.getElementById('coupon_id');
+            // sửa thông báo
+            if(input.value){
+                if(tmp.coupon_value > 0){
+                message.classList.remove("invalid-error");
+                message.style.color = "#28a745"; // xanh lá
+                }else{
+                    message.classList.add("invalid-error");
+                    message.style.color = "";
+                }
+                 message.textContent = tmp.message;
+            }else{
+                 message.textContent = "Vui lòng nhập mã giảm giá";
+            }
+            
+
+
+            // sửa hiển thị coupon
+            const display = document.getElementById("coupon-display");
+            if(tmp.coupon_value > 0){
+                display.innerHTML = `<span class="discount">-(${tmp.coupon_value * 100}%) ${couponId}</span>`;
+            }else{
+                display.innerHTML = `<span>Chưa có mã nào được áp dụng`;
+            }
+        }
+    }
+    console.log("ok2")
+    var reqTxt = "?controller=cart&action=applyCouponAjax".concat("&id=").concat(couponId);
+    console.log(reqTxt)
+    xmlhttp.open("GET", reqTxt, true);
+    xmlhttp.send();
+}
