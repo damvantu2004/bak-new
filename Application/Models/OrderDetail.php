@@ -41,4 +41,20 @@ class OrderDetail extends BaseModel
         $update_sql = "UPDATE product SET quantity = $new_quantity WHERE id = $product_id";
         $this->_query($update_sql);
     }
+
+    // Phương thức mới để khôi phục số lượng sản phẩm khi hủy đơn hàng
+    public function restoreProductQuantity($product_id, $quantity_to_restore)
+    {
+        // Lấy thông tin sản phẩm hiện tại
+        $sql = "SELECT quantity FROM product WHERE id = $product_id";
+        $query = $this->_query($sql);
+        $product = mysqli_fetch_assoc($query);
+        
+        // Tính toán số lượng mới (cộng lại số lượng đã đặt)
+        $new_quantity = $product['quantity'] + $quantity_to_restore;
+        
+        // Cập nhật số lượng sản phẩm
+        $update_sql = "UPDATE product SET quantity = $new_quantity WHERE id = $product_id";
+        $this->_query($update_sql);
+    }
 }

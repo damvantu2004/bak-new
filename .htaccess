@@ -1,1 +1,20 @@
 ErrorDocument 404 /bakya_mvc/Application/Views/shared/site/404.php 
+RewriteEngine On
+RewriteBase /bakya_mvc/
+
+# Bỏ index.php khỏi URL nếu người dùng gõ thẳng
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/index\.php [NC]
+RewriteRule ^index\.php(.*)$ $1 [R=301,L]
+
+# Nếu không phải file hay thư mục thực, thì rewrite về index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Route: /module/controller/action
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/?$ index.php?module=$1&controller=$2&action=$3 [QSA,L]
+
+# Route: /controller/action
+RewriteRule ^([^/]+)/([^/]+)/?$ index.php?controller=$1&action=$2 [QSA,L]
+
+# Route: /controller
+RewriteRule ^([^/]+)/?$ index.php?controller=$1 [QSA,L]

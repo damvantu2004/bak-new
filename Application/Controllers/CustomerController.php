@@ -252,6 +252,19 @@ class CustomerController extends BaseController
     public function cancelOrder()
     {
         $id = $_GET['id'] ?? null;
+        
+        // Lấy danh sách sản phẩm trong đơn hàng trước khi hủy
+        $products_in_order = $this->orderModel->getAllProductsInOrderById($id);
+        
+        // Load OrderDetail model
+        $this->loadModel('OrderDetail');
+        $orderDetailModel = new OrderDetail();
+        
+        // Khôi phục số lượng cho từng sản phẩm
+        foreach ($products_in_order as $product) {
+            $orderDetailModel->restoreProductQuantity($product['id'], $product['quantity']);
+        }
+        
         $data = [
             'status' => 3,
             'updated_at' => date("Y-m-d", time())
