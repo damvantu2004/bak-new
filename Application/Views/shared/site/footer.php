@@ -6,7 +6,7 @@
                     <div class="footer__logo">
                         <a><img src="./public/site/img/home/logo/logo-white.png" alt="" style="width: 111px; height: 56px;"></a>
                     </div>
-                    <p>giới thiệu </p>
+                    <p>Mạng xã hội</p>
                     <div class="footer__social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
@@ -15,11 +15,11 @@
             </div>
             <div class="col-lg-3 col-md-3 col-sm-5">
                 <div class="footer__widget">
-                    <h5>Contact</h5>
+                    <h5>Liên hệ</h5>
                     <ul id="contact-list">
-                        <li><span><i class="fas fa-map-marker-alt"></i>Address:</span><span> địa chỉ</span></li>
-                        <li><span><i class="fas fa-phone-alt"></i>Phone:</span><span>số điện thoại</span></li>
-                        <li><span><i class="far fa-envelope"></i>Email:</span><span>mail </span></li>
+                        <li><span><i class="fas fa-map-marker-alt"></i>Địa chỉ:</span><span>45 P. Tuệ Tĩnh, Bùi Thị Xuân, Hai Bà Trưng, Hà Nội, Việt Nam</span></li>
+                        <li><span><i class="fas fa-phone-alt"></i>Số điện thoại:</span><span>0388 888 888</span></li>
+                        <li><span><i class="far fa-envelope"></i>Email:</span><span>tuchimbe@gmail.com</span></li>
 
                     </ul>
                 </div>

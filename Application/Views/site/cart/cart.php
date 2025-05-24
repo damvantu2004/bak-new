@@ -10,8 +10,8 @@
     <div class="container-fluid banner-title">
         <div class="row">
             <div class="col-md-12">
-                <h2 id="motto">Your cart</h2>
-                <span>Home</span> &nbsp;<span>\\</span> &nbsp;<span>Cart</span>
+                <h2 id="motto">Giỏ Hàng</h2>
+                <span>Trang Chủ</span> &nbsp;<span>\\</span> &nbsp;<span>Giỏ Hàng</span>
             </div>
 
         </div>
@@ -19,7 +19,7 @@
 
     <div class="container-fluid banner-share">
         <div class="row">
-            <span>Share this page:</span>
+            <span>Chia sẻ nội dung này:</span>
             <div class="banner-social">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-google-plus-g"></i></a>
@@ -30,7 +30,7 @@
     </div>
 
 </section>
-<marquee behavior="scroll" direction="left" scrollamount="6">Welcome to Bakya! Apply &nbsp; <span style='color: #dc3545'>WELCOME</span> &nbsp; to receive a 30% discount! Enjoy shopping with us!</marquee>
+<marquee behavior="scroll" direction="left" scrollamount="6">Chào mừng đến với Bakya! Nhập mã &nbsp; <span style='color: #dc3545'>WELCOME</span> &nbsp; để nhận ngay ưu đãi giảm 30%! Chúc bạn mua sắm vui vẻ!</marquee>
 
 <section class="p-50">
 
@@ -40,16 +40,16 @@
                 <tr>
 
                     <th>
-                        <h4>Product</h4>
+                        <h4>Sản Phẩm</h4>
                     </th>
                     <th>
-                        <h4>Price</h4>
+                        <h4>Mức Giá</h4>
                     </th>
                     <th class="text-center">
-                        <h4>Quantity</h4>
+                        <h4>Số Lượng</h4>
                     </th>
                     <th>
-                        <h4>Total</h4>
+                        <h4>Tổng Tiền</h4>
                     </th>
                     <th>
                         <a title="Remove all products in cart" class="delete-all-pro" href="./?controller=cart&action=clear"><span class="del-cart-all-pro">
@@ -103,9 +103,9 @@
                 <tr>
                     <td colspan="3">
                         <div class="coupon">
-                            <input value="<?= !empty($coupon_id) ? $coupon_id : ''  ?>" type="text" placeholder="Enter your coupon code" id="coupon_id" name="coupon_id">
+                            <input value="<?= !empty($coupon_id) ? $coupon_id : ''  ?>" type="text" placeholder="Nhập vào mã giảm giá" id="coupon_id" name="coupon_id">
 
-                            <button onclick="applyCouponAjax(getCouponInput(), <?= $cart->total_price ?>)" class="site-btn">Apply coupon</button>
+                            <button onclick="applyCouponAjax(getCouponInput(), <?= $cart->total_price ?>)" class="site-btn">Áp Dụng</button>
                             <div>
                                 <small id="message-coupon"></small>
                             </div>
@@ -116,26 +116,26 @@
                     </td>
 
                     <td colspan="2">
-                        <h4 id="total-in-cart">Total: $<?= number_format($cart->total_price, 2, '.', '') ?></h4>
+                        <h4 id="total-in-cart">Tổng Tiền: $<?= number_format($cart->total_price, 2, '.', '') ?></h4>
                     </td>
                 </tr>
 
             </tfoot>
         </table>
 
-        <h3 style="margin-bottom: 1.2rem;">Order information</h3>
+        <h3 style="margin-bottom: 1.2rem;">Thông Tin Đơn Hàng</h3>
         <table class="order-info-table" style="width: 100%;">
             <tbody>
                 <tr>
                     <th>
-                        <h5>Sub total</h5>
+                        <h5>Tạm Tính</h5>
                     </th>
                     <td><span class="price" id="sub-total-price">$<?= number_format($cart->total_price, 2, '.', '') ?></span></td>
                 </tr>
 
                 <tr>
                     <th>
-                        <h5>Coupon code</h5>
+                        <h5>Mã Giảm Giá</h5>
                     </th>
                     <td>
                         <span id="coupon-display">
@@ -150,7 +150,7 @@
                 </tr>
                 <tr>
                     <th>
-                        <h5>Total</h5>
+                        <h5>Tổng Tiền</h5>
                     </th>
                     <td>$
                         <span class="price" id="total-price">
@@ -169,12 +169,11 @@
             <tfoot>
                 <tr>
                     <td colspan="1">
-                        <a href="./?controller=product&action=allProducts" class="cs-btn border-root btn-white">Continue
-                            shopping</a>
+                        <a href="./?controller=product&action=allProducts" class="cs-btn border-root btn-white">Tiếp Tục Mua Sắm</a>
                     </td>
 
                     <td class="text-right">
-                        <a href="./?controller=checkout" class="btn-root ptc-btn border-root">Proceed to checkout</a>
+                        <a href="./?controller=checkout" class="btn-root ptc-btn border-root">Thanh Toán Ngay</a>
                     </td>
                 </tr>
             </tfoot>

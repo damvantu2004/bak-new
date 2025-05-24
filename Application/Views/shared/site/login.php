@@ -13,7 +13,7 @@ if (!empty($_SESSION['user'])) {
 
 
     <a href='?controller=customer&action=viewProfile'>
-        <button class='login-modal' style='width:auto'><i class='fas fa-user-edit' style='font-size: 14px'></i>Profile</button>
+        <button class='login-modal' style='width:auto'><i class='fas fa-user-edit' style='font-size: 14px'></i>Trang Cá Nhân</button>
     </a>
     <a href='?controller=customer&action=listOrders'>
         <button class='login-modal' style='width:auto'><i class='fas fa-receipt' style='font-size: 14px'></i>Lịch Sử Đơn Hàng</button>
@@ -45,12 +45,12 @@ if (!empty($_SESSION['user'])) {
                     <h5 class="text-center">Đăng Nhập </h5>
 
                     <label for="email"></label>
-                    <input type="text" placeholder="Email address *" name="email" id="li-email" onkeyup="validateEmail(this)">
+                    <input type="text" placeholder="Địa chi email *" name="email" id="li-email" onkeyup="validateEmail(this)">
                     <small id="li-email-err"></small>
 
 
                     <label for="psw"></label>
-                    <input type="password" placeholder="Password *" name="password" id="li-psw" onkeyup="validateNotEmpty(this, 'Password')">
+                    <input type="password" placeholder="Mật khẩu *" name="password" id="li-psw" onkeyup="validateNotEmpty(this, 'Password')">
                     <small id="li-psw-err"></small>
 
                     <div class="form-group">

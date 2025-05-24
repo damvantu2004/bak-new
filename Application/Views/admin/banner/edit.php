@@ -1,5 +1,5 @@
 <?php view('shared.admin.header', [
-    'title' => 'Edit Banner'
+    'title' => 'Chỉnh Sửa Banner'
 ]); ?>
 <?php if (!empty($message)) { ?>
     <div class="alert alert-success" id="success-update-banner">
@@ -13,30 +13,30 @@
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             <div class="form-group">
-                <label for="ad-bn-ed-name">Name</label>
+                <label for="ad-bn-ed-name">Tên Banner</label>
                 <small id="ad-bn-ed-name-err"></small>
-                <input type="text" class="form-control" id='ad-bn-ed-name' name="name" placeholder="Input name" value="<?= $banner['name'] ?>" onkeyup="validateNotEmpty(this, 'Banner name');">
+                <input type="text" class="form-control" id='ad-bn-ed-name' name="name" placeholder="Nhập vào tên " value="<?= $banner['name'] ?>" onkeyup="validateNotEmpty(this, 'Banner name');">
 
             </div>
 
             <div class="form-group">
                 <label for="ad-bn-ed-site">Site</label>
                 <select name="site" class="form-control" id='ad-bn-ed-site'>
-                    <option value="Home" <?= $banner['site'] == 'Home' ? 'selected' : ''  ?>>Home</option>
-                    <option value="About" <?= $banner['site'] == 'About' ? 'selected' : ''  ?>>About</option>
+                    <option value="Home" <?= $banner['site'] == 'Home' ? 'selected' : ''  ?>>Trang Chủ</option>
+                    <option value="About" <?= $banner['site'] == 'About' ? 'selected' : ''  ?>>Giới Thiệu</option>
                     <option value="Blog" <?= $banner['site'] == 'Blog' ? 'selected' : ''  ?>>Blog</option>
-                    <option value="Blog Detail" <?= $banner['site'] == 'Blog Detail' ? 'selected' : ''  ?>>Blog Detail</option>
-                    <option value="Product" <?= $banner['site'] == 'Product' ? 'selected' : ''  ?>>Product</option>
-                    <option value="Product Detail" <?= $banner['site'] == 'Product Detail' ? 'selected' : ''  ?>>Product Detail</option>
-                    <option value="Contact" <?= $banner['site'] == 'Contact' ? 'selected' : ''  ?>>Contact</option>
-                    <option value="Cart" <?= $banner['site'] == 'Cart' ? 'selected' : ''  ?>>Cart</option>
-                    <option value="Checkout" <?= $banner['site'] == 'Checkout' ? 'selected' : ''  ?>>Checkout</option>
+                    <option value="Blog Detail" <?= $banner['site'] == 'Blog Detail' ? 'selected' : ''  ?>>Chi Tiết Blog</option>
+                    <option value="Product" <?= $banner['site'] == 'Product' ? 'selected' : ''  ?>>Sản Phẩm</option>
+                    <option value="Product Detail" <?= $banner['site'] == 'Product Detail' ? 'selected' : ''  ?>>Chi Tiết Sản Phẩm</option>
+                    <option value="Contact" <?= $banner['site'] == 'Contact' ? 'selected' : ''  ?>>Liên Hệ</option>
+                    <option value="Cart" <?= $banner['site'] == 'Cart' ? 'selected' : ''  ?>>Giỏ Hàng</option>
+                    <option value="Checkout" <?= $banner['site'] == 'Checkout' ? 'selected' : ''  ?>>Thanh Toán</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="ad-bn-ed-description">Description</label>
-                <textarea class="form-control" id="ad-bn-ed-description" name="description" placeholder="Banner description" style="height: 46px;"><?= $banner['description'] ?></textarea>
+                <textarea class="form-control" id="ad-bn-ed-description" name="description" placeholder="Nhập vào mô tả" style="height: 46px;"><?= $banner['description'] ?></textarea>
 
             </div>
         </div>
@@ -44,22 +44,22 @@
 
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             <div class="form-group">
-                <label for="ad-bn-ed-status">Status</label>
+                <label for="ad-bn-ed-status">Trạng Thái</label>
                 <select name="status" class="form-control" id='ad-bn-ed-status'>
-                    <option value="1" <?= $banner['status'] == 1 ? 'selected' : ''  ?>>Visible</option>
-                    <option value="0" <?= $banner['status'] == 0 ? 'selected' : ''  ?>>Hidden</option>
+                    <option value="1" <?= $banner['status'] == 1 ? 'selected' : ''  ?>>Hiển Thị</option>
+                    <option value="0" <?= $banner['status'] == 0 ? 'selected' : ''  ?>>Ẩn</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="ad-bn-ed-priority">Priority</label>
+                <label for="ad-bn-ed-priority">Mức Độ Ưu Tiên</label>
                 <small id="ad-bn-ed-priority-err"></small>
-                <input type="number" id="ad-bn-ed-priority" class="form-control" name="priority" placeholder="Input priority" min="1" value="<?= $banner['priority'] ?>" onkeyup="validateInt(this, 'Priority');">
+                <input type="number" id="ad-bn-ed-priority" class="form-control" name="priority" placeholder="Nhập vào mức độ ưu tiên" min="1" value="<?= $banner['priority'] ?>" onkeyup="validateInt(this, 'Priority');">
 
             </div>
 
             <div class="form-group">
-                <label for=""> Banner Image</label>
+                <label for="">Hình Ảnh Banner</label>
                 <small id="actual-btn-err"></small>
                 <br>
                 <input type="file" name="image" id="actual-btn" hidden onchange="readURL(this);">
@@ -94,7 +94,7 @@
             </div>
         <?php endif; ?>
     </div>
-    <button type="submit" class="btn btn-primary">Save Data</button>
+    <button type="submit" class="btn btn-primary">Lưu Dữ Liệu</button>
 </form>
 
 

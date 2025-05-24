@@ -1,11 +1,11 @@
 <?php view('shared.admin.header', [
-    'title' => 'Account List'
+    'title' => 'Danh Sách Tài Khoản'
 ]); ?>
 
 <form action="./?module=admin&controller=account&action=searchAccountFull" class="form-inline" method="post">
 
     <div class="form-group">
-        <input class="form-control search-input" name="accountSearch" placeholder="Search...">
+        <input class="form-control search-input" name="accountSearch" placeholder="Tìm Kiếm">
     </div>
 
     <button type="submit" class="btn btn-root search-btn">
@@ -17,15 +17,15 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>Họ Tên</th>
             <th>Email</th>
-            <th>Phone</th>
-            <th>Address</th>
-            <th>Province</th>
-            <th>Role</th>
-            <th>Status</th>
-            <th>Created at</th>
-            <th class="text-right">Actions</th>
+            <th>Số Điện Thoại</th>
+            <th>Địa Chỉ</th>
+            <th>Tỉnh Thành</th>
+            <th>Vai Trò</th>
+            <th>Trạng Thái</th>
+            <th>Ngày Tạo</th>
+            <th class="text-right">Thao Tác</th>
         </tr>
     </thead>
     <tbody>
@@ -41,10 +41,10 @@
                 </td>
                 <td>
                     <?php if ($account['status'] == 0) : ?>
-                        <span class="badge badge-danger">Blocked</span>
+                        <span class="badge badge-danger">Đã Chặn</span>
                     <?php else : ?>
 
-                        <span class="badge badge-success">Active</span>
+                        <span class="badge badge-success">Hoạt Động</span>
                     <?php endif; ?>
                 </td>
                 <td><?= $account['created_at'] ?></td>

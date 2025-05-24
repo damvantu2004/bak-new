@@ -12,7 +12,7 @@
     <div class="container-fluid banner-title">
         <div class="row">
             <div class="col-md-12">
-                <h2 id="motto">Your order</h2>
+                <h2 id="motto">Đơn Hàng Của Bạn</h2>
 
             </div>
 
@@ -21,7 +21,7 @@
 
     <div class="container-fluid banner-share">
         <div class="row">
-            <span>Share this page:</span>
+            <span>Chia sẻ nội dung này:</span>
             <div class="banner-social">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-google-plus-g"></i></a>
@@ -40,34 +40,34 @@
                 <tr>
 
                     <th>
-                        Order ID
+                        ID Đơn Hàng
                     </th>
                     <th>
-                        Name
+                        Họ Tên
                     </th>
                     <th>
-                        Phone
+                        Số Điện Thoại
                     </th>
                     <th>
-                        Address
+                        Địa Chỉ
                     </th>
                     <th>
-                        Province
+                        Tỉnh Thành
                     </th>
                     <th>
-                        Created at
+                         Ngày Tạo
                     </th>
                     <th>
-                        Status
+                        Trạng Thái
                     </th>
                     <th>
-                        No. of Products
+                        Số Lượng Sản Phẩm
                     </th>
                     <th>
-                        Total
+                        Tổng Tiền
                     </th>
                     <th>
-                        Details
+                        Chi Tiết
                     </th>
                 </tr>
             </thead>

@@ -17,8 +17,8 @@
     <section class="quickshopping">
         <div class="container-fluid section-main">
             <div class="content-title-block">
-                <p class="block-title">High-quality products</p>
-                <p class="block-motto"><span>BUY NOW</span></p>
+                <p class="block-title">Sản Phẩm Chất Lượng Cao</p>
+                <p class="block-motto"><span>MUA NGAY</span></p>
             </div>
 
             <div class="container" style="margin-top: 40px;">
@@ -27,10 +27,10 @@
                         <li>
 
                             <div class="bread-desc">
-                                <h3>Bakery</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.
+                                <h3>Tiệm bánh</h3>
+                                <p>Nơi mang đến những chiếc bánh tươi ngon, hấp dẫn và đa dạng.
                                 </p>
-                                <a href="./?controller=product&action=allProducts"><button><span>SHOP NOW</span><img src="./public/site/img/home/logo/right.png" alt=""></button></a>
+                                <a href="./?controller=product&action=allProducts"><button><span>MUA NGAY</span><img src="./public/site/img/home/logo/right.png" alt=""></button></a>
                                 <div class="basket">
                                     <img src="./public/site/img/home/images/basket6.png" alt="">
                                 </div>
@@ -41,9 +41,9 @@
                         <li>
 
                             <div class="bread-desc">
-                                <h3>Bread</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
-                                <a href="./?controller=product&action=allProducts"><button><span>SHOP NOW</span><img src="./public/site/img/home/logo/right.png" alt=""></button></a>
+                                <h3>Bánh mì</h3>
+                                <p>Thưởng thức các loại bánh mì thơm ngon, nóng hổi mỗi ngày.</p>
+                                <a href="./?controller=product&action=allProducts"><button><span>MUA NGAY</span><img src="./public/site/img/home/logo/right.png" alt=""></button></a>
                                 <div class="basket">
                                     <img src="./public/site/img/home/images/basket7.png" alt="">
                                 </div>
@@ -54,9 +54,9 @@
                         <li>
 
                             <div class="bread-desc">
-                                <h3>Muffins</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
-                                <a href="./?controller=product&action=allProducts"><button><span>SHOP NOW</span><img src="./public/site/img/home/logo/right.png" alt=""></button></a>
+                                <h3>Bánh muffin</h3>
+                                <p>Những chiếc bánh muffin mềm mại, ngọt ngào, phù hợp mọi lúc.</p>
+                                <a href="./?controller=product&action=allProducts"><button><span>MUA NGAY</span><img src="./public/site/img/home/logo/right.png" alt=""></button></a>
                                 <div class="basket">
                                     <img src="./public/site/img/home/images/basket1.png" alt="">
                                 </div>
@@ -81,8 +81,8 @@
     <section class="why-choose-us p-50">
         <div class="container-fluid section-main">
             <div class="title-block">
-                <p class="block-title">Why choose us</p>
-                <p class="block-motto"><span>GREAT QUALITY</span></p>
+                <p class="block-title">Vì Sao Nên Chọn Chúng Tôi</p>
+                <p class="block-motto"><span>CHẤT LƯỢNG TUYỆT VỜI</span></p>
             </div>
 
             <div class="container content-block">
@@ -93,8 +93,8 @@
                                 <img src="./public/site/img/home/whychooseus/payment.png" alt="">
                             </div>
                             <div class="why-reason">
-                                <h5>Secure payment</h5>
-                                <p>Payment with security</p>
+                                <h5>Thanh toán an toàn</h5>
+                                <p>Bảo mật, an tâm</p>
                             </div>
                         </div>
                     </li>
@@ -105,8 +105,8 @@
                                 <img src="./public/site/img/home/whychooseus/organic.png" alt="">
                             </div>
                             <div class="why-reason">
-                                <h5>100% organic</h5>
-                                <p>Available Quality Foods</p>
+                                <h5>100% nguyên liệu hữu cơ</h5>
+                                <p>Sạch và tự nhiên</p>
                             </div>
                         </div>
                     </li>
@@ -117,8 +117,8 @@
                                 <img src="./public/site/img/home/whychooseus/24-hours-support.png" alt="">
                             </div>
                             <div class="why-reason">
-                                <h5>Customer support</h5>
-                                <p>Very helpful support 24/7</p>
+                                <h5>Chăm sóc khách hàng</h5>
+                                <p>Hỗ trợ tận tình 24/7</p>
                             </div>
                         </div>
                     </li>
@@ -129,8 +129,8 @@
                                 <img src="./public/site/img/home/whychooseus/free-delivery.png" alt="">
                             </div>
                             <div class="why-reason">
-                                <h5>Free shipping</h5>
-                                <p>All orders over $100</p>
+                                <h5>Miễn phí vận chuyển</h5>
+                                <p>Dành cho đơn trên 100$</p>
                             </div>
                         </div>
                     </li>
@@ -151,25 +151,22 @@
                 </li>
                 <li class="offer-info">
                     <div>
-                        <p class="block-title">This week offer</p>
+                        <p class="block-title">Ưu Đãi Tuần Này</p>
                         <p class="offer-deal">
-                            GET <span style="font-weight: bold"><?= $offer_pro['percent'] ?></span>% OFF THIS PRODUCT
-                            NOW
+                            Giảm <span style="font-weight: bold"><?= $offer_pro['percent'] ?></span>% sản phẩm này
                         </p>
 
                         <h3><?= $offer_pro['name'] ?></h3>
-                        <h5 class="offer-price"><span class="strikeout">$<?= number_format($offer_pro['price'], 2, '.', '') ?></span> Now only
+                        <h5 class="offer-price"><span class="strikeout">$<?= number_format($offer_pro['price'], 2, '.', '') ?></span> Chỉ còn
                             $<?= number_format($offer_pro['sale_price'], 2, '.', '') ?></h5>
 
-                        <p class="p-lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. </p>
+                        <p class="p-lorem">Cam kết mang đến sản phẩm chất lượng cao, chế biến tỉ mỉ và an toàn cho sức khỏe. 
+                            Đảm bảo sự hài lòng và trải nghiệm tuyệt vời cho khách hàng.</p>
 
                         <!-- <div class="countdown" data-date="2021-12-28" data-time="12:00"></div> -->
 
                         <a class="offer-btn btn-root ptc-btn border-root" style="margin-top: 15px; position: absolute" href="./?controller=product&action=productDetail&id=<?= $offer_pro['id'] ?>">
-                            BUY NOW
+                            MUA NGAY
                         </a>
 
                     </div>
@@ -190,8 +187,8 @@
     <section class="latest-products p-50">
         <div class="container-fluid section-main">
             <div class="content-title-block">
-                <p class="block-title">Our latest bakery products</p>
-                <p class="block-motto"><span>OUR BEST CAKES</span></p>
+                <p class="block-title">Bánh Mới Ra Lò</p>
+                <p class="block-motto"><span>Bánh Tươi Thượng Hạng</span></p>
             </div>
 
             <div class="container">
@@ -249,8 +246,8 @@
     <section class="product-for-you p-50">
         <div class="container-fluid section-main">
             <div class="content-title-block">
-                <p class="block-title">Product for you</p>
-                <p class="block-motto"><span>NEW PRODUCT</span></p>
+                <p class="block-title">Dành Cho Bạn</p>
+                <p class="block-motto"><span>Bánh Tươi Mới</span></p>
             </div>
 
             <div class="container" style="margin-top: 40px;">
@@ -276,8 +273,7 @@
                                         </h5>
                                     </div>
                                     <a id="add-to-cart-btn<?= $product['id'] ?>" class="swalDefaultSuccess " onclick="onAddToCartAjax(<?= $product['id'] ?>)">
-                                        <button><i class="fas fa-shopping-basket" style="font-size:13px"></i><span> ADD TO
-                                                CART</span></button>
+                                        <button><i class="fas fa-shopping-basket" style="font-size:13px"></i><span> THÊM VÀO GIỎ</span></button>
                                     </a>
 
                                 </div>
@@ -296,8 +292,8 @@
     <section class="testimonial">
         <div class="container-fluid section-main">
             <div class="content-title-block">
-                <p class="block-title">What our customers saying?</p>
-                <p class="block-motto"><span>TESTIMONIALS</span></p>
+                <p class="block-title">Khách Hàng Nhận Xét</p>
+                <p class="block-motto"><span>PHẢN HỒI</span></p>
             </div>
             <div class="container">
                 <div class="carousel-inner" id="testimonial-list" role="listbox">
@@ -306,13 +302,13 @@
 
                             <div class="customer-info">
                                 <img src="./public/site/img/home/customer/testimonial.png">
-                                <p> Do ullamco dolor occaecat do pariatur enim mollit ad dolor nisi eu dolor. Culpa do
-                                    ut aliqua enim culpa excepteur elit consequat occaecat commodo ullamco consectetur.
+                                <p> Bánh ở đây thật sự rất ngon và trình bày cực kì đẹp mắt. 
+                                    Mỗi lần đến mình đều thử món mới và chưa bao giờ thất vọng!
                                     <br>
                                 </p>
                                 <span id="star-icon"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                                <h5> Dan Gheesling </h5>
-                                <span id="job"> Food blogger </span>
+                                <h5> Mạnh Nguyễn </h5>
+                                <span id="job"> Blogger ẩm thực </span>
                             </div>
                             <div class="customer-img">
                                 <img src=" ./public/site/img/home/customer/comment_1.png ">
@@ -325,13 +321,13 @@
 
                             <div class="customer-info">
                                 <img src="./public/site/img/home/customer/testimonial.png">
-                                <p> Do ullamco dolor occaecat do pariatur enim mollit ad dolor nisi eu dolor. Culpa do
-                                    ut aliqua enim culpa excepteur elit consequat occaecat commodo ullamco consectetur.
+                                <p> Tôi là đầu bếp bánh nhiều năm và thật sự ngạc nhiên với chất lượng bánh ở đây.
+                                    Hương vị tinh tế, nguyên liệu rõ ràng và làm rất chuyên nghiệp.
                                     <br>
                                 </p>
                                 <span id="star-icon"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                                <h5> Ian Terry </h5>
-                                <span id="job"> Pastry chef </span>
+                                <h5> Đàm Tú </h5>
+                                <span id="job"> Thợ làm bánh </span>
                             </div>
                             <div class="customer-img">
                                 <img src=" ./public/site/img/home/customer/comment_2.png ">
@@ -344,13 +340,13 @@
 
                             <div class="customer-info">
                                 <img src="./public/site/img/home/customer/testimonial.png">
-                                <p> Do ullamco dolor occaecat do pariatur enim mollit ad dolor nisi eu dolor. Culpa do
-                                    ut aliqua enim culpa excepteur elit consequat occaecat commodo ullamco consectetur.
+                                <p> Tớ thường đặt bánh ở đây cho các buổi chụp ảnh. 
+                                    Bánh không chỉ đẹp mắt mà còn rất ngon — khách hàng của tớ cũng rất thích!
                                     <br>
                                 </p>
                                 <span id="star-icon"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                                <h5> Kaysar Ridha </h5>
-                                <span id="job"> Model </span>
+                                <h5> Khúc Thị Hương</h5>
+                                <span id="job"> Người mẫu </span>
                             </div>
                             <div class="customer-img">
                                 <img src=" ./public/site/img/home/customer/comment_3.png ">

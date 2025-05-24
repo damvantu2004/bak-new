@@ -15,8 +15,8 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
     <div class="container-fluid banner-title">
         <div class="row">
             <div class="col-md-12">
-                <h2 id="motto">Checkout</h2>
-                <span>Home</span> &nbsp;<span>\\</span> &nbsp;<span>Cart</span>
+                <h2 id="motto">Thanh Toán</h2>
+                <span>Trang Chủ</span> &nbsp;<span>\\</span> &nbsp;<span>Giỏ Hàng</span>
             </div>
 
         </div>
@@ -24,7 +24,7 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
 
     <div class="container-fluid banner-share">
         <div class="row">
-            <span>Share this page:</span>
+            <span>Chia sẻ nội dung này:</span>
             <div class="banner-social">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-google-plus-g"></i></a>
@@ -310,7 +310,7 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
                         <div class="img-container" style="margin-bottom: 40px">
                             <img src="./public/site/img/empty-cart.png" alt="">
                         </div>
-                        <p><a href="./?controller=product&action=allProducts" class="btn-root ptc-btn border-root">Continue shopping</a>
+                        <p><a href="./?controller=product&action=allProducts" class="btn-root ptc-btn border-root">Tiếp Tục Mua Sắm</a>
                         </p>
 
 

@@ -1,5 +1,5 @@
 <?php view('shared.admin.header', [
-    'title' => 'Category List'
+    'title' => 'Danh Sách Danh Mục'
 ]); ?>
 <?php if (!empty($message['error-delete'])) { ?>
     <div class="alert alert-danger" id="error-delete-category">
@@ -16,7 +16,7 @@
 <form action="./?module=admin&controller=category&action=searchCategoryFull" class="form-inline" method="POST">
 
     <div class="form-group">
-        <input class="form-control search-input" name="categorySearch" placeholder="Search By Name..">
+        <input class="form-control search-input" name="categorySearch" placeholder="Tìm Kiếm Theo Tên">
     </div>
 
     <button type="submit" class="btn btn-root search-btn">
@@ -28,11 +28,11 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Total Products</th>
-            <th>Status</th>
-            <th>Created Date</th>
-            <th class="text-right">Actions</th>
+            <th>Tên Danh Mục</th>
+            <th>Tổng Số Lượng Sản Phẩm</th>
+            <th>Trạng Thái</th>
+            <th>Ngày Tạo</th>
+            <th class="text-right">Thao Tác</th>
         </tr>
     </thead>
     <tbody>
@@ -43,10 +43,10 @@
                 <td><?= $cat['count'] ?></td>
                 <td>
                     <?php if ($cat['status'] == 0) : ?>
-                        <span class="badge badge-danger">Private</span>
+                        <span class="badge badge-danger">Ẩn</span>
                     <?php else : ?>
 
-                        <span class="badge badge-success">Public</span>
+                        <span class="badge badge-success">Hiển Thị</span>
                     <?php endif; ?>
                 </td>
                 <td><?= $cat['created_at'] ?></td>
@@ -57,7 +57,7 @@
                         <i class="fas fa-edit"></i>
                     </a>
 
-                    <a href="./?module=admin&controller=category&action=delete&id=<?= $cat['id'] ?>" class="btn btn-sm btn-danger btndelete" onclick="return confirm('Are you sure to delete this category ?')">
+                    <a href="./?module=admin&controller=category&action=delete&id=<?= $cat['id'] ?>" class="btn btn-sm btn-danger btndelete" onclick="return confirm('Bạn chắc chắn muốn xoá danh mục này?')">
                         <i class="fas fa-trash"></i>
                     </a>
 

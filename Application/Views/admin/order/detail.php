@@ -1,5 +1,5 @@
 <?php view('shared.admin.header', [
-    'title' => 'Order Details'
+    'title' => 'Chi Tiết Đơn Hàng'
 ]); ?>
 <section class="checkout p-50">
     <div class="container">
@@ -9,18 +9,18 @@
 
                 <div class="bill-form-block">
                     <h2>
-                        Order details
+                        Chi Tiết Đơn Hàng 
                         <a href="./?module=admin&controller=order&action=printInvoice&id=<?= $_GET['id'] ?>" class="btn btn-info float-right">In hóa đơn</a>
                     </h2>
                     <div class="form-group row">
                         <div class="col-md-6">
-                            <label for="fname">First name</label>
+                            <label for="fname">Tên</label>
                             <input value="<?= $order['fname'] ?>" type="text" name="fname" id="fname" class="form-control" aria-describedby="helpId" disabled>
 
                         </div>
 
                         <div class="col-md-6">
-                            <label for="lname">Last name</label>
+                            <label for="lname">Họ Đệm</label>
                             <input value="<?= $order['lname'] ?>" type="text" name="lname" id="lname" class="form-control" aria-describedby="helpId" disabled>
 
 
@@ -31,13 +31,13 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-md-6">
-                            <label for="email">Email address</label>
+                            <label for="email">Địa Chỉ Email</label>
                             <input value="<?= $order['email'] ?>" type="text" name="email" id="email" class="form-control" aria-describedby="helpId" disabled>
 
                         </div>
 
                         <div class="col-md-6">
-                            <label for="phone">Phone number</label>
+                            <label for="phone">Số Điện Thoại</label>
                             <input value="<?= $order['phone'] ?>" type="text" name="phone" id="phone" class="form-control" aria-describedby="helpId" disabled>
                         </div>
 
@@ -47,7 +47,7 @@
 
 
                     <div class="form-group">
-                        <label for="province">Province/City</label>
+                        <label for="province">Tỉnh Thành</label>
                         <select class="form-control" id="province" name="province" disabled>
 
                             <option value="<?= $order['province'] ?>"><?= $order['province'] ?></option>
@@ -56,22 +56,22 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="address">Address</label>
+                        <label for="address">Địa Chỉ</label>
 
                         <input value="<?= $order['address'] ?>" type="text" name="address" id="address" class="form-control" aria-describedby="helpId" disabled>
 
                     </div>
 
                     <div class="form-group">
-                        <label for="note">Order note</label>
+                        <label for="note">Ghi Chú Đơn Hàng</label>
 
-                        <textarea class="form-control" name="note" rows="5" placeholder="Notes on your order" disabled><?= $order['note'] ?></textarea>
+                        <textarea class="form-control" name="note" rows="5" placeholder="Ghi chú" disabled><?= $order['note'] ?></textarea>
 
                     </div>
 
 
 
-                    <h2 style="margin-top: 2.5rem;">Shipping method</h2>
+                    <h2 style="margin-top: 2.5rem;">Phương Thức Giao Hàng</h2>
                     <div class="form-group">
 
 
@@ -80,7 +80,7 @@
                         </select>
                     </div>
 
-                    <h2 style="margin-top: 2.5rem;">Payment method</h2>
+                    <h2 style="margin-top: 2.5rem;">Phương Thức Thanh Toán</h2>
                     <div class="form-group" style="margin-bottom: 1.5rem;">
 
 
@@ -97,7 +97,7 @@
 
 
             <div class="col-md-5">
-                <h2>Your order</h2>
+                <h2>Đơn Hàng</h2>
                 <table class="table checkout-table">
 
                     <tbody>
@@ -124,11 +124,11 @@
 
                             <td>
                                 <div class="checkout-pro-info p-0">
-                                    <p>Sub total (<?= $order['quantity'] ?> items):</p>
+                                    <p>Tạm tính (<?= $order['quantity'] ?> sản phẩm):</p>
                                     <?php if ($order['coupon'] != 0) : ?>
-                                        <p>Discount: </p>
+                                        <p>Giảm giá: </p>
                                     <?php endif; ?>
-                                    <p>Shipping fee:</p>
+                                    <p>Phí giao hàng:</p>
                                 </div>
 
                             </td>
@@ -153,7 +153,7 @@
 
                     <tr class="order-total">
                         <td>
-                            <h2>Order total</h2>
+                            <h2>Tổng Tiền</h2>
                         </td>
 
                         <td>
@@ -168,7 +168,7 @@
                                 <td colspan="2" style="padding-top: 7px">
 
                                     <div class="form-group">
-                                        <label for="status">Status</label>
+                                        <label for="status">Trạng Thái</label>
 
                                         <select name="status" id="" class="form-control">
 
@@ -176,13 +176,13 @@
                                                 <!-- 1 pending, 0 Delivered, 2 Cancelled -->
                                                 <option value="<?= $i ?>" <?= ($order['status'] == $i) ? "selected" : ""  ?>>
                                                     <?php if ($i == 1) {
-                                                        echo 'Pending';
+                                                        echo 'Đang Xử Lý';
                                                     } else if ($i == 0) {
-                                                        echo 'Delivered';
+                                                        echo 'Đã Vân Chuyển';
                                                     } else if ($i == 2) {
-                                                        echo 'Delivering';
+                                                        echo 'Đang Vận Chuyển';
                                                     } else {
-                                                        echo 'Cancelled';
+                                                        echo 'Đã Huỷ';
                                                     }
                                                     ?></option>
                                             <?php endfor; ?>
@@ -196,7 +196,7 @@
 
                                 <td colspan="2" style="border: none; padding-top: 20px">
                                     <div class="form-group">
-                                        <input type="submit" class="btn btn-primary form-control" value="Save order">
+                                        <input type="submit" class="btn btn-primary form-control" value="Lưu Đơn Hàng">
                                     </div>
                                 </td>
                             </tr>

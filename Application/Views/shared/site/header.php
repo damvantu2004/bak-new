@@ -50,9 +50,8 @@
                         ?>
 
                         <ul class="social-span m-0 hidden-xs hidden-sm">
-                            <li><a href="https://www.facebook.com/Duiga.Da.Den"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="https://www.facebook.com/DuongDinh1703"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygULcmljayBhc3RsZXk%3D"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                         </ul>
                     </div>
 
@@ -81,26 +80,26 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ml-auto my-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="./" title="Home">Trang Chủ<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="./" title="Trang Chủ">Trang Chủ<span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href='./?controller=home&action=about' title="about">About</a>
+                        <a class="nav-link" href='./?controller=home&action=about' title="Giới Thiệu">Giới Thiệu</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href='./?controller=product&action=allProducts' title="product">Sản Phẩm</a>
+                        <a class="nav-link" href='./?controller=product&action=allProducts' title="Sản Phẩm">Sản Phẩm</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href='./?controller=contact' title="contact">Liên Hệ</a>
+                        <a class="nav-link" href='./?controller=contact' title="Liên Hệ">Liên Hệ</a>
                     </li>
 
                     <li class="nav-item">
                         <div class="dropdown">
-                            <a onclick="showSearchBar()" class="dropbtn nav-link" title="search"><i class="fas fa-search"></i></a>
+                            <a onclick="showSearchBar()" class="dropbtn nav-link" title="Tìm Kiếm"><i class="fas fa-search"></i></a>
                             <div id="myDropdown" class="dropdown-content">
-                                <input type="text" placeholder="Search Product Name" id="myInput" onkeyup="showSearchResult(this.value)">
+                                <input type="text" placeholder="Tìm Kiếm Sản Phẩm" id="myInput" onkeyup="showSearchResult(this.value)">
                                 <div id="searched-items">
                                 </div>
 
@@ -109,7 +108,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link " href='./?controller=cart' title="cart"><i class="fas fa-shopping-basket"></i><span class="badge badge-warning navbar-badge" id="cart-quantity"><?= $_SESSION['total_quantity'] ?? 0 ?></span></a>
+                        <a class="nav-link " href='./?controller=cart' title="Giỏ Hàng"><i class="fas fa-shopping-basket"></i><span class="badge badge-warning navbar-badge" id="cart-quantity"><?= $_SESSION['total_quantity'] ?? 0 ?></span></a>
                     </li>
 
                 </ul>
