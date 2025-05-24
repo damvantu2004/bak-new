@@ -89,8 +89,10 @@ class CartHelper // dung de tach phan add ben controller sang helper
 
     public function add($product, $quantity = 1)
     {
-        $quantity = isset($_GET['quantity']) ? (int) $_GET['quantity'] : 1;
-
+        if (!isset($_GET['cartAction'])) { // neu khong co cartAction thi them 1 san pham vao cart đồng thời chỉnh so luong san pham bằng form truyền vao qua ajax bien quantity
+            $quantity = isset($_GET['quantity']) ? (int) $_GET['quantity'] : 1;
+        }
+        
         if (isset($this->items[$product['id']])) {
             $this->items[$product['id']]['quantity'] += $quantity; // them 1 san pham vao so luong san co trong cart
             $this->items[$product['id']]['price_sum'] = $this->items[$product['id']]['price'] * $this->items[$product['id']]['quantity'];
