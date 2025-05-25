@@ -109,7 +109,7 @@ function modifyCartHTMLAjax(cartJsonRes, itemID, coupon) {
     prodNoCartEle.textContent = cartJsonRes.total_quantity;
 }
  
-function onAddToCartAjax(itemID) {
+function onAddToCartAjaxHome(itemID) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -134,6 +134,10 @@ function onAddToCartAjax(itemID) {
 }
 
 function onAddToCartAjax(itemID, quantity) {
+    if(quantity < 1){
+        alert("sản phẩm phải có số lượng lớn hơn 0")
+        return;
+    }
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {

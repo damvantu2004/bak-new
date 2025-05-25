@@ -72,9 +72,8 @@ class CartController extends BaseController
             $message = "invalid id";
             goto endPoint;
         }
-        if (!isset($_GET['quantity'])) {
+        if (isset($_GET['quantity'])) {
             $quantity = $_GET['quantity'];
-            echo $quantity;
         }
         $id = $_GET['id'];
         $pro = $this->productModel->findProductById(['*'], $id);
