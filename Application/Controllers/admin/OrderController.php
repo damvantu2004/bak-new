@@ -46,6 +46,21 @@ class OrderController extends BaseController
         $oldStatus = $this->orderModel->getOrderDetailById($id)['status'];
         $newStatus = $_POST['status']; // lấy trạng thái mới từ form ở view
         
+        // Nếu chuyển sang trạng thái hủy (3), khôi phục số lượng sản phẩm
+        if ($oldStatus != 3 && $newStatus == 3) {
+            // Lấy danh sách sản phẩm trong đơn hàng
+            $products_in_order = $this->orderModel->getAllProductsInOrderById($id);
+            
+            // Load OrderDetail model
+            $this->loadModel('OrderDetail');
+            $orderDetailModel = new OrderDetail();
+            
+            // Khôi phục số lượng cho từng sản phẩm
+            foreach ($products_in_order as $product) {
+                $orderDetailModel->restoreProductQuantity($product['id'], $product['quantity']);
+            }
+        }
+        
         $data = [
             'status' => $newStatus,
             'updated_at' => date("Y-m-d", time())

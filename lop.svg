@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="auto" viewBox="0 0 1600 900" preserveAspectRatio="xMinYMin meet">
+  
+  <!-- Tiêu đề biểu đồ -->
+  <text x="800" y="30" font-family="Arial" font-size="20" text-anchor="middle" font-weight="bold">Biểu đồ lớp: Controller Classes</text>
+  
+  <!-- BaseController Class -->
+  <rect x="650" y="80" width="300" height="120" fill="#E1F5FE" stroke="black" stroke-width="2"/>
+  <text x="800" y="100" font-family="Arial" font-size="13" text-anchor="middle" font-weight="bold">BaseController</text>
+  <line x1="650" y1="110" x2="950" y2="110" stroke="black" stroke-width="1"/>
+  
+  <!-- BaseController Methods -->
+  <text x="660" y="130" font-family="Arial" font-size="13">+ view(viewName, data)</text>
+  <text x="660" y="145" font-family="Arial" font-size="13">+ redirect(url)</text>
+  <text x="660" y="160" font-family="Arial" font-size="13">+ getImage()</text>
+  <text x="660" y="175" font-family="Arial" font-size="13">+ validateData(data)</text>
+  
+  <!-- ProductController -->
+  <rect x="50" y="250" width="280" height="150" fill="#F3E5F5" stroke="black" stroke-width="2"/>
+  <text x="190" y="270" font-family="Arial" font-size="13" text-anchor="middle" font-weight="bold">ProductController</text>
+  <line x1="50" y1="280" x2="330" y2="280" stroke="black" stroke-width="1"/>
+  
+  <text x="60" y="300" font-family="Arial" font-size="13">+ index()</text>
+  <text x="60" y="315" font-family="Arial" font-size="13">+ create()</text>
+  <text x="60" y="330" font-family="Arial" font-size="13">+ store()</text>
+  <text x="60" y="345" font-family="Arial" font-size="13">+ edit(id)</text>
+  <text x="60" y="360" font-family="Arial" font-size="13">+ update(id)</text>
+  <text x="60" y="375" font-family="Arial" font-size="13">+ delete(id)</text>
+  <text x="60" y="390" font-family="Arial" font-size="13">+ searchProductFull()</text>
+  
+  <!-- CategoryController -->
+  <rect x="370" y="250" width="280" height="130" fill="#F3E5F5" stroke="black" stroke-width="2"/>
+  <text x="510" y="270" font-family="Arial" font-size="13" text-anchor="middle" font-weight="bold">CategoryController</text>
+  <line x1="370" y1="280" x2="650" y2="280" stroke="black" stroke-width="1"/>
+  
+  <text x="380" y="300" font-family="Arial" font-size="13">+ index()</text>
+  <text x="380" y="315" font-family="Arial" font-size="13">+ create()</text>
+  <text x="380" y="330" font-family="Arial" font-size="13">+ store()</text>
+  <text x="380" y="345" font-family="Arial" font-size="13">+ edit(id)</text>
+  <text x="380" y="360" font-family="Arial" font-size="13">+ update(id)</text>
+  <text x="380" y="375" font-family="Arial" font-size="13">+ delete(id)</text>
+  
+  <!-- OrderController -->
+  <rect x="690" y="250" width="280" height="150" fill="#F3E5F5" stroke="black" stroke-width="2"/>
+  <text x="830" y="270" font-family="Arial" font-size="13" text-anchor="middle" font-weight="bold">OrderController</text>
+  <line x1="690" y1="280" x2="970" y2="280" stroke="black" stroke-width="1"/>
+  
+  <text x="700" y="300" font-family="Arial" font-size="13">+ index()</text>
+  <text x="700" y="315" font-family="Arial" font-size="13">+ show(id)</text>
+  <text x="700" y="330" font-family="Arial" font-size="13">+ updateStatus(id)</text>
+  <text x="700" y="345" font-family="Arial" font-size="13">+ updatePaymentStatus(id)</text>
+  <text x="700" y="360" font-family="Arial" font-size="13">+ delete(id)</text>
+  <text x="700" y="375" font-family="Arial" font-size="13">+ searchOrder()</text>
+  <text x="700" y="390" font-family="Arial" font-size="13">+ exportOrder()</text>
+  
+  <!-- BannerController -->
+  <rect x="1010" y="250" width="280" height="130" fill="#F3E5F5" stroke="black" stroke-width="2"/>
+  <text x="1150" y="270" font-family="Arial" font-size="13" text-anchor="middle" font-weight="bold">BannerController</text>
+  <line x1="1010" y1="280" x2="1290" y2="280" stroke="black" stroke-width="1"/>
+  
+  <text x="1020" y="300" font-family="Arial" font-size="13">+ index()</text>
+  <text x="1020" y="315" font-family="Arial" font-size="13">+ create()</text>
+  <text x="1020" y="330" font-family="Arial" font-size="13">+ store()</text>
+  <text x="1020" y="345" font-family="Arial" font-size="13">+ edit(id)</text>
+  <text x="1020" y="360" font-family="Arial" font-size="13">+ update(id)</text>
+  <text x="1020" y="375" font-family="Arial" font-size="13">+ delete(id)</text>
+  
+  <!-- ReviewController -->
+  <rect x="50" y="440" width="280" height="110" fill="#F3E5F5" stroke="black" stroke-width="2"/>
+  <text x="190" y="460" font-family="Arial" font-size="13" text-anchor="middle" font-weight="bold">ReviewController</text>
+  <line x1="50" y1="470" x2="330" y2="470" stroke="black" stroke-width="1"/>
+  
+  <text x="60" y="490" font-family="Arial" font-size="13">+ index()</text>
+  <text x="60" y="505" font-family="Arial" font-size="13">+ show(id)</text>
+  <text x="60" y="520" font-family="Arial" font-size="13">+ delete(id)</text>
+  <text x="60" y="535" font-family="Arial" font-size="13">+ approve(id)</text>
+  
+  <!-- CouponController -->
+  <rect x="370" y="440" width="280" height="130" fill="#F3E5F5" stroke="black" stroke-width="2"/>
+  <text x="510" y="460" font-family="Arial" font-size="13" text-anchor="middle" font-weight="bold">CouponController</text>
+  <line x1="370" y1="470" x2="650" y2="470" stroke="black" stroke-width="1"/>
+  
+  <text x="380" y="490" font-family="Arial" font-size="13">+ index()</text>
+  <text x="380" y="505" font-family="Arial" font-size="13">+ create()</text>
+  <text x="380" y="520" font-family="Arial" font-size="13">+ store()</text>
+  <text x="380" y="535" font-family="Arial" font-size="13">+ edit(id)</text>
+  <text x="380" y="550" font-family="Arial" font-size="13">+ update(id)</text>
+  <text x="380" y="565" font-family="Arial" font-size="13">+ delete(id)</text>
+  
+  <!-- AccountController -->
+  <rect x="690" y="440" width="280" height="130" fill="#F3E5F5" stroke="black" stroke-width="2"/>
+  <text x="830" y="460" font-family="Arial" font-size="13" text-anchor="middle" font-weight="bold">AccountController</text>
+  <line x1="690" y1="470" x2="970" y2="470" stroke="black" stroke-width="1"/>
+  
+  <text x="700" y="490" font-family="Arial" font-size="13">+ index()</text>
+  <text x="700" y="505" font-family="Arial" font-size="13">+ show(id)</text>
+  <text x="700" y="520" font-family="Arial" font-size="13">+ edit(id)</text>
+  <text x="700" y="535" font-family="Arial" font-size="13">+ update(id)</text>
+  <text x="700" y="550" font-family="Arial" font-size="13">+ delete(id)</text>
+  <text x="700" y="565" font-family="Arial" font-size="13">+ changeStatus(id)</text>
+  
+  <!-- ContactController -->
+  <rect x="1010" y="440" width="280" height="110" fill="#F3E5F5" stroke="black" stroke-width="2"/>
+  <text x="1150" y="460" font-family="Arial" font-size="13" text-anchor="middle" font-weight="bold">ContactController</text>
+  <line x1="1010" y1="470" x2="1290" y2="470" stroke="black" stroke-width="1"/>
+  
+  <text x="1020" y="490" font-family="Arial" font-size="13">+ index()</text>
+  <text x="1020" y="505" font-family="Arial" font-size="13">+ show(id)</text>
+  <text x="1020" y="520" font-family="Arial" font-size="13">+ delete(id)</text>
+  <text x="1020" y="535" font-family="Arial" font-size="13">+ reply(id)</text>
+  
+  <!-- DashboardController -->
+  <rect x="1330" y="250" width="280" height="110" fill="#F3E5F5" stroke="black" stroke-width="2"/>
+  <text x="1470" y="270" font-family="Arial" font-size="13" text-anchor="middle" font-weight="bold">DashboardController</text>
+  <line x1="1330" y1="280" x2="1610" y2="280" stroke="black" stroke-width="1"/>
+  
+  <text x="1340" y="300" font-family="Arial" font-size="13">+ index()</text>
+  <text x="1340" y="315" font-family="Arial" font-size="13">+ getStatistics()</text>
+  <text x="1340" y="330" font-family="Arial" font-size="13">+ getChartData()</text>
+  <text x="1340" y="345" font-family="Arial" font-size="13">+ exportReport()</text>
+  
+  <!-- Inheritance Arrows -->
+  <!-- ProductController extends BaseController -->
+  <line x1="190" y1="250" x2="750" y2="200" stroke="black" stroke-width="2" marker-end="url(#inheritance)"/>
+  
+  <!-- CategoryController extends BaseController -->
+  <line x1="510" y1="250" x2="780" y2="200" stroke="black" stroke-width="2" marker-end="url(#inheritance)"/>
+  
+  <!-- OrderController extends BaseController -->
+  <line x1="830" y1="250" x2="800" y2="200" stroke="black" stroke-width="2" marker-end="url(#inheritance)"/>
+  
+  <!-- BannerController extends BaseController -->
+  <line x1="1150" y1="250" x2="850" y2="200" stroke="black" stroke-width="2" marker-end="url(#inheritance)"/>
+  
+  <!-- ReviewController extends BaseController -->
+  <line x1="190" y1="440" x2="750" y2="200" stroke="black" stroke-width="2" marker-end="url(#inheritance)"/>
+  
+  <!-- CouponController extends BaseController -->
+  <line x1="510" y1="440" x2="780" y2="200" stroke="black" stroke-width="2" marker-end="url(#inheritance)"/>
+  
+  <!-- AccountController extends BaseController -->
+  <line x1="830" y1="440" x2="800" y2="200" stroke="black" stroke-width="2" marker-end="url(#inheritance)"/>
+  
+  <!-- ContactController extends BaseController -->
+  <line x1="1150" y1="440" x2="850" y2="200" stroke="black" stroke-width="2" marker-end="url(#inheritance)"/>
+  
+  <!-- DashboardController extends BaseController -->
+  <line x1="1470" y1="250" x2="880" y2="200" stroke="black" stroke-width="2" marker-end="url(#inheritance)"/>
+  
+  <!-- Marker definitions -->
+  <defs>
+    <marker id="inheritance" markerWidth="15" markerHeight="15" refX="12" refY="6" orient="auto">
+      <polygon points="0,0 0,12 12,6" fill="white" stroke="black" stroke-width="1"/>
+    </marker>
+  </defs>
+  
+</svg>

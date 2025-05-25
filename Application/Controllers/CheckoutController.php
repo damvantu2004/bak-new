@@ -194,6 +194,9 @@ class CheckoutController extends BaseController
         }
 
         $user = !empty($_SESSION['user']) ? $this->userModel->findUserById(['*'], $_SESSION['user']['id']) : null;
+        
+        // Khởi tạo coupon session nếu chưa có
+        $_SESSION['coupon'] = empty($_SESSION['coupon']) ? 0 : $_SESSION['coupon'];
 
         // Tạo đối tượng giả cho cart để sử dụng chung view
         $buy_now_cart = new \stdClass();
@@ -219,6 +222,18 @@ class CheckoutController extends BaseController
         }
 
         $buy_now_product = $_SESSION['buy_now_product'];
+        
+        // Tính total có áp dụng coupon
+        $total = $buy_now_product['price'];
+        $coupon_value = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
+        
+        // Áp dụng coupon nếu có
+        if ($coupon_value != 0) {
+            $total = $total * (1 - $coupon_value);
+        }
+        
+        // Thêm phí vận chuyển
+        $total += 2;
 
         $data = [
             "fname" => $_POST["fname"],
@@ -231,8 +246,8 @@ class CheckoutController extends BaseController
             "delivery" => $_POST["delivery"],
             "payment" => $_POST["payment"],
             "account_id" => $_SESSION["user"]["id"],
-            "coupon" => 0, // Không áp dụng mã giảm giá cho mua ngay
-            "total" => $buy_now_product['price'] + 2 // Giá sản phẩm + phí vận chuyển
+            "coupon" => $coupon_value, // Áp dụng coupon từ session
+            "total" => $total // Tính total có coupon
         ];
 
         // Lưu đơn hàng
@@ -254,6 +269,26 @@ class CheckoutController extends BaseController
         ]);
 
         $this->orderDetail->store($detail);
+
+        // Xử lý coupon như checkout bình thường
+        if (!empty($_SESSION["coupon_id"])) {
+            $coupon = $this->couponModel->getCouponDetailById($_SESSION["coupon_id"]);
+            if (!empty($coupon)) {
+                $status = ($coupon["used_times"] == 1) ? 0 : 1;
+                $used_times = $coupon["used_times"] - 1;
+
+                $coupon_data = [
+                    'status' => $status,
+                    'used_times' => $used_times,
+                    'updated_at' => date("Y-m-d", time())
+                ];
+                $this->couponModel->updateDataAfterCheckout($coupon["id"], $coupon_data);
+            }
+        }
+
+        // Clear coupon session sau khi sử dụng
+        $_SESSION["coupon"] = 0;
+        $_SESSION["coupon_id"] = "";
 
         // Xóa session mua ngay
         unset($_SESSION['buy_now_product']);

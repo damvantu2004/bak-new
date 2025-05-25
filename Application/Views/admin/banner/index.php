@@ -1,10 +1,10 @@
 <?php view('shared.admin.header', [
-    'title' => 'Banner List'
+    'title' => 'Danh Sách Banner'
 ]); ?>
 <form action="./?module=admin&controller=banner&action=searchBannerFull" class="form-inline" method="post">
 
     <div class="form-group">
-        <input class="form-control search-input" name="bannerSearch" placeholder="Search By Name..">
+        <input class="form-control search-input" name="bannerSearch" placeholder="Tìm Kiếm Theo Tên">
     </div>
 
     <button type="submit" class="btn btn-root search-btn">
@@ -16,12 +16,12 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Site</th>
-            <th>Status</th>
-            <th>Created Date</th>
-            <th>Image</th>
-            <th class="text-right">Actions</th>
+            <th>Tên Banner</th>
+            <th>Trang</th>
+            <th>Trạng Thái</th>
+            <th>Ngày Tạo</th>
+            <th>Hình Ảnh</th>
+            <th class="text-right">Thao Tác</th>
         </tr>
     </thead>
     <tbody>
@@ -32,10 +32,10 @@
                 <td><?= $model['site'] ?></td>
                 <td>
                     <?php if ($model['status'] == 0) { ?>
-                        <span class="badge badge-danger">Hidden</span>
+                        <span class="badge badge-danger">Ẩn</span>
                     <?php } else { ?>
 
-                        <span class="badge badge-success">Visible</span>
+                        <span class="badge badge-success">Hiển Thị</span>
                     <?php } ?>
                 </td>
                 <td><?= $model['created_at'] ?></td>
@@ -49,7 +49,7 @@
                         <i class="fas fa-edit"></i>
                     </a>
 
-                    <a href="./?module=admin&controller=banner&action=delete&id=<?= $model['id'] ?>" class="btn btn-sm btn-danger btndelete" onclick="return confirm('Are you sure to delete this banner ?')">
+                    <a href="./?module=admin&controller=banner&action=delete&id=<?= $model['id'] ?>" class="btn btn-sm btn-danger btndelete" onclick="return confirm('Bạn có chắc muốn xoá banner này?')">
                         <i class="fas fa-trash"></i>
                     </a>
 

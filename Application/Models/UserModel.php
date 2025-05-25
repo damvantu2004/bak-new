@@ -2,7 +2,7 @@
 
 class UserModel extends BaseModel
 {
-    const TABLE = 'account';
+    const TABLE = 'account'; // tên bảng được dùng ở hàm selectAll()
 
     public function getUserByEmailAndPwd($email, $password)
     {

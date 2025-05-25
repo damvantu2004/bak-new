@@ -1,11 +1,11 @@
 <?php view('shared.admin.header', [
-    'title' => 'Product Review'
+    'title' => 'Đánh Giá Sản Phẩm'
 ]); ?>
 
 <form action="./?module=admin&controller=review&action=searchReviewListFull" class="form-inline" method="post">
 
     <div class="form-group">
-        <input class="form-control search-input" name="reviewSearch" placeholder="Search By Name..">
+        <input class="form-control search-input" name="reviewSearch" placeholder="Tìm Kiếm Theo Tên">
     </div>
 
     <button type="submit" class="btn btn-root search-btn">
@@ -17,11 +17,11 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Product Name</th>
-            <th>Image</th>
-            <th class="text-center">Average Rating</th>
-            <th class="text-center">No. of Reviews</th>
-            <th class="text-center">Actions</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Hình Ảnh</th>
+            <th class="text-center">Đánh Giá Trung Bình</th>
+            <th class="text-center">Số Lượt Đánh Giá</th>
+            <th class="text-center">Chi Tiết</th>
         </tr>
     </thead>
     <tbody>

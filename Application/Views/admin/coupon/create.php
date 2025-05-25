@@ -1,5 +1,5 @@
 <?php view('shared.admin.header', [
-    'title' => 'Add Coupon'
+    'title' => 'Thêm Mã Giảm Giá'
 ]); ?>
 <?php if (!empty($message['success-add'])) { ?>
     <div class="alert alert-success" id="success-add-coupon">
@@ -15,35 +15,35 @@
             <form action="./?module=admin&controller=coupon&action=store" method="POST" role="form" name="couponForm" onsubmit="return validateCouponForm();">
 
                 <div class="form-group">
-                    <label for="coupon-id">Coupon Name</label>
+                    <label for="coupon-id">Mã Giảm Giá</label>
                     <small id="coupon-id-err"></small>
-                    <input type="text" class="form-control" name="id" placeholder="Input coupon name" id="coupon-id" onkeyup="validateNotEmpty(this, 'Coupon name'); this.value = this.value.toUpperCase();">
+                    <input type="text" class="form-control" name="id" placeholder="Nhập vào mã giảm giá" id="coupon-id" onkeyup="validateNotEmpty(this, 'Coupon name'); this.value = this.value.toUpperCase();">
                     <?php if (!empty($message['error-name'])) : ?>
                         <small class="help-block invalid-error"><?= $message['error-name'] ?></small>
                     <?php endif; ?>
                 </div>
                 <div class="form-group">
-                    <label for="coupon-value">Discount value (%)</label>
+                    <label for="coupon-value">Giá Trị Giảm (%)</label>
                     <small id="coupon-value-err"></small>
-                    <input type="number" class="form-control" step="0.1" name="coupon_value" placeholder="Input discount value" id="coupon-value" onkeyup="validateFloat(this, 'Discount', 1);" min="1">
+                    <input type="number" class="form-control" step="0.1" name="coupon_value" placeholder="Nhập vào giá trị giảm" id="coupon-value" onkeyup="validateFloat(this, 'Discount', 1);" min="1">
                 </div>
 
                 <div class="form-group">
-                    <label for="coupon-use">Available uses</label>
+                    <label for="coupon-use">Số Lượt Sử Dụng</label>
                     <small id="coupon-use-err"></small>
-                    <input type="number" class="form-control" step="1" name="used_times" placeholder="Input values of available uses" id="coupon-use" onkeyup="validateInt(this, 'Available use');">
+                    <input type="number" class="form-control" step="1" name="used_times" placeholder="Nhập vào số lượt sử dụng" id="coupon-use" onkeyup="validateInt(this, 'Available use');">
                 </div>
 
                 <div class="form-group">
-                    <label for="status">Status</label>
+                    <label for="status">Trạng Thái</label>
 
                     <select name="status" class="form-control" id="status">
-                        <option value="1">Active</option>
-                        <option value="0">Expired</option>
+                        <option value="1">Hiệu Lực</option>
+                        <option value="0">Hết Hạn</option>
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Save Data</button>
+                <button type="submit" class="btn btn-primary">Lưu Dữ Liệu</button>
             </form>
         </div>
 

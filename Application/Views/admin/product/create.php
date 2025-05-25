@@ -11,35 +11,35 @@
     <div class="row">
         <div class="col-md-7">
             <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">Tên Sản Phẩm</label>
                 <small id="ad-pd-cr-name-err"></small>
-                <input type="text" class="form-control" name="name" placeholder="Input name" id="ad-pd-cr-name" onkeyup="validateNotEmpty(this, 'Product name');">
+                <input type="text" class="form-control" name="name" placeholder="Nhập vào tên sản phẩm" id="ad-pd-cr-name" onkeyup="validateNotEmpty(this, 'Product name');">
                 <?php if (!empty($message['error-name'])) : ?>
                     <small class="help-block invalid-error"><?= $message['error-name'] ?></small>
                 <?php endif; ?>
             </div>
 
             <div class="form-group">
-                <label for="description">Description</label>
-                <textarea name="description" id="content" class="form-control" placeholder="Input description" rows="5" style="height:140px"></textarea>
+                <label for="description">Mô Tả</label>
+                <textarea name="description" id="content" class="form-control" placeholder="Nhập vào mô tả" rows="5" style="height:140px"></textarea>
             </div>
 
             <div class="form-group">
-                <label for="origin">Origin</label>
+                <label for="origin">Nguồn Gốc</label>
                 <select name="origin" class="form-control">
-                    <option value="usa">USA</option>
-                    <option value="vn">Vietnam</option>
+                    <option value="usa">Hoa Kỳ</option>
+                    <option value="vn">Việt Nam</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="image">Product Image</label>
+                <label for="image">Lựa Chọn Hình Ảnh</label>
                 <small id="actual-btn-err"></small>
                 <br>
                 <input type="file" name="image" id="actual-btn" hidden onchange="readURL(this);">
 
                 <div class="input-group">
-                    <span class="form-control" id="file-chosen">No file chosen</span>
+                    <span class="form-control" id="file-chosen">Chưa chọn tệp nào</span>
                     <div class="input-group-append">
                         <label for="actual-btn" id='file-label' class="btn btn-sm btn-danger"><i class="fa fa-folder-open"></i></label>
                     </div>
@@ -56,7 +56,7 @@
         </div>
         <div class="col-md-5">
             <div class="form-group">
-                <label for="category_id">Category</label>
+                <label for="category_id">Danh Mục</label>
                 <select name="category_id" class="form-control">
                     <?php foreach ($cats as $cat) : ?>
                         <option value="<?= $cat['id'] ?>"> <?= $cat['name'] ?></option>
@@ -66,40 +66,40 @@
 
             </div>
             <div class="form-group">
-                <label for="price">Price ($)</label>
+                <label for="price">Giá ($)</label>
                 <small id="ad-pd-cr-price-err"></small>
-                <input type="number" class="form-control" step="0.01" name="price" placeholder="Input price" id="ad-pd-cr-price" onkeyup="validateFloat(this, 'Price', 0.01);">
+                <input type="number" class="form-control" step="0.01" name="price" placeholder="Nhập vào giá" id="ad-pd-cr-price" onkeyup="validateFloat(this, 'Price', 0.01);">
 
             </div>
 
             <div class="form-group">
-                <label for="sale_price" style="display:inline-block">Sale Price ($)</label>&nbsp;
-                <small class="notice">0 is unset</small>
+                <label for="sale_price" style="display:inline-block">Giá Sau Giảm ($)</label>&nbsp;
+                <small class="notice">chưa thiết lập</small>
                 <small id="ad-pd-cr-sale_price-err"></small>
-                <input type="number" class="form-control" step="0.01" name="sale_price" placeholder="Input Sale Price" id="ad-pd-cr-sale_price" onkeyup="validateSalePrice(this, 'ad-pd-cr-price');">
+                <input type="number" class="form-control" step="0.01" name="sale_price" placeholder="Nhập vào giá sau giảm" id="ad-pd-cr-sale_price" onkeyup="validateSalePrice(this, 'ad-pd-cr-price');">
 
             </div>
 
 
 
             <div class="form-group">
-                <label for="quantity">Quantity</label>
+                <label for="quantity">Số Lượng</label>
                 <small id="ad-pd-cr-quantity-err"></small>
-                <input type="number" class="form-control" name="quantity" placeholder="Input quantity" id="ad-pd-cr-quantity" onkeyup="validateInt(this, 'Quantity');">
+                <input type="number" class="form-control" name="quantity" placeholder="Nhập vào số lượng" id="ad-pd-cr-quantity" onkeyup="validateInt(this, 'Quantity');">
             </div>
 
             <div class="form-group">
-                <label for="status">Status</label>
+                <label for="status">Trạng Thái</label>
                 <select name="status" class="form-control">
-                    <option value="1" selected>Public</option>
-                    <option value="0">Private</option>
+                    <option value="1" selected>Hiển Thị</option>
+                    <option value="0">Ẩn</option>
                 </select>
 
 
             </div>
 
             <div class="form-group" style="text-align: right;">
-                <button type="submit" class="btn btn-primary">Add Product</button>
+                <button type="submit" class="btn btn-primary">Thêm Sản Phẩm</button>
             </div>
 
         </div>

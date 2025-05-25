@@ -4,9 +4,9 @@ function validateContactForm() {
 	var email = document.contactForm.email;
 	var phone = document.contactForm.phone;
 	var message = document.contactForm.message;
-	if (validateName(name, "Name") && validateEmail(email)
+	if (validateName(name, "Tên") && validateEmail(email)
 		&& validatePhone(phone) && validateLength(message, 'Message', 500)) {
-		alert("Your contact information is VALID! Thank you");
+		alert("Thông tin liên hệ của bạn hợp lệ! Cảm ơn bạn");
 		return true;
 	}
 	return false;
@@ -20,10 +20,10 @@ function validateSignupForm() {
 	var address = document.signupForm.address;
 	var password = document.signupForm.password;
 	var pass_cfm = document.signupForm.password_confirmation;
-	if (validateName(lname, "Last name") && validateName(fname, "First name")
-		&& validateEmail(email) && validatePhone(phone) && validateNotEmpty(address, "Address")
+	if (validateName(lname, "Họ đệm") && validateName(fname, "Tên")
+		&& validateEmail(email) && validatePhone(phone) && validateNotEmpty(address, "Địa chi")
 		&& validateSignupPassword(password) && validateConfirmPassword(pass_cfm, password.id)) {
-		alert("Account created successfully!");
+		alert("Tạo tài khoản thành công!");
 		return true;
 	}
 	return false;
@@ -32,7 +32,7 @@ function validateSignupForm() {
 function validateLoginForm() {
 	var email = document.loginForm.email;
 	var password = document.loginForm.password;
-	if (validateEmail(email) && validateNotEmpty(password, "Password")) {
+	if (validateEmail(email) && validateNotEmpty(password, "Mật khẩu")) {
 		return true;
 	}
 	return false;
@@ -106,7 +106,7 @@ function validateCheckoutForm() {
 	var phone = document.checkoutForm.phone;
 	var address = document.checkoutForm.address;
 
-	if (validateName(fname, 'First name') && validateName(lname, 'Last name') && validateEmail(email)
+	if (validateName(fname, 'Tên') && validateName(lname, 'Họ đệm') && validateEmail(email)
 		&& validatePhone(phone) && validateNotEmpty(address, 'Address')) {
 		return true;
 	}
@@ -121,7 +121,7 @@ function validateProfileForm() {
 	var address = document.profileForm.address;
 	var curPass = document.profileForm.current_password;
 
-	if (validateName(fname, 'First name') && validateName(lname, 'Last name')
+	if (validateName(fname, 'Tên') && validateName(lname, 'Họ đệm')
 		&& validateEmail(email) && validateNotEmpty(curPass, 'Password')
 		&& validatePhone(phone) && validateNotEmpty(address, 'Address')) {
 		return true;
@@ -160,7 +160,7 @@ function validateAddAccountForm() {
 	var password = document.addAccountForm.password;
 	var pass_cfm = document.addAccountForm.password_confirmation;
 
-	if (validateName(fname, 'First name') && validateName(lname, 'Last name')
+	if (validateName(fname, 'Tên') && validateName(lname, 'Họ đệm')
 		&& validateEmail(email) && validatePhone(phone)
 		&& validateNotEmpty(address, 'Address') && validatePassword(password)
 		&& validateConfirmPassword(pass_cfm, password.id)) {
@@ -184,7 +184,7 @@ function validateCouponForm() {
 // Validate inputs
 function validateNotEmpty(input, input_type) {
 	if (input.value.length == 0) {
-		document.getElementById(input.id + "-err").innerHTML = input_type + " must not be empty!";
+		document.getElementById(input.id + "-err").innerHTML = input_type + " không được để trống!";
 		document.getElementById(input.id + "-err").className = 'required-error';
 		document.getElementById(input.id).className = 'form-control required-error';
 		input.focus();
@@ -200,13 +200,13 @@ function validateName(name, name_type) {
 	var nameLength = name.value.length;
 	var letters = /^[A-Za-z '\u00A1-\uFFFF]+$/;
 	if (nameLength == 0) {
-		document.getElementById(name.id + "-err").innerHTML = name_type + " must not be empty!";
+		document.getElementById(name.id + "-err").innerHTML = name_type + " không được để trống!";
 		document.getElementById(name.id + "-err").className = 'required-error';
 		document.getElementById(name.id).className = 'form-control required-error';
 		name.focus();
 		return false;
 	} else if (!name.value.match(letters)) {
-		document.getElementById(name.id + "-err").innerHTML = name_type + " must contain letters only!";
+		document.getElementById(name.id + "-err").innerHTML = name_type + " chỉ được chứa ký tự chữ cái!";
 		document.getElementById(name.id + "-err").className = 'invalid-error';
 		document.getElementById(name.id).className = 'form-control invalid-error';
 		name.focus();
@@ -226,13 +226,13 @@ function validateEmail(email) {
 		document.getElementById(email.id).className = "form-control";
 		return true;
 	} else if (emailLength == 0) {
-		document.getElementById(email.id + "-err").innerHTML = "Email must not be empty";
+		document.getElementById(email.id + "-err").innerHTML = "Email không được để trống!";
 		document.getElementById(email.id + "-err").className = 'required-error';
 		document.getElementById(email.id).className = 'form-control required-error';
 		email.focus();
 		return false;
 	} else {
-		document.getElementById(email.id + "-err").innerHTML = "Email is in INVALID format. Example: abcd@gmail.com";
+		document.getElementById(email.id + "-err").innerHTML = "Email sai định dạng. Ví dụ: abcd@gmail.com";
 		document.getElementById(email.id + "-err").className = 'invalid-error';
 		document.getElementById(email.id).className = 'form-control invalid-error';
 		email.focus();
@@ -248,13 +248,13 @@ function validatePhone(phone) {
 		document.getElementById(phone.id).className = 'form-control';
 		return true;
 	} else if (phoneLength == 0) {
-		document.getElementById(phone.id + "-err").innerHTML = "Phone must not be empty";
+		document.getElementById(phone.id + "-err").innerHTML = "Số điện thoại không được để trống!";
 		document.getElementById(phone.id + "-err").className = 'required-error';
 		document.getElementById(phone.id).className = 'form-control required-error';
 		phone.focus();
 		return false;
 	} else {
-		document.getElementById(phone.id + "-err").innerHTML = "Phone number SHOULD have length of 10 numbers and start with 0";
+		document.getElementById(phone.id + "-err").innerHTML = "Số điện thoại phải có 10 chữ số và bắt đầu bằng 0";
 		document.getElementById(phone.id + "-err").className = 'invalid-error';
 		document.getElementById(phone.id).className = 'form-control invalid-error';
 		phone.focus();
@@ -265,13 +265,13 @@ function validatePhone(phone) {
 function validateLength(message, msg_name, maxLength) {
 	var msgLength = message.value.length;
 	if (msgLength == 0) {
-		document.getElementById(message.id + "-err").innerHTML = msg_name + " must not be empty";
+		document.getElementById(message.id + "-err").innerHTML = msg_name + " không được để trống!";
 		document.getElementById(message.id + "-err").className = 'required-error';
 		document.getElementById(message.id).className = 'form-control required-error';
 		message.focus();
 		return false;
 	} else if (msgLength > maxLength) {
-		document.getElementById(message.id + "-err").innerHTML = msg_name + " must not exceed " + maxLength + " characters";
+		document.getElementById(message.id + "-err").innerHTML = msg_name + " không được vượt quá " + maxLength + " ký tự";
 		document.getElementById(message.id + "-err").className = 'invalid-error';
 		document.getElementById(message.id).className = 'form-control invalid-error';
 		message.focus();
@@ -285,7 +285,7 @@ function validateLength(message, msg_name, maxLength) {
 
 function validatePassword(password) {
 	if (password.value.length < 8) {
-		document.getElementById(password.id + "-err").innerHTML = "Password must be at least 8 characters!";
+		document.getElementById(password.id + "-err").innerHTML = "Mật khẩu phải có ít nhất 8 ký tự!";
 		document.getElementById(password.id + "-err").className = 'invalid-error';
 		document.getElementById(password.id).className = 'form-control invalid-error';
 		password.focus();
@@ -300,7 +300,7 @@ function validatePassword(password) {
 function validateConfirmPassword(pass_cfm, pass_id) {
 	var psw = document.getElementById(pass_id).value;
 	if (psw.localeCompare(pass_cfm.value) != 0) {
-		document.getElementById(pass_cfm.id + "-err").innerHTML = "The 2 passwords didn't match. Try again.";
+		document.getElementById(pass_cfm.id + "-err").innerHTML = "Hai mật khẩu không khớp. Vui lòng thử lại.";
 		document.getElementById(pass_cfm.id + "-err").className = 'invalid-error';
 		document.getElementById(pass_cfm.id).className = 'form-control invalid-error';
 		pass_cfm.focus();
@@ -315,7 +315,7 @@ function validateConfirmPassword(pass_cfm, pass_id) {
 function validateFile(file) {
 	var fileLength = file.files.length;
 	if (fileLength == 0) {
-		document.getElementById(file.id + "-err").innerHTML = "You have to select a file!";
+		document.getElementById(file.id + "-err").innerHTML = "Bạn phải chọn một tệp!";
 		document.getElementById(file.id + "-err").className = 'invalid-error';
 		document.getElementById(file.id).className = 'form-control invalid-error';
 		return false;
@@ -329,13 +329,13 @@ function validateFile(file) {
 function validateInt(int, int_title) {
 	var int_val = parseInt(int.value, 10);
 	if (int.value.length == 0) {
-		document.getElementById(int.id + "-err").innerHTML = int_title + " value must not be empty!";
+		document.getElementById(int.id + "-err").innerHTML = int_title + " giá trị không được để trống!";
 		document.getElementById(int.id + "-err").className = 'required-error';
 		document.getElementById(int.id).className = 'form-control required-error';
 		int.focus();
 		return false;
 	} else if (int_val <= 0) {
-		document.getElementById(int.id + "-err").innerHTML = int_title + " value must be greater than 0!";
+		document.getElementById(int.id + "-err").innerHTML = int_title + " giá trị phải lớn hơn 0!";
 		document.getElementById(int.id + "-err").className = 'invalid-error';
 		document.getElementById(int.id).className = 'form-control invalid-error';
 		int.focus();
@@ -350,13 +350,13 @@ function validateInt(int, int_title) {
 function validateFloat(float, float_title, min) {
 	var float_val = parseFloat(float.value, 10);
 	if (float.value.length == 0) {
-		document.getElementById(float.id + "-err").innerHTML = float_title + " value must not be empty!";
+		document.getElementById(float.id + "-err").innerHTML = float_title + " giá trị không được để trống!";
 		document.getElementById(float.id + "-err").className = 'required-error';
 		document.getElementById(float.id).className = 'form-control required-error';
 		float.focus();
 		return false;
 	} else if (float_val < min) {
-		document.getElementById(float.id + "-err").innerHTML = float_title + " value must be at least " + min + "!";
+		document.getElementById(float.id + "-err").innerHTML = float_title + " phải có giá trị tối thiểu là " + min + "!";
 		document.getElementById(float.id + "-err").className = 'invalid-error';
 		document.getElementById(float.id).className = 'form-control invalid-error';
 		float.focus()
@@ -373,13 +373,13 @@ function validateSalePrice(salePrice, price_id) {
 	var salePrice_val = parseInt(salePrice.value, 10);
 
 	if (salePrice_val > price_val) {
-		document.getElementById(salePrice.id + "-err").innerHTML = "Sale price must not be greater than the original price!";
+		document.getElementById(salePrice.id + "-err").innerHTML = "Giá bán không được vượt quá giá gốc!";
 		document.getElementById(salePrice.id + "-err").className = 'invalid-error';
 		document.getElementById(salePrice.id).className = 'form-control invalid-error';
 		salePrice.focus();
 		return false;
 	} else if (salePrice_val < 0) {
-		document.getElementById(salePrice.id + "-err").innerHTML = "Sale price must not be less than $0!";
+		document.getElementById(salePrice.id + "-err").innerHTML = "Giá bán không được nhỏ hơn 0đ!";
 		document.getElementById(salePrice.id + "-err").className = 'invalid-error';
 		document.getElementById(salePrice.id).className = 'form-control invalid-error';
 		salePrice.focus();
@@ -393,7 +393,7 @@ function validateSalePrice(salePrice, price_id) {
 
 function validateRating(rating, rateId) {
 	if (rating.value == "") {
-		document.getElementById(rateId + "-err").innerHTML = "You have to make your rating!";
+		document.getElementById(rateId + "-err").innerHTML = "Bạn phải thực hiện đánh giá!";
 		document.getElementById(rateId + "-err").className = 'invalid-error';
 		return false;
 	} else {

@@ -9,12 +9,12 @@
             <div class="inner">
                 <h3><?= $total_orders ?></h3>
 
-                <p>Total Orders</p>
+                <p>Tổng Đơn Hàng</p>
             </div>
             <div class="icon">
                 <i class="ion ion-bag"></i>
             </div>
-            <a href="./?module=admin&controller=order" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="./?module=admin&controller=order" class="small-box-footer">Chi Tiết <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -24,12 +24,12 @@
             <div class="inner">
                 <h3><?= $total_products ?></h3>
 
-                <p>Total Products</p>
+                <p>Tổng Sản Phẩm</p>
             </div>
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="./?module=admin&controller=product" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="./?module=admin&controller=product" class="small-box-footer">Chi Tiết <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -39,12 +39,12 @@
             <div class="inner">
                 <h3><?= $total_customers ?></h3>
 
-                <p>Total Customers</p>
+                <p>Tổng Khách Hàng</p>
             </div>
             <div class="icon">
                 <i class="ion ion-person-add"></i>
             </div>
-            <a href="./?module=admin&controller=account" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="./?module=admin&controller=account" class="small-box-footer">Chi Tiết <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -54,12 +54,12 @@
             <div class="inner">
                 <h3><?= $avg_rating ?><sup style="font-size: 20px">/5</sup></h3>
 
-                <p>Average Rating</p>
+                <p>Điểm Đánh Giá Trung Bình</p>
             </div>
             <div class="icon">
                 <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="./?module=admin&controller=review" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="./?module=admin&controller=review" class="small-box-footer">Chi Tiết <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -69,17 +69,17 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
         <h2>
-            Top Products
+            Sản Phẩm Bán Chạy
         </h2>
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>No.</th>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Image</th>
-                    <th>Purchased</th>
+                    <th>STT</th>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Danh Mục</th>
+                    <th>Giá</th>
+                    <th>Hình Ảnh</th>
+                    <th>Đã Mua</th>
                 </tr>
             </thead>
             <tbody>
@@ -109,17 +109,17 @@
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
         <h2>
-            Top Customers
+        Khách Hàng Thân Thiết
         </h2>
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>No.</th>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Province</th>
-                    <th>Orders</th>
-                    <th>Spendings</th>
+                    <th>STT</th>
+                    <th>Tên Khách Hàng</th>
+                    <th>Số Điện Thoại</th>
+                    <th>Tỉnh Thành</th>
+                    <th>Đơn Hàng</th>
+                    <th>Tổng Chi</th>
                 </tr>
             </thead>
             <tbody>

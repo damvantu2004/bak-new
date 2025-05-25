@@ -1,5 +1,5 @@
 <?php view('shared.admin.header', [
-    'title' => 'Coupon List'
+    'title' => 'Danh Sách Mã Giảm Giá'
 ]); ?>
 <?php if (!empty($message['error-delete'])) { ?>
     <div class="alert alert-danger" id="error-delete-coupon">
@@ -16,7 +16,7 @@
 <form action="./?module=admin&controller=coupon&action=searchCouponFull" class="form-inline" method="post">
 
     <div class="form-group">
-        <input class="form-control search-input" name="couponSearch" placeholder="Search By Name..">
+        <input class="form-control search-input" name="couponSearch" placeholder="Tìm Kiếm Theo Tên">
     </div>
 
     <button type="submit" class="btn btn-root search-btn">
@@ -28,11 +28,11 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Discount value</th>
-            <th>Available use</th>
-            <th>Status</th>
-            <th class="text-center">Created Date</th>
-            <th class="text-center">Actions</th>
+            <th>Giá Trị Giảm</th>
+            <th>Số Lượt Dùng Còn Lại</th>
+            <th>Trạng Thái</th>
+            <th class="text-center">Ngày tạo</th>
+            <th class="text-center">Thao Tác</th>
         </tr>
     </thead>
     <tbody>
@@ -60,7 +60,7 @@
                         <i class="fas fa-edit"></i>
                     </a>
 
-                    <a href="./?module=admin&controller=coupon&action=delete&id=<?= $model['id'] ?>" class="btn btn-sm btn-danger btndelete" onclick="return confirm('Are you sure to delete this coupon ?')">
+                    <a href="./?module=admin&controller=coupon&action=delete&id=<?= $model['id'] ?>" class="btn btn-sm btn-danger btndelete" onclick="return confirm('Bạn có chắc muốn xoá mã giảm giá này?')">
                         <i class="fas fa-trash"></i>
                     </a>
 

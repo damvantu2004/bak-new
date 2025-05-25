@@ -1,5 +1,5 @@
 <?php view('shared.admin.header', [
-    'title' => 'Product List'
+    'title' => 'Danh Mục Sản Phẩm'
 ]); ?>
 <?php if (!empty($message['error-delete'])) { ?>
 <div class="alert alert-danger" id="error-delete-product">
@@ -18,7 +18,7 @@
 <div class="d-flex justify-content-between align-items-center mb-3">
     <form action="./?module=admin&controller=product&action=searchProductFull" class="form-inline" method="post">
         <div class="form-group">
-            <input class="form-control search-input" name="productSearch" placeholder="Search By Name..">
+            <input class="form-control search-input" name="productSearch" placeholder="Tìm Kiếm Theo Tên">
         </div>
 
         <button type="submit" class="btn btn-root search-btn">
@@ -28,7 +28,7 @@
 
     <div>
         <a href="./?module=admin&controller=product&action=import" class="btn btn-success">
-            <i class="fas fa-file-import"></i> Import Products
+            <i class="fas fa-file-import"></i> Nhập Danh Sách Sản Phẩm
         </a>
     </div>
 </div>
@@ -37,13 +37,13 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Price/ Sale</th>
-            <th>Status</th>
-            <th>Created Date</th>
-            <th>Image</th>
-            <th class="text-right">Actions</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Danh Mục</th>
+            <th>Giá / Giảm Giá</th>
+            <th>Trạng Thái</th>
+            <th>Ngày Tạo</th>
+            <th>Hình Ảnh</th>
+            <th class="text-right">Thao Tác</th>
         </tr>
     </thead>
     <tbody>
@@ -77,7 +77,7 @@
 
                 <a href="./?module=admin&controller=product&action=delete&id=<?= $model['id'] ?>"
                     class="btn btn-sm btn-danger btndelete"
-                    onclick="return confirm('Are you sure to delete this product ?')">
+                    onclick="return confirm('Bạn chắc chắn muốn xoá sản phẩm này?')">
                     <i class="fas fa-trash"></i>
                 </a>
 

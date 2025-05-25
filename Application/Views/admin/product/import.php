@@ -1,5 +1,5 @@
 <?php view('shared.admin.header', [
-    'title' => 'Import Products'
+    'title' => 'Nhập Danh Sách Sản Phẩm'
 ]); ?>
 
 <?php if (!empty($message['error'])) { ?>
@@ -20,7 +20,7 @@
 
 <div class="card mb-4">
     <div class="card-header">
-        <h4>Import Sản phẩm & Ảnh</h4>
+        <h4>Nhập Vào Sản phẩm & Ảnh</h4>
     </div>
     <div class="card-body">
     <p>Hãy tải file Excel/CSV và upload ảnh sản phẩm theo tên sản phẩm và theo quy tắc dưới đây:</p>
@@ -69,7 +69,7 @@
                 <p class="text-info"><i class="fas fa-info-circle"></i> Hệ thống sẽ tự động ghép ảnh với sản phẩm dựa theo tên.</p>
                 <a href="./?module=admin&controller=product" class="btn btn-secondary">Hủy</a>
                 <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-file-import"></i> Import Sản phẩm & Ảnh
+                    <i class="fas fa-file-import"></i> Nhập Sản phẩm & Ảnh
                 </button>
             </div>
         </form>
@@ -77,9 +77,9 @@
 </div>
 
 <div class="mt-4">
-    <h5>Download Sample Template</h5>
+    <h5>Tải Xuống Mẫu</h5>
     <a href="./public/samples/product_import_template1.csv" class="btn btn-sm btn-info">
-        <i class="fas fa-download"></i> Download CSV Template
+        <i class="fas fa-download"></i> Tải xuống mẫu CSV
     </a>
 </div>
 

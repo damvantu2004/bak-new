@@ -1,10 +1,10 @@
 <?php view('shared.admin.header', [
-    'title' => 'Order List'
+    'title' => 'Danh Sách Đơn Hàng'
 ]); ?>
 <form action="./?module=admin&controller=order&action=searchOrderFull" class="form-inline" method="post">
 
     <div class="form-group">
-        <input class="form-control search-input" name="orderSearch" placeholder="Search...">
+        <input class="form-control search-input" name="orderSearch" placeholder="Tìm Kiếm">
     </div>
     <button type="submit" class="btn btn-root search-btn">
         <i class="fas fa-search"></i>
@@ -16,15 +16,15 @@
         <tr>
 
             <th>ID</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Address</th>
-            <th>Province</th>
-            <th>Created at</th>
-            <th>Status</th>
+            <th>Tên Khách Hàng</th>
+            <th>Số Điện Thoại</th>
+            <th>Địa Chỉ</th>
+            <th>Tỉnh Thành</th>
+            <th>Ngày Tạo</th>
+            <th>Trạng Thái</th>
             <th class="text-center">Thanh toán</th>
-            <th>Total</th>
-            <th class="text-center"> Detail</th>
+            <th>Tổng Tiền</th>
+            <th class="text-center">Chi Tiết</th>
         </tr>
     </thead>
     <tbody>
@@ -54,16 +54,16 @@
                 </td>
                 <td>
                     <?php if ($order['status'] == 1) : ?>
-                        <span class="badge badge-info">Pending</span>
+                        <span class="badge badge-info">Đang Xử Lý</span>
                     <?php endif; ?>
                     <?php if ($order['status'] == 2) : ?>
-                        <span class="badge badge-warning">Delivering</span>
+                        <span class="badge badge-warning">Đang Giao Hàng</span>
                     <?php endif; ?>
                     <?php if ($order['status'] == 3) : ?>
-                        <span class="badge badge-danger">Cancelled</span>
+                        <span class="badge badge-danger">Đã Huỷ</span>
                     <?php endif; ?>
                     <?php if ($order['status'] == 0) : ?>
-                        <span class="badge badge-success">Delivered</span>
+                        <span class="badge badge-success">Đã Giao</span>
                     <?php endif; ?>
                 </td>
                 <td class="text-center">

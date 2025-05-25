@@ -11,8 +11,8 @@
     <div class="container-fluid banner-title">
         <div class="row">
             <div class="col-md-12">
-                <h2 id="motto">About us</h2>
-                <span>Home</span> &nbsp;<span>\\</span> &nbsp;<span>About</span>
+                <h2 id="motto">Giới Thiệu</h2>
+                <span>Trang Chủ</span> &nbsp;<span>\\</span> &nbsp;<span>Giới Thiệu</span>
             </div>
 
         </div>
@@ -20,7 +20,7 @@
 
     <div class="container-fluid banner-share">
         <div class="row">
-            <span>Share this page:</span>
+            <span>Chia sẻ nội dung này:</span>
             <div class="banner-social">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-google-plus-g"></i></a>
@@ -47,32 +47,26 @@
             <li>
                 <div class="intro">
                     <div class="content-title-block">
-                        <h2 class="block-title">Bakery is one of the oldest in Wakanda</h2>
-                        <p class="block-motto"><span>HISTORY OF THE STORE</span></p>
+                        <h2 class="block-title">Tiệm bánh lâu đời nhất ở Hà Nội</h2>
+                        <p class="block-motto"><span>CHẶNG ĐƯỜNG PHÁT TRIỂN</span></p>
                     </div>
 
                     <div class="content">
-                        <p>With 25 years of work consectetur adipisicing elit, sed do eius ex veniam nulla optio
-                            praesentium
-                            deleniti possimus porro aperiam tempora. Quaerat veniam quibusdam ad aliquam facere? Quam
-                            adipisci quas error ut </p>
-                        <p>Non non ad aliquip duis ullamco. Officia dolor proident excepteur pariatur enim velit
-                            adipisicing
-                            tempor nulla excepteur quis ad laboris incididunt. Do proident quis laborum non voluptate.
-                            Veniam occaecat officia et reprehenderit aliquip occaecat.</p>
-                        <p>Cillum amet adipisicing ullamco ullamco nulla esse labore deserunt ullamco nostrud fugiat do
-                            cillum. Elit qui officia in officia qui et consequat. In culpa incididunt enim sit magna
-                            anim
-                            consequat sint. Amet eu reprehenderit non laborum mollit ea adipisicing minim non
-                            reprehenderit
-                            est in.</p>
+                        <p>Với 25 năm hoạt động và không ngừng phát triển, 
+                            chúng tôi đã không ngừng hoàn thiện để mang đến những chiếc bánh chất lượng nhất. 
+                            Sự tận tâm và đam mê là cốt lõi tạo nên thương hiệu hiện tại.</p>
+                        <p>Chúng tôi luôn đề cao sự an toàn và chất lượng trong từng nguyên liệu. 
+                            Từng chiếc bánh là thành quả của quy trình nghiêm ngặt, 
+                            đội ngũ lành nghề và tình yêu dành cho nghề làm bánh.</p>
+                        <p>Mỗi ngày, chúng tôi không ngừng nỗ lực để mang lại trải nghiệm tuyệt vời nhất cho khách hàng — từ hương vị đến dịch vụ. 
+                            Sự hài lòng của bạn chính là nguồn động lực lớn nhất của chúng tôi.</p>
 
                     </div>
 
                     <div class="signature">
                         <img src="./public/site/img/about/sign.png" alt="">
                         <div>
-                            <h6>Stephen Strange</h6> <span> - Store owner</span>
+                            <h6>Stephen Strange</h6> <span> - Chủ tiệm bánh</span>
                         </div>
                     </div>
                 </div>
@@ -87,8 +81,8 @@
 <section class="why-choose-us p-50">
     <div class="container-fluid section-main">
         <div class="title-block">
-            <p class="block-title">Why choose us</p>
-            <p class="block-motto"><span>BEST PRODUCTS</span></p>
+            <p class="block-title">Vì Sao Nên Chọn Chúng Tôi</p>
+            <p class="block-motto"><span>SẢN PHẨM TỐT NHẤT THỊ TRƯỜNG</span></p>
         </div>
 
         <div class="container content-block">
@@ -101,8 +95,8 @@
                                     <img src="./public/site/img/about/healthy.png" alt="">
                                 </div>
                                 <div class="why-reason">
-                                    <h5>Good for health</h5>
-                                    <p>Made with care for your health</p>
+                                    <h5>Tốt cho sức khỏe</h5>
+                                    <p>Ưu tiên sức khỏe khách hàng</p>
                                 </div>
                             </div>
                         </li>
@@ -112,8 +106,8 @@
                                     <img src="./public/site/img/home/whychooseus/organic.png" alt="">
                                 </div>
                                 <div class="why-reason">
-                                    <h5>100% organic</h5>
-                                    <p>Available Quality Foods</p>
+                                    <h5>100% nguyên liệu hữu cơ</h5>
+                                    <p>Thân thiện với môi trường</p>
                                 </div>
                             </div>
                         </li>
@@ -133,8 +127,8 @@
                                     <img src="./public/site/img/home/whychooseus/free-delivery.png" alt="">
                                 </div>
                                 <div class="why-reason">
-                                    <h5>Free shipping</h5>
-                                    <p>All orders over $100</p>
+                                    <h5>Miễn phí vận chuyển</h5>
+                                    <p>Dành cho đơn trên 100$</p>
                                 </div>
                             </div>
                         </li>
@@ -144,8 +138,8 @@
                                     <img src="./public/site/img/about/quality.png" alt="">
                                 </div>
                                 <div class="why-reason">
-                                    <h5>High-quality products</h5>
-                                    <p>Deliver incredible standards</p>
+                                    <h5>Sản phẩm chất lượng cao</h5>
+                                    <p>Đạt tiêu chuẩn 5 sao</p>
                                 </div>
                             </div>
                         </li>
@@ -165,8 +159,8 @@
 <section class="meet p-50">
     <div class="container-fluid section-main">
         <div class="title-block">
-            <p class="block-title">Meet our chefs</p>
-            <p class="block-motto"><span>THE BEST BAKERS</span></p>
+            <p class="block-title">Đội Ngũ Đầu Bếp</p>
+            <p class="block-motto"><span>NGƯỜI TẠO NÊN HƯƠNG VỊ</span></p>
         </div>
 
         <div class="container-fluid" style="margin-top: 40px;">
@@ -180,11 +174,11 @@
                                 <img src="./public/site/img/about/chef-1.png" alt="" style=" border-radius: 100%">
                             </div>
                             <div class="chef-info">
-                                <h5>Duiga</h5>
-                                <p>UwU</p>
+                                <h5>Phạm Ngọc Tiến</h5>
+                                <p>Thợ code</p>
                             </div>
                             <div class="chef-social">
-                                <a href="https://www.facebook.com/Duiga.Da.Den"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.facebook.com/klfbtien"><i class="fab fa-facebook-f"></i></a>
                                 
                                 
                             </div>
@@ -197,11 +191,11 @@
                                 <img src="./public/site/img/about/chef-1.png" alt="" style=" border-radius: 100%">
                             </div>
                             <div class="chef-info">
-                                <h5>Duong Dinh</h5>
-                                <p>UwU</p>
+                                <h5>Đàm Văn Tú</h5>
+                                <p>Vua đầu bếp</p>
                             </div>
                             <div class="chef-social">
-                                <a href="https://www.facebook.com/DuongDinh1703"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.facebook.com/amtu.961169"><i class="fab fa-facebook-f"></i></a>
                                 
                             </div>
                         </div>
@@ -213,11 +207,11 @@
                                 <img src="./public/site/img/about/chef-1.png" alt="" style=" border-radius: 100%">
                             </div>
                             <div class="chef-info">
-                                <h5>Tuan Kiet </h5>
-                                <p>UwU</p>
+                                <h5>Nguyễn Đức Mạnh</h5>
+                                <p>Chất</p>
                             </div>
                             <div class="chef-social">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.facebook.com/manhnguyen.2608/"><i class="fab fa-facebook-f"></i></a>
                                 
                             </div>
                         </div>

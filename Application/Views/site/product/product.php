@@ -10,8 +10,8 @@
     <div class="container-fluid banner-title">
         <div class="row">
             <div class="col-md-12">
-                <h2 id="motto">Product</h2>
-                <span>Home</span> &nbsp;<span>\\</span> &nbsp;<span>Product</span>
+                <h2 id="motto">Sản Phẩm</h2>
+                <span>Trang Chủ</span> &nbsp;<span>\\</span> &nbsp;<span>Sản Phẩm</span>
             </div>
 
         </div>
@@ -19,7 +19,7 @@
 
     <div class="container-fluid banner-share">
         <div class="row">
-            <span>Share this page:</span>
+            <span>Chia sẻ nội dung này:</span>
             <div class="banner-social">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-google-plus-g"></i></a>
@@ -41,7 +41,7 @@
                         <form action="./?controller=product&action=search" method="post">
                             <div class="form-group">
                                 <div class="input-group mb-1">
-                                    <input type="text" class="form-control" placeholder='Search Keyword' name="product_name">
+                                    <input type="text" class="form-control" placeholder='Từ Khoá' name="product_name">
                                     <div class="input-group-append">
                                         <button class="btns" type="submit"><i class="ti ti-search"></i></button>
                                     </div>
@@ -52,7 +52,7 @@
                     </aside>
 
                     <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Categories</h4>
+                        <h4 class="widget_title">Danh Mục</h4>
                         <ul class="list cat-list">
                             <?php foreach ($categories as $cat) : ?>
                                 <li>
@@ -68,7 +68,7 @@
                     </aside>
 
                     <aside class="single_sidebar_widget popular_post_widget top_product_widget">
-                        <h3 class="widget_title">Top product</h3>
+                        <h3 class="widget_title">Sản Phẩm Bán Chạy</h3>
                         <?php foreach ($top_products as $pro) : ?>
                             <div class="media post_item">
                                 <img src="./public/uploads/<?= $pro['image'] ?>" alt="post" style="border-radius: 100%; border: 1px solid #f0e5d4">
@@ -85,7 +85,7 @@
                         <?php endforeach; ?>
                     </aside>
                     <aside class="single_sidebar_widget tag_cloud_widget">
-                        <h4 class="widget_title">Tag Clouds</h4>
+                        <h4 class="widget_title">Từ Khoá Nổi Bật</h4>
                         <ul class="list">
                             <li>
                                 <a href="#">chocolate</a>

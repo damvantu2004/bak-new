@@ -1,11 +1,11 @@
 <?php view('shared.admin.header', [
-    'title' => 'Contact List'
+    'title' => 'Danh Sách Liên Hệ'
 ]); ?>
 
 <form action="./?module=admin&controller=contact&action=searchContactFull" class="form-inline" method="post">
 
     <div class="form-group">
-        <input class="form-control search-input" name="contactSearch" placeholder="Search By Name..">
+        <input class="form-control search-input" name="contactSearch" placeholder="Tìm Kiếm Theo Tên">
     </div>
 
     <button type="submit" class="btn btn-root search-btn">
@@ -17,11 +17,11 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>Tên Khách Hàng</th>
             <th>Email</th>
-            <th>Phone</th>
-            <th class="text-center">Message</th>
-            <th class="text-center">Created At</th>
+            <th>Số Điện Thoại</th>
+            <th class="text-center">Lời Nhắn</th>
+            <th class="text-center">Ngày Tạo</th>
         </tr>
     </thead>
     <tbody>

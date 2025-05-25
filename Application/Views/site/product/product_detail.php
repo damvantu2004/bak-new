@@ -186,12 +186,9 @@
 
                     </div>
 
-                    <p class="p-desc"><?= $pro["description"] ?>. Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Temporibus expedita rerum
-                        incidunt aliquam. Culpa laborum facilis temporibus magnam aliquam voluptatem commodi earum!
-                        Dolores saepe eum quo? Aliquid excepturi labore animi!</p>
-
-
+                    <p class="p-desc"><?= $pro["description"] ?>. Chúng tôi mang đến những chiếc bánh tươi ngon, 
+                    được làm từ nguyên liệu tự nhiên, không chất bảo quản. Mỗi sản phẩm đều được chăm chút tỉ mỉ, 
+                    thơm mềm và đậm đà hương vị, để bạn và người thân tận hưởng trọn vẹn khoảnh khắc ngọt ngào.</p>
                     <ul class="pro-info-list">
                         <li><span>Xuất xứ: </span><?= strtoupper($pro["origin"]) ?></li>
                         <li><span>Tình trạng: </span><?= $pro["quantity"] > 0 ? "Còn hàng" : "Hết hàng" ?></li>
@@ -219,8 +216,7 @@
                                         style="font-size:13px"></i><span>Mua ngay</span></button></a>
                         </form>
                         <a id="add-to-cart-btn<?= $pro['id'] ?>" class="swalDefaultSuccess " onclick="onAddToCartAjax(<?= $pro['id'] ?>, getQuantity(<?= $pro['id'] ?>))">
-                            <button><i class="fas fa-shopping-basket" style="font-size:13px"></i><span> ADD TO
-                                    CART</span></button>
+                            <button><i class="fas fa-shopping-basket" style="font-size:13px"></i><span> THÊM VÀO GIỎ HÀNG</span></button>
                         </a>
                     </div>
 
@@ -264,14 +260,9 @@
                         <div class="tab-pane  active" id="tabs-1" role="tabpanel">
                             <h5><?= $pro["name"] ?></h5>
 
-                            <p><b><?= $pro["description"] ?></b>. Lorem amet Lorem nulla culpa esse commodo. Esse
-                                officia aute quis ea elit
-                                fugiat proident nostrud. Irure ullamco ullamco amet magna elit anim officia occaecat
-                                cillum nulla aliqua do ad labore. Sunt consequat do proident est. Exercitation ipsum
-                                occaecat nostrud consectetur in excepteur. Labore nostrud nisi sunt enim minim eu.
-                                Aliqua aliqua nisi eu enim elit officia laborum ut.</p>
-
-
+                            <p><b><?= $pro["description"] ?></b>. Chúng tôi mang đến những chiếc bánh tươi ngon, 
+                            được làm từ nguyên liệu tự nhiên, không chất bảo quản. Mỗi sản phẩm đều được chăm chút tỉ mỉ, 
+                            thơm mềm và đậm đà hương vị, để bạn và người thân tận hưởng trọn vẹn khoảnh khắc ngọt ngào.</p>
 
                         </div>
 

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="auto" viewBox="0 0 1400 700" preserveAspectRatio="xMinYMin meet">
+  <!-- Định nghĩa các đầu mũi tên -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="black"/>
+    </marker>
+    <marker id="dashedarrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="black"/>
+    </marker>
+  </defs>
+  
+  <!-- Tiêu đề biểu đồ -->
+  <text x="700" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">Biểu đồ tuần tự: Xóa dữ liệu</text>
+  
+  <!-- Admin -->
+  <rect x="80" y="80" width="100" height="50" fill="#A9CCE3" stroke="black" stroke-width="2"/>
+  <text x="130" y="110" font-family="Arial" font-size="13" text-anchor="middle">Admin</text>
+  <line x1="130" y1="130" x2="130" y2="650" stroke="black" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Giao diện -->
+  <circle cx="350" cy="100" r="25" fill="#AED6F1" stroke="black" stroke-width="2"/>
+  <text x="350" y="150" font-family="Arial" font-size="13" text-anchor="middle">Giao diện</text>
+  <line x1="350" y1="125" x2="350" y2="650" stroke="black" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- CodeX -->
+  <circle cx="650" cy="100" r="25" fill="#F9E79F" stroke="black" stroke-width="2"/>
+  <text x="650" y="150" font-family="Arial" font-size="13" text-anchor="middle">CodeX</text>
+  <line x1="650" y1="125" x2="650" y2="650" stroke="black" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- tblData -->
+  <circle cx="950" cy="100" r="25" fill="#ABEBC6" stroke="black" stroke-width="2"/>
+  <text x="950" y="150" font-family="Arial" font-size="13" text-anchor="middle">tblData</text>
+  <line x1="950" y1="125" x2="950" y2="650" stroke="black" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- tblRelated -->
+  <circle cx="1250" cy="100" r="25" fill="#D5DBDB" stroke="black" stroke-width="2"/>
+  <text x="1250" y="150" font-family="Arial" font-size="13" text-anchor="middle">tblRelated</text>
+  <line x1="1250" y1="125" x2="1250" y2="650" stroke="black" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Thanh hoạt động cho Admin -->
+  <rect x="125" y="180" width="10" height="420" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 1. Admin chọn xóa -->
+  <line x1="135" y1="200" x2="345" y2="200" stroke="black" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="240" y="190" font-family="Arial" font-size="13">Chọn xóa (ID)</text>
+  
+  <!-- Thanh hoạt động Giao diện -->
+  <rect x="345" y="200" width="10" height="60" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 2. Hiển thị dialog xác nhận -->
+  <line x1="345" y1="230" x2="135" y2="230" stroke="black" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#dashedarrow)"/>
+  <text x="240" y="220" font-family="Arial" font-size="13">Hiển thị dialog xác nhận</text>
+  
+  <!-- 3. Admin xác nhận xóa -->
+  <line x1="135" y1="280" x2="345" y2="280" stroke="black" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="240" y="270" font-family="Arial" font-size="13">Xác nhận xóa</text>
+  
+  <!-- Thanh hoạt động Giao diện -->
+  <rect x="345" y="280" width="10" height="60" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 4. Gửi yêu cầu xóa -->
+  <line x1="355" y1="310" x2="645" y2="310" stroke="black" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="500" y="300" font-family="Arial" font-size="13">Gửi yêu cầu xóa</text>
+  
+  <!-- Thanh hoạt động CodeX -->
+  <rect x="645" y="310" width="10" height="180" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 5. Kiểm tra ràng buộc dữ liệu -->
+  <line x1="655" y1="340" x2="1245" y2="340" stroke="black" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="950" y="330" font-family="Arial" font-size="13">Kiểm tra ràng buộc</text>
+  
+  <!-- Thanh hoạt động tblRelated -->
+  <rect x="1245" y="340" width="10" height="40" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 6. Trả về kết quả kiểm tra -->
+  <line x1="1245" y1="380" x2="655" y2="380" stroke="black" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#dashedarrow)"/>
+  <text x="950" y="370" font-family="Arial" font-size="13">Trả về kết quả kiểm tra</text>
+  
+  <!-- 7. Thực hiện xóa dữ liệu -->
+  <line x1="655" y1="410" x2="945" y2="410" stroke="black" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="800" y="400" font-family="Arial" font-size="13">Xóa dữ liệu</text>
+  
+  <!-- Thanh hoạt động tblData -->
+  <rect x="945" y="410" width="10" height="40" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 8. Xác nhận xóa thành công -->
+  <line x1="945" y1="450" x2="655" y2="450" stroke="black" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#dashedarrow)"/>
+  <text x="800" y="440" font-family="Arial" font-size="13">Xác nhận xóa thành công</text>
+  
+  <!-- 9. Trả về kết quả -->
+  <line x1="645" y1="480" x2="355" y2="480" stroke="black" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#dashedarrow)"/>
+  <text x="500" y="470" font-family="Arial" font-size="13">Trả về thông báo thành công</text>
+  
+  <!-- Thanh hoạt động Giao diện -->
+  <rect x="345" y="480" width="10" height="40" fill="#E8E8E8" stroke="black" stroke-width="1"/>
+  
+  <!-- 10. Hiển thị thông báo và cập nhật danh sách -->
+  <line x1="345" y1="520" x2="135" y2="520" stroke="black" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#dashedarrow)"/>
+  <text x="240" y="510" font-family="Arial" font-size="13">Hiển thị thông báo và reload</text>
+  
+</svg>
