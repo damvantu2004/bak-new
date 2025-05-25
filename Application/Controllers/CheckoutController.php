@@ -72,19 +72,20 @@ class CheckoutController extends BaseController
             // 2. Luu gio hang vao order detail
             $order["items"] = [];
             foreach ($this->cart->items as $item) {
-                print_r($item);
-                $detail = [
-                    'order_id' => $order["id"],
-                    'product_id' => $item['id'],
-                    'quantity' => $item['quantity'],
-                    'price' => $item['price_sum']
-                ];
-                array_push($order["items"], [
-                    'name' => $item['name'],
-                    'quantity' => (int) $item['quantity'],
-                    'price' => (int)($item['price_sum']  * 26000)
-                ]);
-                $this->orderDetail->store($detail);
+                if ($item['checked'] == 'true') {
+                    $detail = [
+                        'order_id' => $order["id"],
+                        'product_id' => $item['id'],
+                        'quantity' => $item['quantity'],
+                        'price' => $item['price_sum']
+                    ];
+                    array_push($order["items"], [
+                        'name' => $item['name'],
+                        'quantity' => (int) $item['quantity'],
+                        'price' => (int)($item['price_sum']  * 26000)
+                    ]);
+                    $this->orderDetail->store($detail);
+                }
             }
         }
 
@@ -194,7 +195,7 @@ class CheckoutController extends BaseController
         }
 
         $user = !empty($_SESSION['user']) ? $this->userModel->findUserById(['*'], $_SESSION['user']['id']) : null;
-        
+
         // Khởi tạo coupon session nếu chưa có
         $_SESSION['coupon'] = empty($_SESSION['coupon']) ? 0 : $_SESSION['coupon'];
 
@@ -222,16 +223,16 @@ class CheckoutController extends BaseController
         }
 
         $buy_now_product = $_SESSION['buy_now_product'];
-        
+
         // Tính total có áp dụng coupon
         $total = $buy_now_product['price'];
         $coupon_value = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
-        
+
         // Áp dụng coupon nếu có
         if ($coupon_value != 0) {
             $total = $total * (1 - $coupon_value);
         }
-        
+
         // Thêm phí vận chuyển
         $total += 2;
 

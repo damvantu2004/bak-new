@@ -56,7 +56,7 @@ function cartAjaxController(itemID, coupon, actionName) {
 function modifyCartHTMLAjax(cartJsonRes, itemID, coupon) {
     // this tmp var is used for debugging purpose
     tmp = cartJsonRes;
-
+    console.log(tmp);
     // ================== locate element
     // locate quantity of current product
     var curQuantEle = document.getElementById("".concat(itemID).concat("quantity"));
@@ -70,7 +70,6 @@ function modifyCartHTMLAjax(cartJsonRes, itemID, coupon) {
     var finalPriceEle = document.getElementById("total-price");
     // locate product number in cart symbol
     var prodNoCartEle = document.getElementById("cart-quantity");
-
     if (cartJsonRes.items[itemID] == null || cartJsonRes.items[itemID].quantity <= 0) {
         if (cartJsonRes.items[itemID] == null) {
             console.log("===================");
@@ -87,10 +86,8 @@ function modifyCartHTMLAjax(cartJsonRes, itemID, coupon) {
         // update new value for product quantity array
         trackQuantityList[itemID] = 0;
 
-        overallPriceInCartEle.innerText = "Total: $".concat(cartJsonRes.total_price.toFixed(2));
-        subTotalEle.textContent = "$".concat(cartJsonRes.total_price.toFixed(2));
-        finalPriceEle.textContent = "$".concat((cartJsonRes.total_price * (1 - coupon)).toFixed(2));
 
+        
         prodNoCartEle.textContent = cartJsonRes.total_quantity;
         return;
     }
@@ -101,10 +98,10 @@ function modifyCartHTMLAjax(cartJsonRes, itemID, coupon) {
     // display new value
     curQuantEle.value = cartJsonRes.items[itemID].quantity;
     curProdOverallPriceEle.innerText = "$".concat(cartJsonRes.items[itemID].price_sum.toFixed(2));
-
-    overallPriceInCartEle.innerText = "Total: $".concat(cartJsonRes.total_price.toFixed(2));
-    subTotalEle.textContent = "$".concat(cartJsonRes.total_price.toFixed(2));
-    finalPriceEle.textContent = "$".concat((cartJsonRes.total_price * (1 - coupon)).toFixed(2));
+    console.log(cartJsonRes)
+    // overallPriceInCartEle.innerText = "Total: $".concat(cartJsonRes.total_price.toFixed(2));
+    // subTotalEle.textContent = "$".concat(cartJsonRes.total_price.toFixed(2));
+    // finalPriceEle.textContent = "$".concat((cartJsonRes.total_price * (1 - coupon)).toFixed(2));
 
     prodNoCartEle.textContent = cartJsonRes.total_quantity;
 }
@@ -132,6 +129,8 @@ function onAddToCartAjaxHome(itemID) {
     xmlhttp.open("GET", reqTxt, true);
     xmlhttp.send();
 }
+
+
 
 function onAddToCartAjax(itemID, quantity) {
     if(quantity < 1){
@@ -208,4 +207,24 @@ function applyCouponAjax(couponId, totalPriceOrigin){
     console.log(reqTxt)
     xmlhttp.open("GET", reqTxt, true);
     xmlhttp.send();
+}
+
+function markCheckedItem(idItem, isChecked){
+    // tick vào checkbox
+
+    // gọi đến api để cập nhật lại trạng thái giỏ hàng được chọn
+    api = "?controller=cart&action=handleApiChecked&id=".concat(idItem).concat("&isChecked=").concat(isChecked);
+    console.log(api)
+    fetch(api)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(e => {
+            console.log(e);
+        });
+    // khi bấm thanh toán thì sẽ chỉ lấy những sản phẩm trong giỏ có checked
+    // Khi hoàn thành xong đơn thanh toán (chuyển khoản hoặc cash) -> cập nhật xóa sản phẩm checked
+    // update lại tổng tiền
+
 }

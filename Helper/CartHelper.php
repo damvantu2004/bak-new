@@ -12,7 +12,7 @@ class CartHelper // dung de tach phan add ben controller sang helper
     protected $userCartModel;
     protected $isLoggedIn = false;
     protected $userId = null;
-
+    public $total_quantity_check = 0;
     public function __construct()
     {
         // Kiểm tra người dùng đã đăng nhập chưa
@@ -97,6 +97,7 @@ class CartHelper // dung de tach phan add ben controller sang helper
         } else {
             // them 1 san pham neu chua co sp nao trong cart
             $item = [
+                'checked' => false,
                 'id' => $product['id'],
                 'name' => $product['name'],
                 'image' => $product['image'],
@@ -116,6 +117,8 @@ class CartHelper // dung de tach phan add ben controller sang helper
         }
     }
 
+    // mỗi khi bấm checked thì sẽ gọi ajax
+
     public function delete($id)
     {
         if (isset($this->items[$id])) {
@@ -123,6 +126,7 @@ class CartHelper // dung de tach phan add ben controller sang helper
             $_SESSION['cart'] = $this->items;
             $this->get_total_quantity();
             $this->total_price = $this->get_total_price();
+
 
             // Đồng bộ lên database nếu đã đăng nhập
             if ($this->isLoggedIn) {
@@ -133,12 +137,27 @@ class CartHelper // dung de tach phan add ben controller sang helper
 
     public function clear()
     {
-        $_SESSION['cart'] = [];
-        $_SESSION['total_quantity'] = 0;
+        $itemsUnchecked = [];
+        $itemChecked = [];
 
-        // Đồng bộ lên database nếu đã đăng nhập
+        // giữ lại các sản phẩm không được chọn
+
+        foreach ($this->items as $item) {
+            $isChecked = isset($item['checked']) && $item['checked'] === 'true';
+            if (!$isChecked) {
+                $itemsUnchecked[$item['id']] = $item;
+            } else {
+                $itemChecked[$item['id']] = $item;
+            }
+        }
+
+        $_SESSION['total_quantity'] = $this->total_quantity - $this->total_quantity_check;
+        $_SESSION['cart'] = $itemsUnchecked;
+        // Đồng bộ lên database nếu đã đăng nhập, xóa các sản phẩm đã tạo hóa đơn
         if ($this->isLoggedIn) {
-            $this->userCartModel->deleteUserCart($this->userId);
+            foreach ($itemChecked as $item) {
+                $this->userCartModel->deleteUserCartVip($this->userId, $item['id']);
+            }
         }
     }
 
@@ -161,11 +180,17 @@ class CartHelper // dung de tach phan add ben controller sang helper
     private function get_total_quantity()
     {
         $total_quantity = 0;
+        $total_quantity_check = 0;
         foreach ($this->items as $item) {
+            if ($item['checked'] == 'true') {
+                $total_quantity_check += $item['quantity'];
+            }
             $total_quantity += $item['quantity'];
         }
         $this->total_quantity = $total_quantity;
+        $this->total_quantity_check = $total_quantity_check;
         $_SESSION['total_quantity'] = $this->total_quantity;
+
         // return $this->total_quantity;
     }
 
@@ -173,8 +198,20 @@ class CartHelper // dung de tach phan add ben controller sang helper
     {
         $price = 0;
         foreach ($this->items as $item) {
-            $price += $item['quantity'] * $item['price'];
+            if ($item['checked'] == 'true') {
+                $price += $item['quantity'] * $item['price'];
+            }
         }
         return $price;
+    }
+
+
+    // đánh dấu sản phẩm
+    public function checkItem($id, $isChecked)
+    {
+        if (isset($this->items[$id])) {
+            $this->items[$id]['checked'] = $isChecked;
+            $_SESSION['cart'] = $this->items;
+        }
     }
 }

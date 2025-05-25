@@ -38,7 +38,9 @@
         <table class="table cart-table">
             <thead style="border-top: none;">
                 <tr>
-
+                    <th>
+                        <button onclick="checkAll()" class="btn" style="font-weight:bold">Chọn tất cả</button>
+                    </th>
                     <th>
                         <h4>Sản Phẩm</h4>
                     </th>
@@ -61,7 +63,15 @@
             <tbody>
                 <?php foreach ($cart->items as $item) : ?>
                     <tr id="cart-item-<?= $item['id'] ?>" class="cart-item-class">
+                        <td>
+                            <div class="d-flex justify-content-center align-items-center">
+                                <input type=checkbox data-id="<?= $item['id'] ?>"
+                                    <?= $_SESSION['cart'][$item['id']]['checked'] == 'true' ? 'checked' : '' ?>
+                                    oninput="markCheckedItem(<?= $item['id'] ?>, this.checked)" style="width:30px;height:30px">
+                            </div>
+                        </td>
                         <td class="cart-pro-title">
+
                             <a href="./?controller=product&action=productDetail&id=<?= $item['id'] ?>">
                                 <img src="./public/uploads/<?= $item['image'] ?>" width="100">
                                 <span>
@@ -99,7 +109,7 @@
                     </tr>
                 <?php endforeach; ?>
             </tbody>
-            <tfoot>
+            <!-- <tfoot>
                 <tr>
                     <td colspan="3">
                         <div class="coupon">
@@ -120,9 +130,9 @@
                     </td>
                 </tr>
 
-            </tfoot>
+            </tfoot> -->
         </table>
-
+        <!-- 
         <h3 style="margin-bottom: 1.2rem;">Thông Tin Đơn Hàng</h3>
         <table class="order-info-table" style="width: 100%;">
             <tbody>
@@ -164,8 +174,7 @@
                     </td>
                 </tr>
             </tbody>
-
-
+    
             <tfoot>
                 <tr>
                     <td colspan="1">
@@ -177,7 +186,11 @@
                     </td>
                 </tr>
             </tfoot>
-        </table>
+        </table> -->
+        <div class="text-right">
+            <a href="./?controller=checkout" class="btn-root ptc-btn border-root">Đặt hàng Ngay</a>
+        </div>
+
     </div>
 
 </section>
@@ -187,6 +200,16 @@
 <script>
     function getCouponInput() {
         return document.getElementById('coupon_id').value;
+    }
+    let isCheckAll = false;
+
+    function checkAll() {
+        isCheckAll = !isCheckAll;
+        const checkbox = document.querySelectorAll('[data-id]');
+        checkbox.forEach(item => {
+            id = item.dataset.id;
+            item.checked = isCheckAll;
+        })
     }
 </script>
 

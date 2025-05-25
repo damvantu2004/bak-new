@@ -11,6 +11,7 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
         background-image: url("./public/uploads/<?= $banners[0]['image'] ?>");
     }
 </style>
+<button onclick="showCart()">bấmđ</button>
 <section class="banner checkout-banner">
     <div class="container-fluid banner-title">
         <div class="row">
@@ -39,7 +40,7 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
 <section class="checkout p-50">
     <div class="container">
         <div class="row">
-            <?php if (count($cart->items) > 0) { ?>
+            <?php if ($cart->total_quantity_check > 0) { ?>
                 <div class="col-md-7">
                     <?php if (empty($_SESSION['user']) || $user['status'] == 0) : ?>
 
@@ -66,7 +67,7 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
 
                             <form method="POST" action="<?= isset($is_buy_now) ? './?controller=checkout&action=processBuyNow' : './?controller=checkout&action=process' ?>" name="checkoutForm" onsubmit="return validateCheckoutForm();">
 
-                                <div class="form-group row">
+                                <div class="row mb-3">
                                     <div class="col-md-6">
                                         <label for="fname">First name <span class="asterisk">*</span></label>
                                         <input type="text" value="<?= $_SESSION['user']['fname']  ?>" name="fname" id="co-fname" class="form-control" aria-describedby="helpId" onkeyup="validateName(this, 'First name');">
@@ -74,13 +75,13 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
 
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 ">
                                         <label for="lname">Last name <span class="asterisk">*</span></label>
                                         <input type="text" value="<?= $_SESSION['user']['lname']  ?>" name="lname" id="co-lname" class="form-control" aria-describedby="helpId" onkeyup="validateName(this, 'Last name');">
                                         <small id="co-lname-err"></small>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="row mb-3">
                                     <div class="col-md-6">
                                         <label for="email">Email address <span class="asterisk">*</span></label>
                                         <input type="text" value="<?= $_SESSION['user']['email']  ?>" name="email" id="co-email" class="form-control" aria-describedby="helpId" onkeyup="validateEmail(this);">
@@ -97,7 +98,7 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
                                     </div>
 
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group ">
                                     <label for="province">Province/City <span class="asterisk">*</span></label>
                                     <select class="form-control" id="province" name="province">
                                         <?php foreach ($provinces as $province) : ?>
@@ -178,17 +179,17 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
                     <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
                         <h4 style="margin-bottom: 15px;">Mã giảm giá</h4>
                         <div class="coupon d-flex">
-                            <input 
-                                value="<?= !empty($_SESSION['coupon_id']) ? $_SESSION['coupon_id'] : '' ?>" 
-                                type="text" 
-                                placeholder="Nhập mã giảm giá" 
-                                id="coupon_id" 
+                            <input
+                                value="<?= !empty($_SESSION['coupon_id']) ? $_SESSION['coupon_id'] : '' ?>"
+                                type="text"
+                                placeholder="Nhập mã giảm giá"
+                                id="coupon_id"
                                 name="coupon_id"
                                 class="form-control"
                                 style="margin-right: 10px;">
-                            
-                            <button 
-                                onclick="applyCouponCheckout()" 
+
+                            <button
+                                onclick="applyCouponCheckout()"
                                 class="btn btn-primary"
                                 style="white-space: nowrap;">
                                 Áp dụng
@@ -197,10 +198,10 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
                         <div style="margin-top: 10px;">
                             <small id="message-coupon"></small>
                         </div>
-                        
+
                         <!-- Hiển thị coupon đã áp dụng -->
                         <div id="applied-coupon" style="margin-top: 10px;">
-                            <?php 
+                            <?php
                             $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
                             if ($coupon_discount != 0) : ?>
                                 <span class="badge badge-success">
@@ -216,29 +217,32 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
 
                         <tbody>
                             <?php foreach ($cart->items as $item) : ?>
-                                <tr class="checkout-pro">
-                                    <td class="checkout-pro-title">
-                                        <img src="./public/uploads/<?= $item['image'] ?>" width="100">
-                                        <div class="checkout-pro-info">
+                                <?php if ($item['checked'] == 'true') : ?>
+                                    <tr class="checkout-pro">
+                                        <td class="checkout-pro-title">
+                                            <img src="./public/uploads/<?= $item['image'] ?>" width="100">
+                                            <div class="checkout-pro-info">
 
-                                            <h6><?= $item['name'] ?></h6>
+                                                <h6><?= $item['name'] ?></h6>
 
-                                            <p>$<?= number_format($item['price_sum'], 2, '.', '') ?></p>
-                                        </div>
+                                                <p>$<?= number_format($item['price_sum'], 2, '.', '') ?></p>
+                                            </div>
 
-                                    </td>
+                                        </td>
 
-                                    <td class="checkout-pro-quantity text-right">
-                                        X<?= $item['quantity'] ?>
-                                    </td>
+                                        <td class="checkout-pro-quantity text-right">
+                                            X<?= $item['quantity'] ?>
+                                        </td>
 
-                                </tr>
+                                    </tr>
+
+                                <?php endif; ?>
                             <?php endforeach; ?>
                             <tr class="order-subtotal">
 
                                 <td>
                                     <div class="checkout-pro-info p-0">
-                                        <p>Sub total (<?= $cart->total_quantity ?> items):</p>
+                                        <p>Sub total (<?= $cart->total_quantity_check ?> items):</p>
                                         <!-- <p>Tax:</p> -->
                                         <?php if ($coupon_discount != 0) : ?>
                                             <p>Discount: </p>
@@ -326,47 +330,51 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
 </section>
 
 <script>
-function applyCouponCheckout() {
-    const couponCode = document.getElementById('coupon_id').value;
-    const messageElement = document.getElementById('message-coupon');
-    
-    if (!couponCode.trim()) {
-        messageElement.innerHTML = '<span style="color: red;">Vui lòng nhập mã giảm giá</span>';
-        return;
-    }
-    
-    // Sử dụng method applyCouponAjax có sẵn
-    const url = `./?controller=cart&action=applyCouponAjax&id=${encodeURIComponent(couponCode)}`;
-    
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        if (data.coupon_value > 0) {
-            messageElement.innerHTML = '<span style="color: green;">' + data.message + '</span>';
-            // Reload trang để cập nhật giá
-            setTimeout(() => {
-                window.location.reload();
-            }, 1000);
-        } else {
-            messageElement.innerHTML = '<span style="color: red;">' + data.message + '</span>';
+    function applyCouponCheckout() {
+        const couponCode = document.getElementById('coupon_id').value;
+        const messageElement = document.getElementById('message-coupon');
+
+        if (!couponCode.trim()) {
+            messageElement.innerHTML = '<span style="color: red;">Vui lòng nhập mã giảm giá</span>';
+            return;
         }
-    })
-    .catch(error => {
-        messageElement.innerHTML = '<span style="color: red;">Có lỗi xảy ra, vui lòng thử lại</span>';
-        console.error('Error:', error);
-    });
-}
 
-function removeCoupon() {
-    // Gọi applyCouponAjax với ID không hợp lệ để clear coupon
-    fetch('./?controller=cart&action=applyCouponAjax&id=CLEAR_COUPON')
-    .then(response => response.json())
-    .then(data => {
-        window.location.reload();
-    });
-}
+        // Sử dụng method applyCouponAjax có sẵn
+        const url = `./?controller=cart&action=applyCouponAjax&id=${encodeURIComponent(couponCode)}`;
 
-// Hoặc tạo method riêng để clear coupon
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data.coupon_value > 0) {
+                    messageElement.innerHTML = '<span style="color: green;">' + data.message + '</span>';
+                    // Reload trang để cập nhật giá
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1000);
+                } else {
+                    messageElement.innerHTML = '<span style="color: red;">' + data.message + '</span>';
+                }
+            })
+            .catch(error => {
+                messageElement.innerHTML = '<span style="color: red;">Có lỗi xảy ra, vui lòng thử lại</span>';
+                console.error('Error:', error);
+            });
+    }
+
+    function removeCoupon() {
+        // Gọi applyCouponAjax với ID không hợp lệ để clear coupon
+        fetch('./?controller=cart&action=applyCouponAjax&id=CLEAR_COUPON')
+            .then(response => response.json())
+            .then(data => {
+                window.location.reload();
+            });
+    }
+
+    function showCart() {
+        const cart = <?= json_encode($_SESSION['cart']) ?>;
+        console.log(cart);
+    }
+    // Hoặc tạo method riêng để clear coupon
 </script>
 
 <?php view('shared.site.footer'); ?>

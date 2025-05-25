@@ -58,7 +58,11 @@ class UserCartModel extends BaseModel
         $sql = "DELETE FROM {$this->table} WHERE user_id = '$userId'";
         $this->_query($sql);
     }
-
+    public function deleteUserCartVip($userId, $itemId)
+    {
+        $sql = "DELETE FROM {$this->table} WHERE user_id = '$userId' and product_id = '$itemId'";
+        $this->_query($sql);
+    }
     // Cập nhật số lượng sản phẩm trong giỏ hàng
     public function updateCartItemQuantity($userId, $productId, $quantity)
     {

@@ -272,3 +272,8 @@
 </section>
 
 <?php view('shared.site.footer'); ?>
+
+<script>
+    const cart = <?= json_encode($_SESSION['cart']) ?>;
+    console.log(cart);
+</script>

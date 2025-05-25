@@ -274,4 +274,12 @@ class CartController extends BaseController
         // Chuyển hướng đến trang thanh toán "Mua ngay"
         header('location: ./?controller=checkout&action=buyNowCheckout');
     }
+
+    public function handleApiChecked()
+    {
+        $id = $_GET['id'];
+        $isChecked = $_GET['isChecked'];
+        $this->cart->checkItem($id, $isChecked);
+        echo json_encode($this->cart);
+    }
 }
