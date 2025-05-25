@@ -89,7 +89,7 @@ class CartHelper // dung de tach phan add ben controller sang helper
 
     public function add($product, $quantity = 1)
     {
-        $quantity = isset($_GET['quantity']) ? (int) $_GET['quantity'] : 1;
+        // $quantity = isset($_GET['quantity']) ? (int) $_GET['quantity'] : 1;
 
         if (isset($this->items[$product['id']])) {
             $this->items[$product['id']]['quantity'] += $quantity; // them 1 san pham vao so luong san co trong cart

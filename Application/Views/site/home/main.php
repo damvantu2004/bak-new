@@ -272,7 +272,7 @@
                                         <h5>$<?= number_format($product['sale_price'] > 0 ? $product['sale_price'] : $product['price'], 2, '.', '') ?>
                                         </h5>
                                     </div>
-                                    <a id="add-to-cart-btn<?= $product['id'] ?>" class="swalDefaultSuccess " onclick="onAddToCartAjax(<?= $product['id'] ?>)">
+                                    <a id="add-to-cart-btn<?= $product['id'] ?>" class="swalDefaultSuccess " onclick="onAddToCartAjaxHome(<?= $product['id'] ?>)">
                                         <button><i class="fas fa-shopping-basket" style="font-size:13px"></i><span> ADD TO
                                                 CART</span></button>
                                     </a>
