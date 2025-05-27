@@ -93,7 +93,7 @@ class VerifyController extends BaseController
             $cart = new CartHelper();
             $cart->syncFromDatabase();
         } else {
-            $message['all-error'] = 'Invalid email or password';
+            $message['all-error'] = 'Email hoặc mật khẩu không hợp lệ';
         }
 
         getBackToHome:
