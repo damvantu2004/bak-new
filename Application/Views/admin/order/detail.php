@@ -176,13 +176,13 @@
                                                 <!-- 1 pending, 0 Delivered, 2 Cancelled -->
                                                 <option value="<?= $i ?>" <?= ($order['status'] == $i) ? "selected" : ""  ?>>
                                                     <?php if ($i == 1) {
-                                                        echo 'Đang Xử Lý';
+                                                        echo 'Đang chờ xử lý';
                                                     } else if ($i == 0) {
-                                                        echo 'Đã Vân Chuyển';
+                                                        echo 'Đã giao hàng';
                                                     } else if ($i == 2) {
-                                                        echo 'Đang Vận Chuyển';
+                                                        echo 'Đang giao hàng';
                                                     } else {
-                                                        echo 'Đã Huỷ';
+                                                        echo 'Đã huỷ';
                                                     }
                                                     ?></option>
                                             <?php endfor; ?>

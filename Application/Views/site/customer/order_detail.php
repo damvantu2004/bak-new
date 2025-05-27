@@ -217,13 +217,13 @@
                                         <option value="<?= $order['status'] ?>">
                                             <?php
                                             if ($order['status'] == 0) {
-                                                echo 'Đã Vận Chuyển';
+                                                echo 'Đã giao hàng';
                                             } else if ($order['status'] == 1) {
-                                                echo 'Đang Xử Lý';
+                                                echo 'Đang chờ xử lý';
                                             } else if ($order['status'] == 2) {
-                                                echo 'Đang Vận Chuyến';
+                                                echo 'Đang giao hàng';
                                             } else if ($order['status'] == 3) {
-                                                echo 'Đã Huỷ';
+                                                echo 'Đã huỷ';
                                             }
                                             ?>
                                         </option>

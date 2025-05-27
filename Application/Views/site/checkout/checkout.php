@@ -62,35 +62,35 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
                     <?php else : ?>
                         <div class="bill-form-block">
                             <h2>
-                                Billing details
+                                Chi Tiết Đơn Hàng
                             </h2>
 
                             <form method="POST" action="<?= isset($is_buy_now) ? './?controller=checkout&action=processBuyNow' : './?controller=checkout&action=process' ?>" name="checkoutForm" onsubmit="return validateCheckoutForm();">
 
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <label for="fname">First name <span class="asterisk">*</span></label>
+                                        <label for="fname">Tên <span class="asterisk">*</span></label>
                                         <input type="text" value="<?= $_SESSION['user']['fname']  ?>" name="fname" id="co-fname" class="form-control" aria-describedby="helpId" onkeyup="validateName(this, 'First name');">
                                         <small id="co-fname-err"></small>
 
                                     </div>
 
                                     <div class="col-md-6 ">
-                                        <label for="lname">Last name <span class="asterisk">*</span></label>
+                                        <label for="lname">Họ Đệm <span class="asterisk">*</span></label>
                                         <input type="text" value="<?= $_SESSION['user']['lname']  ?>" name="lname" id="co-lname" class="form-control" aria-describedby="helpId" onkeyup="validateName(this, 'Last name');">
                                         <small id="co-lname-err"></small>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <label for="email">Email address <span class="asterisk">*</span></label>
+                                        <label for="email">Địa Chỉ Email <span class="asterisk">*</span></label>
                                         <input type="text" value="<?= $_SESSION['user']['email']  ?>" name="email" id="co-email" class="form-control" aria-describedby="helpId" onkeyup="validateEmail(this);">
                                         <small id="co-email-err"></small>
 
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label for="phone">Phone number <span class="asterisk">*</span></label>
+                                        <label for="phone">Số Điện Thoại <span class="asterisk">*</span></label>
                                         <input type="text" value="<?= $_SESSION['user']['phone']  ?>" name="phone" id="co-phone" class="form-control" aria-describedby="helpId" onkeyup="validatePhone(this);">
                                         <small id="co-phone-err"></small>
                                         <div>
@@ -99,7 +99,7 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
 
                                 </div>
                                 <div class="form-group ">
-                                    <label for="province">Province/City <span class="asterisk">*</span></label>
+                                    <label for="province">Tỉnh Thành <span class="asterisk">*</span></label>
                                     <select class="form-control" id="province" name="province">
                                         <?php foreach ($provinces as $province) : ?>
                                             <option value="<?= $province['value'] ?>" <?php $_SESSION['user']['province'] == $province['value'] ? 'selected' : ''
@@ -109,7 +109,7 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="address">Address <span class="asterisk">*</span></label>
+                                    <label for="address">Địa Chỉ <span class="asterisk">*</span></label>
 
                                     <input value="<?= $_SESSION['user']['address']  ?>" type="text" name="address" id="co-address" class="form-control" aria-describedby="helpId" onkeyup="validateNotEmpty(this, 'Address');">
                                     <small id="co-address-err"></small>
@@ -117,17 +117,17 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="note">Order note</label>
+                                    <label for="note">Ghi Chú</label>
 
-                                    <textarea class="form-control" name="note" rows="5" placeholder="Notes on your order"></textarea>
+                                    <textarea class="form-control" name="note" rows="5" placeholder="Ghi chú"></textarea>
 
                                 </div>
 
 
 
-                                <h2 style="margin-top: 2.5rem;">Shipping method</h2>
+                                <h2 style="margin-top: 2.5rem;">Phương Thức Giao Hàng</h2>
                                 <div class="form-group">
-                                    <label for="delivery">Select delivery method</label>
+                                    <label for="delivery">Lựa chọn phương thức giao hàng</label>
 
                                     <select class="form-control" id="delivery" name="delivery">
                                         <option value="Giaohangtietkiem">Giaohangtietkiem</option>
@@ -139,9 +139,9 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
 
                                 </div>
 
-                                <h2 style="margin-top: 2.5rem;">Payment method</h2>
+                                <h2 style="margin-top: 2.5rem;">Phương Thức Thanh Toán</h2>
                                 <div class="form-group" style="margin-bottom: 1.5rem;">
-                                    <label for="payment">Payment method</label>
+                                    <label for="payment">Phương thức thanh toán</label>
 
                                     <select class="form-control" id="payment" name="payment">
                                         <option value="Cash">Cash on delivery </option>
@@ -166,7 +166,7 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
                                     <?php if (isset($is_buy_now) && $is_buy_now): ?>
                                         <a href="./?controller=checkout&action=cancelBuyNow&product_id=<?= $product_id ?>" class="btn btn-secondary" style="margin-right: 10px;">Quay lại</a>
                                     <?php endif; ?>
-                                    <button type="submit" class="btn-root border-root place-order-btn">Place order</button>
+                                    <button type="submit" class="btn-root border-root place-order-btn">Đặt Hàng</button>
                                 </div>
                             </form>
                         </div>
@@ -212,7 +212,7 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
                         </div>
                     </div>
 
-                    <h2>Your order</h2>
+                    <h2>Đơn Hàng Của Bạn</h2>
                     <table class="table checkout-table">
 
                         <tbody>
@@ -242,12 +242,12 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
 
                                 <td>
                                     <div class="checkout-pro-info p-0">
-                                        <p>Sub total (<?= $cart->total_quantity_check ?> items):</p>
+                                        <p>Tạm tính (<?= $cart->total_quantity_check ?> sản phẩm):</p>
                                         <!-- <p>Tax:</p> -->
                                         <?php if ($coupon_discount != 0) : ?>
-                                            <p>Discount: </p>
+                                            <p>Giảm giá: </p>
                                         <?php endif; ?>
-                                        <p>Shipping fee:</p>
+                                        <p>Phí vận chuyển:</p>
 
                                     </div>
 
@@ -277,7 +277,7 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
 
                         <tr class="order-total">
                             <td>
-                                <h2>Order total</h2>
+                                <h2>Tổng Tiền</h2>
                             </td>
 
                             <?php if ($coupon_discount != 0) : ?>
@@ -295,7 +295,7 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
 
                             <tr>
                                 <td colspan="2">
-                                    You have a question ? or need help to complete your order
+                                Bạn có câu hỏi hoặc cần trợ giúp để hoàn thành đơn hàng?
                                     <p> <i class="discount fas fa-phone-alt mr-2" style="font-size: 13px;"></i>(898) 325
                                         2548
                                         <i class="discount far fa-envelope ml-4 mr-2"></i>bakery@support.com

@@ -100,15 +100,15 @@
                         </td>
                         <td>
                             <?php if ($order['status'] == 1) : ?>
-                                <span class="badge badge-info">Đang Xử Lý</span>
+                                <span class="badge badge-info">Đang chờ xử lý</span>
                             <?php endif; ?>
                             <?php if ($order['status'] == 0) : ?>
-                                <span class="badge badge-success">Đã Vận Chuyển</span>
+                                <span class="badge badge-success">Đã giao hàng</span>
                             <?php endif; ?><?php if ($order['status'] == 2) : ?>
-                                <span class="badge badge-warning">Đang Vận Chuyển</span>
+                                <span class="badge badge-warning">Đang giao hàng</span>
                             <?php endif; ?>
                             <?php if ($order['status'] == 3) : ?>
-                                <span class="badge badge-danger">Đã Huỷ</span>
+                                <span class="badge badge-danger">Đã huỷ</span>
                             <?php endif; ?>
                         </td>
                         <td class="text-center">
