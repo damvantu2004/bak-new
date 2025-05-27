@@ -34,12 +34,12 @@ class VerifyController extends BaseController
 
         // validate form input
         if (empty($input['email'])) {
-            $message['all-error']    = "Please enter email";
+            $message['all-error']    = "Vui lòng nhập email";
             goto getBackToHome;
         }
 
         if (empty($input['password'])) {
-            $message['all-error'] = "Please enter password";
+            $message['all-error'] = "Vui lòng nhập mật khẩu";
             goto getBackToHome;
         }
         
@@ -85,7 +85,7 @@ class VerifyController extends BaseController
             if ($_SESSION['user']["role"] == "admin") {
                 header('location: ./?module=admin&controller=dashboard');
             } else {
-                $message['success-login'] = 'Login successfully';
+                $message['success-login'] = 'Đăng nhập thành công';
             }
 
             // Đồng bộ giỏ hàng từ database
@@ -134,7 +134,7 @@ class VerifyController extends BaseController
             if (isset($_SESSION['user']["role"]) && $_SESSION['user']["role"] == "admin") {
                 header('location: ./?module=admin&controller=dashboard');
             } else {
-                $message['success-login'] = 'Login successfully';
+                $message['success-login'] = 'Đăng nhập thành công';
             }
 
             // Đồng bộ giỏ hàng từ database
@@ -166,61 +166,61 @@ class VerifyController extends BaseController
 
         // validate form input
         if (empty($input['fname'])) {
-            $message['all-error']    = "Please enter first name";
+            $message['all-error']    = "Vui lòng nhập tên";
             goto getBackToHome;
         }
 
         if (empty($input['lname'])) {
-            $message['all-error'] = "Please enter last name";
+            $message['all-error'] = "Vui lòng nhập họ đệm";
             goto getBackToHome;
         }
 
         if (empty($input['email'])) {
-            $message['all-error'] = "Please enter email";
+            $message['all-error'] = "Vui lòng nhập email";
             goto getBackToHome;
         }
 
         if (empty($input['phone'])) {
-            $message['all-error'] = "Please enter phone";
+            $message['all-error'] = "Vui lòng nhập số điện thoại";
             goto getBackToHome;
         }
 
         if (empty($input['province'])) {
-            $message['all-error'] = "Please enter province";
+            $message['all-error'] = "Vui lòng nhập tỉnh thành";
             goto getBackToHome;
         }
 
         if (empty($input['address'])) {
-            $message['all-error'] = "Please enter address";
+            $message['all-error'] = "Vui lòng nhập địa chỉ";
             goto getBackToHome;
         }
 
         if (empty($input['password'])) {
-            $message['all-error'] = "Please enter password";
+            $message['all-error'] = "Vui lòng nhập mật khẩu";
             goto getBackToHome;
         }
 
         if (empty($input['password_confirmation'])) {
-            $message['all-error'] = "Please enter password confirmation";
+            $message['all-error'] = "Vui lòng xác nhận mật khẩu";
             goto getBackToHome;
         }
 
         if ($input['password'] != $input['password_confirmation']) {
-            $message['all-error'] = "Two passwords don't match";
+            $message['all-error'] = "Mật khẩu không khớp";
             goto getBackToHome;
         }
 
         // check if email existed
         $rs = $this->userModel->isEmailExisted($input['email']);
         if ($rs) {
-            $message['all-error'] = "Email existed";
+            $message['all-error'] = "Email tồn tại";
             goto getBackToHome;
         }
 
         // check if phone existed
         $rs = $this->userModel->isPhoneExisted($input['phone']);
         if ($rs) {
-            $message['all-error'] = "Phone existed";
+            $message['all-error'] = "Số điện thoại tồn tại";
             goto getBackToHome;
         }
 
@@ -262,7 +262,7 @@ class VerifyController extends BaseController
 
             $message['success-register'] = 'Đăng ký thành công! Vui lòng kiểm tra email để xác thực tài khoản.';
         } else {
-            $message['all-error'] = 'Signup failed';
+            $message['all-error'] = 'Đăng ký thất bại';
         }
 
         getBackToHome:
