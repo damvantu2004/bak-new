@@ -52,9 +52,11 @@ class CartHelper // dung de tach phan add ben controller sang helper
                 $sessionCart[$item['product_id']]['quantity'] += $item['quantity'];
                 $sessionCart[$item['product_id']]['price_sum'] = $sessionCart[$item['product_id']]['price']
                     * $sessionCart[$item['product_id']]['quantity'];
+                $sessionCart[$item['product_id']]['checked'] = false;
             } else {
                 // Thêm sản phẩm mới vào session
                 $cartItem = [
+                    'checked' => false,
                     'id' => $product['id'],
                     'name' => $product['name'],
                     'image' => $product['image'],
