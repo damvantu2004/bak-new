@@ -232,7 +232,7 @@
                                 <div class="form-group">
                                     <label for="status">Trạng thái thanh toán</label>
                                     <input class="form-control"
-                                        value="<?= $order['payment_status'] == 1 ? "Đã thanh toán" : "Chưa thanh toán" ?>" disabled>
+                                        value="<?= $order['payment_status'] == 1 ? "Đã thanh toán" : "Chưa thanh toán" ?>" name="kaka" disabled>
                                 </div>
                                 <div class="form-group">
                                     <?php if ($order['payment_status'] == 0  && $order['status'] == 1 && $order['payment'] == 'Banking') : ?>

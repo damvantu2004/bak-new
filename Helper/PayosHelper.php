@@ -20,12 +20,9 @@ class PayosHelper
     public function createPaymentLink($orderData)
     {
         $YOUR_DOMAIN = 'http://localhost:3000/index.php';
-        echo "2";
-        print_r($orderData["items"]);
-
 
         $data = [
-            "orderCode" =>  $orderData["id"] + "a",
+            "orderCode" => (int) $orderData["id"] + random_int(1000, 99999),
             "amount" => (int) $orderData["total"] * 26000,
             "description" => "Thanh toán đơn hàng",
             "items" => $orderData["items"],
