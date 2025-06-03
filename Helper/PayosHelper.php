@@ -25,7 +25,7 @@ class PayosHelper
 
 
         $data = [
-            "orderCode" => (int) $orderData["id"],
+            "orderCode" =>  $orderData["id"] + "a",
             "amount" => (int) $orderData["total"] * 26000,
             "description" => "Thanh toán đơn hàng",
             "items" => $orderData["items"],

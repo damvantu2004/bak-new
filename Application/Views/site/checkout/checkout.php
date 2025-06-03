@@ -11,7 +11,7 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
         background-image: url("./public/uploads/<?= $banners[0]['image'] ?>");
     }
 </style>
-<button onclick="showCart()">bấmđ</button>
+<button onclick="showCart()">bấm</button>
 <section class="banner checkout-banner">
     <div class="container-fluid banner-title">
         <div class="row">
@@ -40,9 +40,9 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
 <section class="checkout p-50">
     <div class="container">
         <div class="row">
-            <?php if (isset($cart->total_quantity_check) > 0 || isset($is_buy_now)) { ?>
+            <?php if ((isset($cart->total_quantity_check) && $cart->total_quantity_check > 0) || isset($is_buy_now)) { ?>
                 <div class="col-md-7">
-                    <?php if ((empty($_SESSION['user']) || $user['status'] == 0)) : ?>
+                    <?php if (empty($_SESSION['user']) || $user['status'] == 0) : ?>
 
                         <div class="error-block" style="padding: 0 5% ">
 
@@ -217,7 +217,7 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
 
                         <tbody>
                             <?php foreach ($cart->items as $item) : ?>
-                                <?php if (isset($item['checked']) == 'true') : ?>
+                                <?php if (isset($is_buy_now) || $item['checked'] == 'true') : ?>
                                     <tr class="checkout-pro">
                                         <td class="checkout-pro-title">
                                             <img src="./public/uploads/<?= $item['image'] ?>" width="100">
@@ -233,7 +233,6 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
                                         <td class="checkout-pro-quantity text-right">
                                             X<?= $item['quantity'] ?>
                                         </td>
-
                                     </tr>
 
                                 <?php endif; ?>
@@ -242,8 +241,11 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
 
                                 <td>
                                     <div class="checkout-pro-info p-0">
-
-                                        <p>Tạm tính:</p>
+                                        <?php if (isset($cart->total_quantity_check)) : ?>
+                                            <p>Tạm tính (<?= $cart->total_quantity_check ?> sản phẩm):</p>
+                                        <?php else : ?>
+                                            <p>Tạm tính: </p>
+                                        <?php endif; ?>
                                         <!-- <p>Tax:</p> -->
                                         <?php if ($coupon_discount != 0) : ?>
                                             <p>Giảm giá: </p>
