@@ -58,6 +58,7 @@ class ProductModel extends BaseModel
         return $this->paginate($sql);
     }
 
+
     public function getAllPaginate()
     {
         $sql = "SELECT * FROM " . self::TABLE . " where status = 1 order by id DESC";
@@ -90,7 +91,17 @@ class ProductModel extends BaseModel
 
     public function getTopProducts()
     {
-        $sql = "SELECT sum(order_detail.quantity) as purchased, RANK() OVER (ORDER BY purchased DESC) rank,  product.* , category.name as category_name from order_detail, product, category where product.id = order_detail.product_id and product.category_id = category.id GROUP BY product.id LIMIT 5";
+        $sql = "SELECT 
+            sum(order_detail.quantity) as purchased,
+            DENSE_RANK() OVER (ORDER BY sum(order_detail.quantity) DESC) as rank,
+            product.* , 
+            category.name as category_name 
+        FROM order_detail 
+        JOIN product ON product.id = order_detail.product_id 
+        JOIN category ON product.category_id = category.id 
+        GROUP BY product.id 
+        ORDER BY purchased DESC
+        LIMIT 5";
         return $this->getByQuery($sql);
     }
 
