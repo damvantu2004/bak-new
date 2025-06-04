@@ -239,7 +239,7 @@ Dự án áp dụng mô hình MVC (Model-View-Controller):
 
 Với cấu trúc Front Controller, mọi request đều đi qua file index.php, được phân tích và điều hướng đến controller và action tương ứng.
 
-## Các lưu ý quan trọng
+## Các lưu ý quan trọng:
 - Bảng `order_detail` không có cột ID, sử dụng khóa chính kết hợp (order_id, product_id) - điều này gây ra lỗi với BaseModel
 - Bảng `coupon` sử dụng khóa chính là VARCHAR thay vì INT như các bảng khác
 - BaseModel có một số giả định về cấu trúc các bảng:
