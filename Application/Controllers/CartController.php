@@ -102,16 +102,25 @@ class CartController extends BaseController
                 $ajaxRes['status'] = 0;
                 $ajaxRes['maxQuantity'] = $pro['quantity'];
                 $ajaxRes["message"] = "Số lượng vượt quá quy định";
+
+                $total_price = $pro['quantity'] * $_SESSION['cart'][$pro['id']]['price'];
+                $_SESSION['cart'][$pro['id']]['price_sum'] = $total_price;
+                $_SESSION['cart'][$pro['id']]['quantity'] = $pro['quantity'];
+                $ajaxRes['total_price'] = $total_price;
                 echo json_encode($ajaxRes);
                 return;
             }
 
 
             $_SESSION['cart'][$pro['id']]['quantity'] = $quantity;
+            $total_price = $quantity * $_SESSION['cart'][$pro['id']]['price'];
+            $_SESSION['cart'][$pro['id']]['price_sum'] = $total_price;
+
             // $this->cart->add($pro, 0);
             $ajaxRes = array();
             $ajaxRes['status'] = 1;
             $ajaxRes["cartQuantity"] = $this->cart->total_quantity;
+            $ajaxRes['total_price'] = $total_price;
             $ajaxRes["message"] = $message;
             echo json_encode($ajaxRes);
             return;

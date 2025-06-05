@@ -131,20 +131,29 @@ function onAddToCartAjax(itemID, quantity, action) {
                 prodNoCartEle.textContent = resObj.cartQuantity;
                 
             }
+            // phía detail
             if(action !== "ok"){
             msgHolder.innerHTML = `<div class="alert alert-warning" style="margin-bottom: 0;" id="success-add-to-cart">
             <button onclick="document.getElementById('success-add-to-cart').style.display='none'" type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             `.concat(resObj.message).concat(`
              </div>`);
-            }else if(tmp.status === 0){
+            }
+            // phí giỏ 
+            else if(tmp.status === 0){
                 const element = document.querySelector(`input[data-id2="${itemID}"]`);
 
                 console.log(element)
                 element.value = tmp.maxQuantity;
+
+                var priceElement = document.getElementById("prod-overall-price".concat(itemID));
+                priceElement.innerText = "$".concat(tmp.total_price.toFixed(2));
+
                 alert(`Không thể đặt vượt quá - ${tmp.maxQuantity}`)
             }else{
                 const element = document.querySelector(`input[data-id2="${itemID}"]`);
                 prodNoCartEle.textContent = resObj.cartQuantity;
+                var priceElement = document.getElementById("prod-overall-price".concat(itemID));
+                priceElement.innerText = "$".concat(tmp.total_price.toFixed(2));
                 console.log(element)
                 element.value = quantity;
             }
@@ -157,11 +166,6 @@ function onAddToCartAjax(itemID, quantity, action) {
     xmlhttp.open("GET", reqTxt, true);
     xmlhttp.send();
 }
-
-function enterQuantity(itemID, quantity){
-
-}
-
 function applyCouponAjax(couponId, totalPriceOrigin){
  var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
