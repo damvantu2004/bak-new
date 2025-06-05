@@ -28,19 +28,19 @@ function cartAjaxController(itemID, coupon, actionName) {
         }
     }
     var ReqTxt;
-    var cartAction;
+    var cartAction = actionName;
     var actionMethod;
 
     switch (actionName) {
         case "add":
         case "remove":
-            cartAction = actionName;
             actionMethod = "ajaxModifyQuantity";
             break;
         case "delete":
-            cartAction = actionName;
             actionMethod = "ajaxDelete";
             break;
+        case "inputChange":
+            actionMethod = "ajaxInput"
         default:
             return;
     }
@@ -70,6 +70,10 @@ function modifyCartHTMLAjax(cartJsonRes, itemID, coupon) {
     var finalPriceEle = document.getElementById("total-price");
     // locate product number in cart symbol
     var prodNoCartEle = document.getElementById("cart-quantity");
+    if(tmp.status === 0){
+        alert(tmp.message);
+        return;
+    }
     if (cartJsonRes.items[itemID] == null || cartJsonRes.items[itemID].quantity <= 0) {
         if (cartJsonRes.items[itemID] == null) {
             console.log("===================");
@@ -87,7 +91,6 @@ function modifyCartHTMLAjax(cartJsonRes, itemID, coupon) {
         trackQuantityList[itemID] = 0;
 
 
-        
         prodNoCartEle.textContent = cartJsonRes.total_quantity;
         return;
     }
@@ -130,9 +133,9 @@ function onAddToCartAjaxHome(itemID) {
     xmlhttp.send();
 }
 
+ 
 
-
-function onAddToCartAjax(itemID, quantity) {
+function onAddToCartAjax(itemID, quantity, action) {
     if(quantity < 1){
         alert("sản phẩm phải có số lượng lớn hơn 0")
         return;
@@ -140,25 +143,46 @@ function onAddToCartAjax(itemID, quantity) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText)
             var resObj = JSON.parse(this.responseText);
             tmp = resObj;
             // locate message holder
             var msgHolder = document.getElementById("add-product-to-cart-ajax");
             // locate product number in cart symbol
-            var prodNoCartEle = document.getElementById("cart-quantity");
 
-            prodNoCartEle.textContent = resObj.cartQuantity;
+            var prodNoCartEle = document.getElementById("cart-quantity");
+            if(tmp.status === 1){
+                prodNoCartEle.textContent = resObj.cartQuantity;
+                
+            }
+            if(action !== "ok"){
             msgHolder.innerHTML = `<div class="alert alert-warning" style="margin-bottom: 0;" id="success-add-to-cart">
             <button onclick="document.getElementById('success-add-to-cart').style.display='none'" type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             `.concat(resObj.message).concat(`
-        </div>`);
+             </div>`);
+            }else if(tmp.status === 0){
+                const element = document.querySelector(`input[data-id2="${itemID}"]`);
+
+                console.log(element)
+                element.value = tmp.maxQuantity;
+            }else{
+                const element = document.querySelector(`input[data-id2="${itemID}"]`);
+                prodNoCartEle.textContent = resObj.cartQuantity;
+                console.log(element)
+                element.value = quantity;
+            }
+            
         }
     }
     console.log("ok2")
-    var reqTxt = "?controller=cart&action=addAjax".concat("&id=").concat(itemID).concat("&quantity=").concat(quantity);
+    var reqTxt = "?controller=cart&action=addAjax".concat("&id=").concat(itemID).concat("&quantity=").concat(quantity).concat("&ok=").concat(action);
     console.log(reqTxt)
     xmlhttp.open("GET", reqTxt, true);
     xmlhttp.send();
+}
+
+function enterQuantity(itemID, quantity){
+
 }
 
 function applyCouponAjax(couponId, totalPriceOrigin){

@@ -67,19 +67,60 @@ class CartController extends BaseController
     {
         $message = "";
         $quantity = 1;
+        $isInputChange = $_GET['ok'];
         if (!isset($_GET['id'])) {
             // die("invalid id");
             $message = "invalid id";
-            goto endPoint;
+            return;
         }
         if (isset($_GET['quantity'])) {
             $quantity = $_GET['quantity'];
         }
         $id = $_GET['id'];
         $pro = $this->productModel->findProductById(['*'], $id);
+
+        // kiểm tra kho và thêm giỏ
+        if (isset($_SESSION['cart'][$pro['id']]) && $isInputChange === 'undefined') {
+            $proInCart =  $_SESSION['cart'][$pro['id']];
+            $quantityProInCart = $proInCart['quantity'];
+            if ($quantityProInCart + $quantity > $pro['quantity']) {
+                $ajaxRes = array();
+                $ajaxRes['status'] = 0;
+                $ajaxRes["message"] = "Bạn đã có " . $proInCart['quantity'] . " sản phẩm trong giỏ hàng không thể thêm vì sẽ vượt số lượng quy định";
+                echo json_encode($ajaxRes);
+                return;
+            }
+        }
+
+        if ($isInputChange !== "undefined") {
+            $proInCart =  $_SESSION['cart'][$pro['id']];
+            $quantityProInCart = $proInCart['quantity'];
+
+            // nếu số lượng nhập từ input > tổng kho 
+            if ($quantity > $pro['quantity']) {
+                $ajaxRes = array();
+                $ajaxRes['status'] = 0;
+                $ajaxRes['maxQuantity'] = $pro['quantity'];
+                $ajaxRes["message"] = "Số lượng vượt quá quy định";
+                echo json_encode($ajaxRes);
+                return;
+            }
+
+
+            $_SESSION['cart'][$pro['id']]['quantity'] = $quantity;
+            // $this->cart->add($pro, 0);
+            $ajaxRes = array();
+            $ajaxRes['status'] = 1;
+            $ajaxRes["cartQuantity"] = $this->cart->total_quantity;
+            $ajaxRes["message"] = $message;
+            echo json_encode($ajaxRes);
+            return;
+        }
+
         $this->cart->add($pro, $quantity);
         $message = "Product '" . $pro['name'] . "' added to cart successfully";
         $ajaxRes = array();
+        $ajaxRes['status'] = 1;
         $ajaxRes["cartQuantity"] = $this->cart->total_quantity;
         $ajaxRes["message"] = $message;
 
@@ -142,17 +183,31 @@ class CartController extends BaseController
     {
         if (!isset($_GET['id'])) {
             // die("invalid id");
-            goto endPoint;
+            return;
         }
 
         if (!isset($_GET['cartAction']) || !($_GET['cartAction'] == "add" || $_GET['cartAction'] == "remove")) {
             // die("invalid action");
-            goto endPoint;
+            return;
         }
 
         $id = $_GET['id'];
         $action = $_GET['cartAction'];
         $pro = $this->productModel->findProductById(['*'], $id);
+
+
+        // check xem vượt quá không 
+        $proInCart =  $_SESSION['cart'][$pro['id']];
+        $quantityProInCart = $proInCart['quantity'];
+
+        if ($quantityProInCart + 1 > $pro['quantity'] && $action == "add") {
+            $ajaxRes = array();
+            $ajaxRes['status'] = 0;
+            $ajaxRes['maxQuantity'] = $pro['quantity'];
+            $ajaxRes["message"] = "số lượng vượt quá quy định " . $pro['quantity'];
+            echo json_encode($ajaxRes);
+            return;
+        }
 
         if ($action == "add") {
             $this->cart->add($pro, 1);
@@ -160,7 +215,7 @@ class CartController extends BaseController
             // this quantity field indicates the current quantity of that product in cart (not the new quantity)
             if (!isset($_GET['quantity'])) {
                 // die("invalid quantity");
-                goto endPoint;
+                return;
             }
             if ($_GET['quantity'] > 1) {
                 $this->cart->add($pro, -1);
@@ -169,6 +224,10 @@ class CartController extends BaseController
             }
         }
         endPoint:
+        $ajaxRes = array();
+        $ajaxRes['status'] = 1;
+        $ajaxRes[''] = $this->cart;
+        $ajaxRes["message"] = "ok";
         echo json_encode($this->cart);
     }
 
@@ -209,8 +268,6 @@ class CartController extends BaseController
         }
         header('location: ./?controller=cart');
     }
-
-
 
     public function clear()
     {
@@ -281,5 +338,24 @@ class CartController extends BaseController
         $isChecked = $_GET['isChecked'];
         $this->cart->checkItem($id, $isChecked);
         echo json_encode($this->cart);
+    }
+
+    public function ajaxInput()
+    {
+        $id = $_GET['id'];
+        $pro = $this->productModel->findProductById(['*'], $id);
+
+        // check xem vượt quá không 
+        $proInCart =  $_SESSION['cart'][$pro['id']];
+        $quantityProInCart = $proInCart['quantity'];
+
+        if (1) {
+            $ajaxRes = array();
+            $ajaxRes['status'] = 0;
+            $ajaxRes['maxQuantity'] = $pro['quantity'];
+            $ajaxRes["message"] = "số lượng vượt quá quy định " . $pro['quantity'];
+            echo json_encode($ajaxRes);
+            return;
+        }
     }
 }

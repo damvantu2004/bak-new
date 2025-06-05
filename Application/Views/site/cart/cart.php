@@ -89,7 +89,8 @@
                             <div class="pro-qty">
                                 <a onClick="cartAjaxController(<?= $item['id'] ?>, <?= isset($coupon) ? $coupon : 0 ?>, 'remove')" class="dec qtybtn"><i class="ti ti-minus"></i></button></a>
                                 <form action="./?controller=cart&action=update" method="POST" id="update-quantity-form<?= $item['id'] ?>">
-                                    <input type="number" value="<?= $item['quantity'] ?>" id="<?= $item['id'] ?>quantity" name='quantity' min="0">
+                                    <input type="number" value="<?= $item['quantity'] ?>" id="<?= $item['id'] ?>quantity" name='quantity' min="0" data-id2="<?= $item['id'] ?>"
+                                        onblur="onAddToCartAjax(<?= $item['id'] ?>, this.value,'ok')">
 
                                     <input type="hidden" name="id" id="" class="form-control" value="<?= $item['id'] ?>">
 

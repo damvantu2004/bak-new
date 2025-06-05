@@ -186,9 +186,9 @@
 
                     </div>
 
-                    <p class="p-desc"><?= $pro["description"] ?>. Chúng tôi mang đến những chiếc bánh tươi ngon, 
-                    được làm từ nguyên liệu tự nhiên, không chất bảo quản. Mỗi sản phẩm đều được chăm chút tỉ mỉ, 
-                    thơm mềm và đậm đà hương vị, để bạn và người thân tận hưởng trọn vẹn khoảnh khắc ngọt ngào.</p>
+                    <p class="p-desc"><?= $pro["description"] ?>. Chúng tôi mang đến những chiếc bánh tươi ngon,
+                        được làm từ nguyên liệu tự nhiên, không chất bảo quản. Mỗi sản phẩm đều được chăm chút tỉ mỉ,
+                        thơm mềm và đậm đà hương vị, để bạn và người thân tận hưởng trọn vẹn khoảnh khắc ngọt ngào.</p>
                     <ul class="pro-info-list">
                         <li><span>Xuất xứ: </span><?= strtoupper($pro["origin"]) ?></li>
                         <li><span>Tình trạng: </span><?= $pro["quantity"] > 0 ? "Còn hàng" : "Hết hàng" ?></li>
@@ -197,29 +197,29 @@
                         </li>
                         <li><span>Thương hiệu: </span>Bakya</li>
                     </ul>
-                    <div class="product__details__button">
-
-                        <form action="./?controller=cart&action=addQuantity&id=<?= $pro['id'] ?>" method="POST"
-                            class="add-quantity-form">
-                            <div class="pro-qty">
-                                <div class="dec qtybtn" onclick="decrease(<?= $pro['id'] ?>)"><i
-                                        class="ti ti-minus"></i></div>
-                                <input type="number" value="1" id="<?= $pro['id'] ?>quantity" name="more" min="1" max="<?= $pro["quantity"] ?>">
-                                <div class="inc qtybtn" onclick="increase(<?= $pro['id'] ?>)"><i class="ti ti-plus"></i>
+                    <?php if ($pro['quantity'] > 0) : ?>
+                        <div class="product__details__button">
+                            <form action="./?controller=cart&action=addQuantity&id=<?= $pro['id'] ?>" method="POST"
+                                class="add-quantity-form">
+                                <div class="pro-qty">
+                                    <div class="dec qtybtn" onclick="decrease(<?= $pro['id'] ?>)"><i
+                                            class="ti ti-minus"></i></div>
+                                    <input type="number" value="1" id="<?= $pro['id'] ?>quantity" name="more" min="1" max="<?= $pro['quantity'] ?>" oninput="inputMax(<?= $pro['id'] ?>)">
+                                    <div class="inc qtybtn" onclick="increase2(<?= $pro['id'] ?>)"><i class="ti ti-plus"></i>
+                                    </div>
                                 </div>
-                            </div>
+                                <a href="./?controller=cart&action=buyNow&id=<?= $pro['id'] ?>" class="buy-now-btn"><button type="button" class="btn-buy-now"><i class="fas fa-bolt"
+                                            style="font-size:13px"></i><span>Mua ngay</span></button></a>
+                            </form>
+                            <a id="add-to-cart-btn<?= $pro['id'] ?>" class="swalDefaultSuccess "
+                                onclick="onAddToCartAjax(<?= $pro['id'] ?>, getQuantity(<?= $pro['id'] ?>))">
+                                <button><i class="fas fa-shopping-basket" style="font-size:13px"></i><span> THÊM VÀO GIỎ HÀNG</span></button>
+                            </a>
+                        </div>
+                    <?php else : ?>
+                        <h2>Sản phẩm đã hết hàng</h2>
 
-                            <!-- <a class="add-to-cart-pro-detail"><button><i class="fas fa-shopping-basket"
-                                        style="font-size:13px"></i><span>Thêm vào giỏ</span></button></a> -->
-
-                            <a href="./?controller=cart&action=buyNow&id=<?= $pro['id'] ?>" class="buy-now-btn"><button type="button" class="btn-buy-now"><i class="fas fa-bolt"
-                                        style="font-size:13px"></i><span>Mua ngay</span></button></a>
-                        </form>
-                        <a id="add-to-cart-btn<?= $pro['id'] ?>" class="swalDefaultSuccess " onclick="onAddToCartAjax(<?= $pro['id'] ?>, getQuantity(<?= $pro['id'] ?>))">
-                            <button><i class="fas fa-shopping-basket" style="font-size:13px"></i><span> THÊM VÀO GIỎ HÀNG</span></button>
-                        </a>
-                    </div>
-
+                    <?php endif ?>
                     <div class="product__details__more">
                         <div class="tag"> <span class="more-title">Thẻ: </span>
                             <ul>
@@ -260,9 +260,9 @@
                         <div class="tab-pane  active" id="tabs-1" role="tabpanel">
                             <h5><?= $pro["name"] ?></h5>
 
-                            <p><b><?= $pro["description"] ?></b>. Chúng tôi mang đến những chiếc bánh tươi ngon, 
-                            được làm từ nguyên liệu tự nhiên, không chất bảo quản. Mỗi sản phẩm đều được chăm chút tỉ mỉ, 
-                            thơm mềm và đậm đà hương vị, để bạn và người thân tận hưởng trọn vẹn khoảnh khắc ngọt ngào.</p>
+                            <p><b><?= $pro["description"] ?></b>. Chúng tôi mang đến những chiếc bánh tươi ngon,
+                                được làm từ nguyên liệu tự nhiên, không chất bảo quản. Mỗi sản phẩm đều được chăm chút tỉ mỉ,
+                                thơm mềm và đậm đà hương vị, để bạn và người thân tận hưởng trọn vẹn khoảnh khắc ngọt ngào.</p>
 
                         </div>
 
@@ -464,15 +464,15 @@
 
 <script>
     // Thêm hàm kiểm tra số lượng khi tăng giảm số lượng sản phẩm
-    function increase(id) {
+    function increase2(id) {
+        console.log("ok")
+
         var quantityInput = document.getElementById(id + "quantity");
         var currentVal = parseInt(quantityInput.value);
         var maxVal = parseInt(quantityInput.getAttribute('max'));
-
+        console.log("ok")
         if (currentVal < maxVal) {
             quantityInput.value = currentVal + 1;
-        } else {
-            alert("Không thể thêm quá số lượng sản phẩm hiện có (" + maxVal + ")");
         }
     }
 
@@ -485,12 +485,23 @@
         }
     }
 
-    $(':radio').change(function() {
-        console.log('Đánh giá mới: ' + this.value);
-    });
+    // $(':radio').change(function() {
+    //     console.log('Đánh giá mới: ' + this.value);
+    // });
 
     function getQuantity(id) {
         return document.getElementById(id + "quantity").value;
+    }
+
+    function inputMax(id) {
+        inputElement = document.getElementById(id + "quantity");
+        max = parseInt(inputElement.max);
+        value = parseInt(inputElement.value)
+        console.log(value);
+        if (value > max) {
+            inputElement.value = max;
+
+        }
     }
 </script>
 

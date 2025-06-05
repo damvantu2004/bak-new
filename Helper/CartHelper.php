@@ -187,7 +187,7 @@ class CartHelper // dung de tach phan add ben controller sang helper
             if ($item['checked'] == 'true') {
                 $total_quantity_check += $item['quantity'];
             }
-            $total_quantity += $item['quantity'];
+            $total_quantity += 1;
         }
         $this->total_quantity = $total_quantity;
         $this->total_quantity_check = $total_quantity_check;
