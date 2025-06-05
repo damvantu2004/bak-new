@@ -109,31 +109,7 @@ function modifyCartHTMLAjax(cartJsonRes, itemID, coupon) {
     prodNoCartEle.textContent = cartJsonRes.total_quantity;
 }
  
-function onAddToCartAjaxHome(itemID) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var resObj = JSON.parse(this.responseText);
-            tmp = resObj;
-            // locate message holder
-            var msgHolder = document.getElementById("add-product-to-cart-ajax");
-            // locate product number in cart symbol
-            var prodNoCartEle = document.getElementById("cart-quantity");
 
-            prodNoCartEle.textContent = resObj.cartQuantity;
-            msgHolder.innerHTML = `<div class="alert alert-warning" style="margin-bottom: 0;" id="success-add-to-cart">
-            <button onclick="document.getElementById('success-add-to-cart').style.display='none'" type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            `.concat(resObj.message).concat(`
-        </div>`);
-        }
-    }
-    console.log("ok2")
-    var reqTxt = "?controller=cart&action=addAjax".concat("&id=").concat(itemID)
-    xmlhttp.open("GET", reqTxt, true);
-    xmlhttp.send();
-}
-
- 
 
 function onAddToCartAjax(itemID, quantity, action) {
     if(quantity < 1){
@@ -165,6 +141,7 @@ function onAddToCartAjax(itemID, quantity, action) {
 
                 console.log(element)
                 element.value = tmp.maxQuantity;
+                alert(`Không thể đặt vượt quá - ${tmp.maxQuantity}`)
             }else{
                 const element = document.querySelector(`input[data-id2="${itemID}"]`);
                 prodNoCartEle.textContent = resObj.cartQuantity;

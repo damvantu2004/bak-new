@@ -243,50 +243,7 @@
     </section>
 
     <!-- Start of product for you -->
-    <section class="product-for-you p-50">
-        <div class="container-fluid section-main">
-            <div class="content-title-block">
-                <p class="block-title">Dành Cho Bạn</p>
-                <p class="block-motto"><span>Bánh Tươi Mới</span></p>
-            </div>
 
-            <div class="container" style="margin-top: 40px;">
-
-                <div class="content-block">
-                    <div id="add-product-to-cart-ajax" style="margin: 0 auto 20px auto; width: 90%"></div>
-                    <ul id='new-pro-list'>
-                        <!-- <input type="text" id="success-message"> -->
-                        <?php foreach ($latest_products4 as $product) : ?>
-                            <li>
-
-                                <div class="new-pro-block">
-                                    <div class="new-pro-img">
-                                        <?php
-                                        $productImage = !empty($product['image']) ? $product['image'] : 'no-image.png';
-                                        ?>
-                                        <img src="./public/uploads/<?= $productImage; ?>" alt="<?= $product['name']; ?>">
-                                    </div>
-                                    <div class="new-pro-info">
-                                        <h5> <?= $product['name'] ?? '' ?> </h5>
-                                        <p><?= $product['description'] ?> </p>
-                                        <h5>$<?= number_format($product['sale_price'] > 0 ? $product['sale_price'] : $product['price'], 2, '.', '') ?>
-                                        </h5>
-                                    </div>
-                                    <a id="add-to-cart-btn<?= $product['id'] ?>" class="swalDefaultSuccess " onclick="onAddToCartAjaxHome(<?= $product['id'] ?>)">
-                                        <button><i class="fas fa-shopping-basket" style="font-size:13px"></i><span> ADD TO
-                                                CART</span></button>
-                                    </a>
-
-                                </div>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
     <!-- End of profuct for you -->
 
     <!-- Start of testimonial -->

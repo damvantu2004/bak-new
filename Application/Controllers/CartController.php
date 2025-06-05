@@ -118,7 +118,7 @@ class CartController extends BaseController
         }
 
         $this->cart->add($pro, $quantity);
-        $message = "Product '" . $pro['name'] . "' added to cart successfully";
+        $message = "Sản phẩm '" . $pro['name'] . "' đã được thêm vào giỏ hàng";
         $ajaxRes = array();
         $ajaxRes['status'] = 1;
         $ajaxRes["cartQuantity"] = $this->cart->total_quantity;
