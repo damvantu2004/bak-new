@@ -11,13 +11,13 @@ class CategoryModel extends BaseModel
 
     public function getAllWithCount()
     {
-        $sql = "SELECT category.* , count(product.id) as count FROM category left join product on category_id = category.id GROUP by category_id having category.status = 1";
+        $sql = "SELECT category.* , count(product.id) as count FROM category left join product on category_id = category.id GROUP by category_id having category.status = 1 ORDER BY category.priority ASC";
         return $this->getByQuery($sql);
     }
 
     public function getAllWithCountAllStatus()
     {
-        $sql = "SELECT category.* , count(product.id) as count FROM category left join product on category_id = category.id GROUP by category_id";
+        $sql = "SELECT category.* , count(product.id) as count FROM category left join product on category_id = category.id GROUP by category_id ORDER BY category.priority ASC";
         return $this->getByQuery($sql);
     }
 
