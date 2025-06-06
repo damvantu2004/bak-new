@@ -30,7 +30,7 @@
                                 <h3>Tiệm bánh</h3>
                                 <p>Nơi mang đến những chiếc bánh tươi ngon, hấp dẫn và đa dạng.
                                 </p>
-                                <a href="./?controller=product&action=allProducts"><button><span>MUA NGAY</span><img src="./public/site/img/home/logo/right.png" alt=""></button></a>
+                                <a href="./product/allProducts"><button><span>MUA NGAY</span><img src="./public/site/img/home/logo/right.png" alt=""></button></a>
                                 <div class="basket">
                                     <img src="./public/site/img/home/images/basket6.png" alt="">
                                 </div>
@@ -43,7 +43,7 @@
                             <div class="bread-desc">
                                 <h3>Bánh mì</h3>
                                 <p>Thưởng thức các loại bánh mì thơm ngon, nóng hổi mỗi ngày.</p>
-                                <a href="./?controller=product&action=allProducts"><button><span>MUA NGAY</span><img src="./public/site/img/home/logo/right.png" alt=""></button></a>
+                                <a href="./product/allProducts"><button><span>MUA NGAY</span><img src="./public/site/img/home/logo/right.png" alt=""></button></a>
                                 <div class="basket">
                                     <img src="./public/site/img/home/images/basket7.png" alt="">
                                 </div>
@@ -56,7 +56,7 @@
                             <div class="bread-desc">
                                 <h3>Bánh muffin</h3>
                                 <p>Những chiếc bánh muffin mềm mại, ngọt ngào, phù hợp mọi lúc.</p>
-                                <a href="./?controller=product&action=allProducts"><button><span>MUA NGAY</span><img src="./public/site/img/home/logo/right.png" alt=""></button></a>
+                                <a href="./product/allProducts"><button><span>MUA NGAY</span><img src="./public/site/img/home/logo/right.png" alt=""></button></a>
                                 <div class="basket">
                                     <img src="./public/site/img/home/images/basket1.png" alt="">
                                 </div>
@@ -195,7 +195,7 @@
 
                 <ul class="pro-category">
                     <?php foreach ($categories as $cat) : ?>
-                        <li><a href="./?controller=product&action=allProducts&id=<?= $cat['id'] ?>">
+                        <li><a href="./product/allProducts/<?= $cat['id'] ?>">
                                 <h5><?= $cat['name'] ?></h5>
                             </a></li>
 
