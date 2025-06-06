@@ -245,14 +245,14 @@
                 <div class="product__details__tab p-50">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link  active desc-tab" id="desc-tab" data-toggle="tab" href="#tabs-1"
+                            <a class="nav-link active desc-tab" id="desc-tab" data-toggle="tab" href="#tabs-1"
                                 role="tab"
-                                onclick="document.getElementById('rev-tab').classList.remove('active');this.classList.add('active') ;document.getElementById('tabs-1').classList.add('active');document.getElementById('tabs-2').classList.remove('active')">Mô tả</a>
+                                onclick="event.preventDefault(); document.getElementById('rev-tab').classList.remove('active');this.classList.add('active');document.getElementById('tabs-1').classList.add('active');document.getElementById('tabs-2').classList.remove('active')">Mô tả</a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link rev-tab" id="rev-tab" data-toggle="tab" href="#tabs-2" role="tab"
-                                onclick="document.getElementById('desc-tab').classList.remove('active');this.classList.add('active');document.getElementById('tabs-1').classList.remove('active');document.getElementById('tabs-2').classList.add('active')">
+                                onclick="event.preventDefault(); document.getElementById('desc-tab').classList.remove('active');this.classList.add('active');document.getElementById('tabs-1').classList.remove('active');document.getElementById('tabs-2').classList.add('active')">
                                 Đánh giá (<?= sizeof($reviews) ?>)</a>
                         </li>
                     </ul>
