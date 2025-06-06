@@ -11,7 +11,6 @@ $coupon_discount = isset($_SESSION['coupon']) ? $_SESSION['coupon'] : 0;
         background-image: url("./public/uploads/<?= $banners[0]['image'] ?>");
     }
 </style>
-<button onclick="showCart()">bấm</button>
 <section class="banner checkout-banner">
     <div class="container-fluid banner-title">
         <div class="row">

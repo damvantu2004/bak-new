@@ -401,3 +401,24 @@ function validateRating(rating, rateId) {
 		return true;
 	}
 }
+
+function validateDiscount(discount, discount_title) {
+	var discountValue = parseFloat(discount.value);
+	if (isNaN(discountValue)) {
+		document.getElementById(discount.id + "-err").innerHTML = discount_title + " phải là số!";
+		document.getElementById(discount.id + "-err").className = 'invalid-error';
+		document.getElementById(discount.id).className = 'form-control invalid-error';
+		discount.focus();
+		return false;
+	} else if (discountValue < 1 || discountValue > 100) {
+		document.getElementById(discount.id + "-err").innerHTML = discount_title + " phải nằm trong khoảng từ 1 đến 100!";
+		document.getElementById(discount.id + "-err").className = 'invalid-error';
+		document.getElementById(discount.id).className = 'form-control invalid-error';
+		discount.focus();
+		return false;
+	} else {
+		document.getElementById(discount.id + "-err").innerHTML = "";
+		document.getElementById(discount.id).className = "form-control";
+		return true;
+	}
+}

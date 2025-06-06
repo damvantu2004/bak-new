@@ -27,15 +27,15 @@
 <!-- ./wrapper -->
 
 <!-- sidebar helper -->
-<script src="./public/admin/plugins/sidebar/sidebar.js"></script>
+<script src="public/admin/plugins/sidebar/sidebar.js"></script>
 
 <!-- overlayScrollbars -->
-<script src="./public/admin/plugins/overlayScrollbars/js/overlayScrollbars.js"></script>
+<script src="public/admin/plugins/overlayScrollbars/js/overlayScrollbars.js"></script>
 <!-- AdminLTE App -->
-<script src="./public/admin/dist/js/adminlte.js"></script>
+<script src="public/admin/dist/js/adminlte.js"></script>
 
 <!-- Form validation -->
-<script src="./public/site/js/validate.js"></script>
+<script src="public/site/js/validate.js"></script>
 
 <script>
     const actualBtn = document.getElementById('actual-btn');

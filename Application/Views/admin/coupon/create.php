@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <label for="coupon-value">Giá Trị Giảm (%)</label>
                     <small id="coupon-value-err"></small>
-                    <input type="number" class="form-control" step="0.1" name="coupon_value" placeholder="Nhập vào giá trị giảm" id="coupon-value" onkeyup="validateFloat(this, 'Discount', 1);" min="1">
+                    <input type="number" class="form-control" step="0.1" name="coupon_value" placeholder="Nhập vào giá trị giảm" id="coupon-value" onkeyup="validateFloat(this, 'Discount', 1);" min="1" max="100">
                 </div>
 
                 <div class="form-group">
