@@ -49,13 +49,9 @@ require './Config/menu.php'; ?>
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-
-                    <a href="?controller=verify&action=logout" class="nav-link">
-
+                    <a href="./verify/logout" class="nav-link">
                         <i class="fas fa-sign-out-alt" style="font-size: 14px;"></i>Đăng xuất
-
                     </a>
-
                 </li>
                 <li class="nav-item">
 

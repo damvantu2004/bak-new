@@ -117,7 +117,7 @@
                         <td>
                             $<?= number_format(($order['total']) * (1 - $order['coupon']) + 2, 2, '.', '') ?>
                         </td>
-                        <td> <a title="View order detail" href="./?controller=customer&action=orderDetail&id=<?= $order['id'] ?>" class="btn btn-sm btn-success">
+                        <td> <a title="View order detail" href="./customer/order/detail/<?= $order['id'] ?>" class="btn btn-sm btn-success">
                                 <i class="fas fa-info-circle"></i></td>
                     </tr>
                 <?php endforeach; ?>

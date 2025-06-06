@@ -33,6 +33,6 @@ class ContactController extends BaseController
 		];
 
 		$this->contactModel->createData($data);
-		header('location: ./?controller=contact');
+		header('location: ./contact');
 	}
 }

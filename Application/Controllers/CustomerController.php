@@ -295,6 +295,6 @@ class CustomerController extends BaseController
             }
         }
         
-        header("location: ./?controller=customer&action=orderDetail&id=$id");
+        header("location: ./customer/order/detail/$id");
     }
 }

@@ -6,7 +6,7 @@
 <?php endif; ?>
 
 <div id="id02" class="modal">
-    <form action="?controller=verify&action=signup" method="post" class="modal-content modal-dialog animate modal-dialog-centered" name="signupForm" onsubmit="return validateSignupForm();">
+    <form action="./verify/signup" method="post" class="modal-content modal-dialog animate modal-dialog-centered" name="signupForm" onsubmit="return validateSignupForm();">
 
         <div class="main-form-content">
             <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>

@@ -165,7 +165,7 @@
 
                         <!-- <div class="countdown" data-date="2021-12-28" data-time="12:00"></div> -->
 
-                        <a class="offer-btn btn-root ptc-btn border-root" style="margin-top: 15px; position: absolute" href="./?controller=product&action=productDetail&id=<?= $offer_pro['id'] ?>">
+                        <a class="offer-btn btn-root ptc-btn border-root" style="margin-top: 15px; position: absolute" href="./product/detail/<?= $offer_pro['id'] ?>">
                             MUA NGAY
                         </a>
 
@@ -208,7 +208,7 @@
                     <ul id='pro-list'>
                         <?php foreach ($latest_products8 as $product) : ?>
                             <li>
-                                <a href="./?controller=product&action=productDetail&id=<?= $product['id'] ?>">
+                                <a href="./product/detail/<?= $product['id'] ?>">
                                     <div class="pro-block">
                                         <div class="pro-img">
                                             <?php

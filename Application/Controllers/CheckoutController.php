@@ -127,7 +127,7 @@ class CheckoutController extends BaseController
         } else {
             // Đơn hàng COD đã được xử lý thành công
             // Chuyển đến trang chi tiết đơn hàng
-            header('location: ./?controller=customer&action=orderDetail&id=' . $order["id"]);
+            header('location: ./customer/order/detail/' . $order["id"]);
         }
     }
 
@@ -303,7 +303,7 @@ class CheckoutController extends BaseController
             header("HTTP/1.1 303 See Other");
             header("Location: " . $url);
         } else {
-            header('location: ./?controller=customer&action=orderDetail&id=' . $order["id"]);
+            header('location: ./customer/order/detail/' . $order["id"]);
         }
     }
 

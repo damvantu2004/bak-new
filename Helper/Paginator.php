@@ -66,25 +66,25 @@ class Paginator extends Database
         $html       .= '<ul class="' . $list_class . '">';
 
         $class      = ($this->_page == 1) ? "disabled" : "";
-        $html       .= '<li class="page-item ' . $class . '"><a class="page-link" href="./?' . $module . 'controller' . '=' . $controller . '&action=' . $action . '&limit=' . $this->_limit . '&page=' . ($this->_page - 1) . '"><i class="ti ti-angle-left"></i></a></li>';
-        // print($last . " " . $start . " " . $end . " " . $links);
+        $html       .= '<li class="page-item ' . $class . '"><a class="page-link" href="./' . $controller . '/' . $action . '?limit=' . $this->_limit . '&page=' . ($this->_page - 1) . '"><i class="ti ti-angle-left"></i></a></li>';
+
         if ($start > 1) {
-            $html   .= '<li class="page-item" ><a class="page-link" href="./?' . $module . 'controller' . '=' . $controller . '&action=' . $action . '&limit=' . $this->_limit . '&page=1">1</a></li>';
+            $html   .= '<li class="page-item" ><a class="page-link" href="./' . $controller . '/' . $action . '?limit=' . $this->_limit . '&page=1">1</a></li>';
             $html   .= '<li class="disabled"><span class="page-link">...</span></li>';
         }
 
         for ($i = $start; $i <= $end; $i++) {
             $class  = ($this->_page == $i) ? "active" : "";
-            $html   .= '<li class="page-item ' . $class . '"><a class="page-link" href="./?' . $module . 'controller' . '=' . $controller . '&action=' . $action . '&limit=' . $this->_limit . '&page=' . $i . '">' . $i . '</a></li>';
+            $html   .= '<li class="page-item ' . $class . '"><a class="page-link" href="./' . $controller . '/' . $action . '?limit=' . $this->_limit . '&page=' . $i . '">' . $i . '</a></li>';
         }
 
         if ($end < $last) {
             $html   .= '<li class="page-item disabled"><span class="page-link">...</span></li>';
-            $html   .= '<li><a class="page-link" href="./?' . $module . 'controller' . '=' . $controller . '&action=' . $action . '&limit=' . $this->_limit . '&page=' . $last . '">' . $last . '</a></li>';
+            $html   .= '<li><a class="page-link" href="./' . $controller . '/' . $action . '?limit=' . $this->_limit . '&page=' . $last . '">' . $last . '</a></li>';
         }
 
         $class      = ($this->_page == $last) ? "disabled" : "";
-        $html       .= '<li class="page-item ' . $class . '"><a class="page-link" href="./?' . $module . 'controller' . '=' . $controller . '&action=' . $action . '&limit=' . $this->_limit . '&page=' . ($this->_page + 1) . '"><i class="ti ti-angle-right"></i></a></li>';
+        $html       .= '<li class="page-item ' . $class . '"><a class="page-link" href="./' . $controller . '/' . $action . '?limit=' . $this->_limit . '&page=' . ($this->_page + 1) . '"><i class="ti ti-angle-right"></i></a></li>';
 
         $html       .= '</ul></nav>';
 

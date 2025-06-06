@@ -3,7 +3,7 @@
 
 <head>
 
-
+    <base href="/bak-new/">
     <title>Bakya | <?= $title ?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,15 +84,15 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href='./?controller=home&action=about' title="Giới Thiệu">Giới Thiệu</a>
+                        <a class="nav-link" href="./home/about" title="Giới Thiệu">Giới Thiệu</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href='./?controller=product&action=allProducts' title="Sản Phẩm">Sản Phẩm</a>
+                        <a class="nav-link" href="./product/allProducts" title="Sản Phẩm">Sản Phẩm</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href='./?controller=contact' title="Liên Hệ">Liên Hệ</a>
+                        <a class="nav-link" href="./contact" title="Liên Hệ">Liên Hệ</a>
                     </li>
 
                     <li class="nav-item">
@@ -108,7 +108,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link " href='./?controller=cart' title="Giỏ Hàng"><i class="fas fa-shopping-basket"></i><span class="badge badge-warning navbar-badge" id="cart-quantity"><?= $_SESSION['total_quantity'] ?? 0 ?></span></a>
+                        <a class="nav-link " href="./cart" title="Giỏ Hàng"><i class="fas fa-shopping-basket"></i><span class="badge badge-warning navbar-badge" id="cart-quantity"><?= $_SESSION['total_quantity'] ?? 0 ?></span></a>
                     </li>
 
                 </ul>

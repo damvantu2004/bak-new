@@ -72,7 +72,7 @@
                         </td>
                         <td class="cart-pro-title">
 
-                            <a href="./?controller=product&action=productDetail&id=<?= $item['id'] ?>">
+                            <a href="./product/detail/<?= $item['id'] ?>">
                                 <img src="./public/uploads/<?= $item['image'] ?>" width="100">
                                 <span>
                                     <h5><?= $item['name'] ?></h5>
@@ -189,7 +189,7 @@
             </tfoot>
         </table> -->
         <div class="text-right">
-            <a href="./?controller=checkout" class="btn-root ptc-btn border-root">Đặt hàng Ngay</a>
+            <a href="./checkout" class="btn-root ptc-btn border-root">Đặt hàng Ngay</a>
         </div>
 
     </div>

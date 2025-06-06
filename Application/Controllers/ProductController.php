@@ -67,7 +67,7 @@ class ProductController extends BaseController
             // get 10 results only
             $product_search_rs = $this->productModel->searchProduct($product_name)->getData(10)->data;
             foreach ($product_search_rs as &$prod) {
-                $rsTxt .= "<a href='./?controller=product&action=productDetail&id=" . $prod["id"] . "'>" . "<img class='search-bar-image' src='./public/uploads/" . $prod['image'] . "'" . " alt='" . $prod['name'] . "'> &nbsp;" . $prod["name"] . "</a>";
+                $rsTxt .= "<a href='./product/detail/" . $prod["id"] . "'>" . "<img class='search-bar-image' src='./public/uploads/" . $prod['image'] . "'" . " alt='" . $prod['name'] . "'> &nbsp;" . $prod["name"] . "</a>";
             }
 
             echo $rsTxt;

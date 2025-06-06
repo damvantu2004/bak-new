@@ -438,7 +438,7 @@
                     <ul id='pro-list'>
                         <?php foreach ($pro_same_cat as $pro) : ?>
                             <li>
-                                <a href="./?controller=product&action=productDetail&id=<?= $pro['id'] ?>">
+                                <a href="./product/detail/<?= $pro['id'] ?>">
                                     <div class="pro-block">
                                         <div class="pro-img"><img src="./public/uploads/<?= $pro["image"] ?>">
                                         </div>

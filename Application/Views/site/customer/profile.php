@@ -67,7 +67,7 @@ require './Config/province.php'; ?>
                         </h5>
 
                     </div>
-                    <form method="POST" action="?controller=customer&action=updateProfile" name="profileForm" onsubmit="return validateProfileForm();">
+                    <form method="POST" action="./customer/update-profile" name="profileForm" onsubmit="return validateProfileForm();">
 
 
                         <div class="form-group row">
@@ -150,7 +150,7 @@ require './Config/province.php'; ?>
                 <div class="bill-form-block" style="border: none; padding-left: 2rem; padding-right:0">
                     <h2>Cập Nhật Mật Khẩu</h2>
 
-                    <form method="POST" action="?controller=customer&action=updatePassword" name="passwordUpdateForm" onsubmit="return validatePasswordUpdateForm();">
+                    <form method="POST" action="./customer/update-password" name="passwordUpdateForm" onsubmit="return validatePasswordUpdateForm();">
 
 
 

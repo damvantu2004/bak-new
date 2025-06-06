@@ -12,10 +12,10 @@ if (!empty($_SESSION['user'])) {
 
 
 
-    <a href='?controller=customer&action=viewProfile'>
+    <a href='./customer/profile'>
         <button class='login-modal' style='width:auto'><i class='fas fa-user-edit' style='font-size: 14px'></i>Trang Cá Nhân</button>
     </a>
-    <a href='?controller=customer&action=listOrders'>
+    <a href='./customer/orders'>
         <button class='login-modal' style='width:auto'><i class='fas fa-receipt' style='font-size: 14px'></i>Lịch Sử Đơn Hàng</button>
     </a>
     <a href='?controller=verify&action=logout'>
@@ -27,7 +27,7 @@ if (!empty($_SESSION['user'])) {
 
 <div id="id01" class="modal">
 
-    <form action="?controller=verify&action=login" class="modal-content animate" method="post" name="loginForm" onsubmit="return validateLoginForm();">
+    <form action="./verify/login" class="modal-content animate" method="post" name="loginForm" onsubmit="return validateLoginForm();">
 
         <div class="row">
 

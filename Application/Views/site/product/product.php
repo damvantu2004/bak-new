@@ -57,8 +57,8 @@
                             <?php foreach ($categories as $cat) : ?>
                                 <li>
                                     <a href="<?= ($currentCategoryId == $cat['id']) ?
-                                                    './?controller=product&action=allProducts' :
-                                                    './?controller=product&action=allProducts&id=' . $cat['id'] ?>" class="<?php echo ($currentCategoryId == $cat['id']) ?  'category-chosen' : '' ?> category-item">
+                                                    './product/allProducts' :
+                                                    './product/allProducts/' . $cat['id'] ?>" class="<?php echo ($currentCategoryId == $cat['id']) ?  'category-chosen' : '' ?> category-item">
                                         <p><?= $cat['name'] ?></p>
                                     </a>
                                     <p class="category-num"><?= $cat['count'] ?></p>
@@ -73,7 +73,7 @@
                             <div class="media post_item">
                                 <img src="./public/uploads/<?= $pro['image'] ?>" alt="post" style="border-radius: 100%; border: 1px solid #f0e5d4">
                                 <div class="media-body">
-                                    <a href="./?controller=product&action=productDetail&id=<?= $pro['id'] ?>">
+                                    <a href="./product/detail/<?= $pro['id'] ?>">
                                         <h3 class="top-link"><?= $pro['name'] ?></h3>
                                     </a>
                                     <p class="discount-price">$<?= number_format($pro['sale_price'] > 0 ? $pro['sale_price'] : $pro['price'], 2, '.', '') ?></p>
@@ -125,7 +125,7 @@
 
                         <?php foreach ($products as $product) : ?>
                             <li>
-                                <a href="./?controller=product&action=productDetail&id=<?= $product['id'] ?>">
+                                <a href="./product/detail/<?= $product['id'] ?>">
                                     <div class="pro-block">
                                         <div class="pro-img">
                                             <?php

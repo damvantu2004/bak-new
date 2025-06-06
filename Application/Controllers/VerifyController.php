@@ -82,8 +82,10 @@ class VerifyController extends BaseController
             }
 
             $_SESSION['user'] = $user;
-            if ($_SESSION['user']["role"] == "admin") {
-                header('location: ./?module=admin&controller=dashboard');
+            if ($user['role'] == 'admin') {
+                $_SESSION['user'] = $user;
+                header('location: ../?module=admin&controller=dashboard');
+                exit();
             } else {
                 $message['success-login'] = 'Đăng nhập thành công';
             }
@@ -131,8 +133,10 @@ class VerifyController extends BaseController
 
             // create session for user
             $_SESSION['user'] = $user;
-            if (isset($_SESSION['user']["role"]) && $_SESSION['user']["role"] == "admin") {
-                header('location: ./?module=admin&controller=dashboard');
+            if ($user['role'] == 'admin') {
+                $_SESSION['user'] = $user;
+                header('location: ../?module=admin&controller=dashboard');
+                exit();
             } else {
                 $message['success-login'] = 'Đăng nhập thành công';
             }
@@ -306,7 +310,8 @@ class VerifyController extends BaseController
         }
         $_SESSION['cart'] = [];
         $_SESSION['total_quantity'] = 0;
-        header('location:index.php');
+        header('location: /bak-new/');
+        exit();
     }
 
     // Xác thực email
