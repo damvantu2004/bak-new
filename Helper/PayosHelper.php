@@ -19,7 +19,7 @@ class PayosHelper
 
     public function createPaymentLink($orderData)
     {
-        $YOUR_DOMAIN = 'http://localhost:3000/index.php';
+        $YOUR_DOMAIN = 'http://localhost/bak-new';
 
         $data = [
             "orderCode" => (int) $orderData["id"] + random_int(1000, 99999),
@@ -29,8 +29,8 @@ class PayosHelper
             "buyerName" => "tien chan",
             "buyerPhone" => "1111111111",
             "expiredAt" => time() + 30 * 60,
-            "returnUrl" => "http://localhost:3000/?controller=checkout&action=success",
-            "cancelUrl" => "http://localhost:3000/?controller=checkout&action=cancelPayment",
+            "returnUrl" => $YOUR_DOMAIN . "/checkout/success",
+            "cancelUrl" => $YOUR_DOMAIN . "/checkout/cancel",
         ];
         $response = $this->payos->createPaymentLink($data);
 

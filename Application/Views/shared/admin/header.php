@@ -7,20 +7,21 @@ require './Config/menu.php'; ?>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/bak-new/">
     <title>Admin | <?= $title ?></title>
-    <link rel="icon" type="image/x-icon" href="./public/admin/dist/img/bakery-icon.png">
+    <link rel="icon" type="image/x-icon" href="public/admin/dist/img/bakery-icon.png">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="./public/admin/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="public/admin/plugins/fontawesome-free/css/all.min.css">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="./public/admin/plugins/overlayScrollbars/css/OverlayScrollbars.css">
+    <link rel="stylesheet" href="public/admin/plugins/overlayScrollbars/css/OverlayScrollbars.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="./public/admin/dist/css/responsive.css">
-    <link rel="stylesheet" href="./public/site/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="./public/site/css/pagination.css">
-    <link rel="stylesheet" href="./public/site/css/checkout.component.css">
-    <link rel="stylesheet" href="./public/admin/dist/css/styles.css">
+    <link rel="stylesheet" href="public/admin/dist/css/responsive.css">
+    <link rel="stylesheet" href="public/site/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="public/site/css/pagination.css">
+    <link rel="stylesheet" href="public/site/css/checkout.component.css">
+    <link rel="stylesheet" href="public/admin/dist/css/styles.css">
 
 
     <!-- Dashboard -->
@@ -49,17 +50,14 @@ require './Config/menu.php'; ?>
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="./verify/logout" class="nav-link">
+                    <a href="verify/logout" class="nav-link">
                         <i class="fas fa-sign-out-alt" style="font-size: 14px;"></i>Đăng xuất
                     </a>
                 </li>
                 <li class="nav-item">
-
-                    <a href="./" class="nav-link">
-
+                    <a href="" class="nav-link">
                         <i class="fas fa-home" style="font-size: 14px;"></i>Đến trang người dùng
                     </a>
-
                 </li>
             </ul>
         </nav>
@@ -68,8 +66,8 @@ require './Config/menu.php'; ?>
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-light-primary elevation-4" style="background-color: #f0e5d4;">
             <!-- Brand Logo -->
-            <a href="./?module=admin&controller=dashboard" class="brand-link">
-                <img src="./public/site/img/bakery-icon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <a href="?module=admin&controller=dashboard" class="brand-link">
+                <img src="public/site/img/bakery-icon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Bakya</span>
             </a>
 
@@ -78,7 +76,7 @@ require './Config/menu.php'; ?>
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="./public/site/img/user.png" class="img-circle elevation-2" alt="User Image">
+                        <img src="public/site/img/user.png" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block"><?= $_SESSION['user']['fname'] . ' ' . $_SESSION['user']['lname'] ?? null; ?></a>
