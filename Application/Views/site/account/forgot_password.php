@@ -18,7 +18,7 @@ include './Application/Views/shared/site/header.php';
                         <div class="alert alert-danger"><?= $error ?></div>
                     <?php endif; ?>
 
-                    <form action="./?controller=verify&action=sendResetLink" method="post">
+                    <form action="./verify/send-reset-link" method="post">
                         <div class="form-group mb-3">
                             <label for="email">Email đăng nhập</label>
                             <input type="email" name="email" id="email" class="form-control" required>

@@ -68,7 +68,7 @@ if (!empty($_SESSION['user'])) {
                             <label for="remember">Nhớ mật khẩu</label>
                         </div>
                         <div class="forgot-password">
-                            <a href="?controller=verify&action=forgotPassword">Quên mật khẩu?</a>
+                            <a href="./verify/forgot-password">Quên mật khẩu?</a>
                         </div>
                     </div>
 

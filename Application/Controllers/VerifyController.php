@@ -400,7 +400,7 @@ class VerifyController extends BaseController
             $baseUrl .= '/';
         }
 
-        $resetLink = $baseUrl . "?controller=verify&action=resetPassword&token=$token";
+        $resetLink = $baseUrl . "verify/reset-password/" . $token;
 
         if ($mailService->sendPasswordResetEmail($email, $resetLink)) {
             $message['message'] = 'Chúng tôi đã gửi một email với hướng dẫn đặt lại mật khẩu. Vui lòng kiểm tra hộp thư của bạn.';

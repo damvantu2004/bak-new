@@ -50,6 +50,12 @@ RewriteRule ^verify/logout/?$ index.php?controller=verify&action=logout [QSA,L]
 # Route: /verify/forgot-password
 RewriteRule ^verify/forgot-password/?$ index.php?controller=verify&action=forgotPassword [QSA,L]
 
+# Route: /verify/send-reset-link
+RewriteRule ^verify/send-reset-link/?$ index.php?controller=verify&action=sendResetLink [QSA,L]
+
+# Route: /verify/reset-password
+RewriteRule ^verify/reset-password/([a-zA-Z0-9]+)/?$ index.php?controller=verify&action=resetPassword&token=$1 [QSA,L]
+
 # Route: /module/controller/action
 RewriteRule ^([^/]+)/([^/]+)/([^/]+)/?$ index.php?module=$1&controller=$2&action=$3 [QSA,L]
 

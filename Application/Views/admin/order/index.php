@@ -70,7 +70,7 @@
                     <?= $order['payment_status'] == 1 ? "Đã thanh toán" : "Chưa thanh toán" ?>
                 </td>
                 <td>
-                    $<?= number_format($order['total'], 2, '.', '') ?>
+                    $<?= number_format($order['total'] * (1 - $order['coupon']) + 2, 2, '.', '') ?>
 
                 </td>
                 <td class="text-center">
