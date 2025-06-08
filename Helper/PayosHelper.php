@@ -30,7 +30,7 @@ class PayosHelper
             "buyerPhone" => "1111111111",
             "expiredAt" => time() + 30 * 60,
             "returnUrl" => $YOUR_DOMAIN . "/checkout/success",
-            "cancelUrl" => $YOUR_DOMAIN . "/checkout/cancel",
+            "cancelUrl" => $YOUR_DOMAIN . "/checkout/cancelPayment?orderCode=" . $orderData["id"],
         ];
         $response = $this->payos->createPaymentLink($data);
 

@@ -82,7 +82,7 @@
         </div>
         <h1>Thanh toán bị hủy</h1>
         <p>Giao dịch của bạn đã bị hủy hoặc chưa hoàn tất.</p>
-        <a href="/" class="btn">Quay lại trang chủ</a>
+        <a href="/bak-new" class="btn">Quay lại trang chủ</a>
     </div>
 
 </body>

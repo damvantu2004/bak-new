@@ -356,7 +356,7 @@ class ProductController extends BaseController
             
             // Thông báo kết quả
             if ($successCount > 0) {
-                $message['success'] = "Successfully imported $successCount products";
+                $message['success'] = "Thêm thành công $successCount sản phẩm.";
             }
             
             if (!empty($errors)) {

@@ -84,7 +84,7 @@
         </div>
         <h1>Thanh toán thành công!</h1>
         <p>Cảm ơn bạn đã thanh toán. Hệ thống đã ghi nhận giao dịch của bạn.</p>
-        <a href="/" class="btn">Về trang chủ</a>
+        <a href="/bak-new" class="btn">Về trang chủ</a>
     </div>
 
 </body>
